@@ -104,6 +104,21 @@ class Personnage
      */
     private $vocation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TableOfYears::class, inversedBy="personnages")
+     */
+    private $tableofyears;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Espoir::class, inversedBy="personnage", cascade={"persist", "remove"})
+     */
+    private $espoir;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Endurance::class, inversedBy="personnage", cascade={"persist", "remove"})
+     */
+    private $endurance;
+
     public function __construct()
     {
         $this->traits = new ArrayCollection();
@@ -326,6 +341,42 @@ class Personnage
     public function setVocation(?Vocation $vocation): self
     {
         $this->vocation = $vocation;
+
+        return $this;
+    }
+
+    public function getTableofyears(): ?TableOfYears
+    {
+        return $this->tableofyears;
+    }
+
+    public function setTableofyears(?TableOfYears $tableofyears): self
+    {
+        $this->tableofyears = $tableofyears;
+
+        return $this;
+    }
+
+    public function getEspoir(): ?Espoir
+    {
+        return $this->espoir;
+    }
+
+    public function setEspoir(?Espoir $espoir): self
+    {
+        $this->espoir = $espoir;
+
+        return $this;
+    }
+
+    public function getEndurance(): ?Endurance
+    {
+        return $this->endurance;
+    }
+
+    public function setEndurance(?Endurance $endurance): self
+    {
+        $this->endurance = $endurance;
 
         return $this;
     }
