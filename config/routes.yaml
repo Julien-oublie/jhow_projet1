@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+acme_privacy:
+    path: /home
+    controller: App\Controller\HomeController::index     
