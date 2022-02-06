@@ -4,9 +4,9 @@ import {render} from 'react-dom';
 function MenuNavigation(){
     return <div className='navbar'>
         <ul>
-            <li> Règles</li>
-            <li> Personnages</li>
-            <li> Fiche</li>
+            <li> <a href='/regles'> Règles </a></li>
+            <li> <a href='/personnage'>Personnages</a> </li>
+            <li> <a href="/fiche">Fiche</a> </li>
         </ul>
     </div>
 }
