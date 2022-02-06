@@ -8,21 +8,34 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class PersonnageType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        
+        $persoJson = file_get_contents('../public/json/FichesPersos.json');
+        $Classe = json_decode($persoJson,true);
+        $number = count($Classe["Classe"]);
+        $tabClasse = [null=>null];
+        foreach ($Classe["Classe"] as $classe){
+            $tabClasse[$classe["nom"]] = $classe["nom"];
+        }
+        
         $builder
-            ->add('classe',EntityType::class,[
-                'class' => Classe::class,
-                'choice_label' => 'nom',
-                'required' => true,
+            ->add('classe',ChoiceType::class, [
+                'choices'  =>  $tabClasse,
             ])
-            ->add('nom')
+            
+            ->add('standard_de_vie')
+           /* ->add('nom')
             ->add('corps')
             ->add('esprit')
-            ->add('standard_de_vie')
+            
             ->add('experience')
             ->add('courage')
             ->add('sagesse')
@@ -32,7 +45,7 @@ class PersonnageType extends AbstractType
             ->add('camaraderie')
             ->add('prestige')
             ->add('avantage_culturelle')
-            ->add('background')
+            //->add('background')
             ->add('traits')
             ->add('vocation')
             ->add('tableofyears')
@@ -42,9 +55,18 @@ class PersonnageType extends AbstractType
             ->add('vertus')
             ->add('competence')
             ->add('recompenses')
-            ->add('groupes')
+            ->add('groupes')*/
         ;
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            $personnage = $event->getData();
+            $form = $event->getForm();
+            dump($personnage);
+            if (!$personnage || null === $personnage->getId()) {
+                $form->add('espoir', ChoiceType::class);
+            }
+        });
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

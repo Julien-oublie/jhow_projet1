@@ -22,17 +22,14 @@ class Background
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $classe;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $histoire;
 
     /**
-     * @ORM\OneToMany(targetEntity=Personnage::class, mappedBy="background")
+     * @ORM\ManyToOne(targetEntity=Classe::class, inversedBy="backgrounds")
      */
-    private $personnages;
+    private $classe;
+
+   
 
     public function __construct()
     {
@@ -42,18 +39,6 @@ class Background
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getClasse(): ?string
-    {
-        return $this->classe;
-    }
-
-    public function setClasse(string $classe): self
-    {
-        $this->classe = $classe;
-
-        return $this;
     }
 
     public function getHistoire(): ?string
@@ -68,32 +53,14 @@ class Background
         return $this;
     }
 
-    /**
-     * @return Collection|Personnage[]
-     */
-    public function getPersonnages(): Collection
+    public function getClasse(): ?Classe
     {
-        return $this->personnages;
+        return $this->classe;
     }
 
-    public function addPersonnage(Personnage $personnage): self
+    public function setClasse(?Classe $classe): self
     {
-        if (!$this->personnages->contains($personnage)) {
-            $this->personnages[] = $personnage;
-            $personnage->setBackground($this);
-        }
-
-        return $this;
-    }
-
-    public function removePersonnage(Personnage $personnage): self
-    {
-        if ($this->personnages->removeElement($personnage)) {
-            // set the owning side to null (unless already changed)
-            if ($personnage->getBackground() === $this) {
-                $personnage->setBackground(null);
-            }
-        }
+        $this->classe = $classe;
 
         return $this;
     }

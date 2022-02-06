@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClasseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Classe
      * @ORM\OneToOne(targetEntity=Personnage::class, mappedBy="classe", cascade={"persist", "remove"})
      */
     private $personnage;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Background::class, mappedBy="classe")
+     */
+    private $backgrounds;
+
+    public function __construct()
+    {
+        $this->backgrounds = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -62,6 +74,36 @@ class Classe
         }
 
         $this->personnage = $personnage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Background[]
+     */
+    public function getBackgrounds(): Collection
+    {
+        return $this->backgrounds;
+    }
+
+    public function addBackground(Background $background): self
+    {
+        if (!$this->backgrounds->contains($background)) {
+            $this->backgrounds[] = $background;
+            $background->setClasse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBackground(Background $background): self
+    {
+        if ($this->backgrounds->removeElement($background)) {
+            // set the owning side to null (unless already changed)
+            if ($background->getClasse() === $this) {
+                $background->setClasse(null);
+            }
+        }
 
         return $this;
     }

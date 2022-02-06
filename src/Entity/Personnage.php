@@ -90,11 +90,6 @@ class Personnage
     private $avantage_culturelle;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Background::class, inversedBy="personnages")
-     */
-    private $background;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Traits::class, inversedBy="personnages")
      */
     private $traits;
@@ -321,18 +316,6 @@ class Personnage
     public function setAvantageCulturelle(?AvantageCulturelle $avantage_culturelle): self
     {
         $this->avantage_culturelle = $avantage_culturelle;
-
-        return $this;
-    }
-
-    public function getBackground(): ?Background
-    {
-        return $this->background;
-    }
-
-    public function setBackground(?Background $background): self
-    {
-        $this->background = $background;
 
         return $this;
     }
