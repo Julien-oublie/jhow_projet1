@@ -15,9 +15,15 @@
     font-family: Caudex;
     font-size: 20px;
     list-style-type: none;
+    .link-active {
+      color: yellow;
+    }
     a {
       color: white;
       text-decoration: none;
+    }
+    a:hover {
+      color: yellow;
     }
   }
 }
