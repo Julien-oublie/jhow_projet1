@@ -10,5 +10,9 @@ import './styles/app.scss';
 
 import './components/Navbar.jsx'
 
+import './components/fondEcran.jsx'
+
+
+
 // start the Stimulus application
 import './bootstrap';

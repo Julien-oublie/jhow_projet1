@@ -1,49 +1,48 @@
-import React, { Component, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {render} from 'react-dom';
 import { useEffect } from 'react/cjs/react.development';
 
 function MenuNavigation(){
+    const [component, setComponent] = useState(null)
+    const rulesRef = useRef()
+    const charactersRef = useRef()
+    const fichesRef = useRef()
 
+    const addElement = () => {
+        setComponent(
+            <div>
+                <h1>Test</h1>
+            </div>
+        )
+    }
 
-    const [etat , setEtat] = useState('link-active')
-
-
-
-    
-
-
-    const changeEtat  = (e) =>{
-        const element = e.target
-        
-        if(element.className == etat){
-            element.classList.remove(etat)
-        }else{
-            
-            element.classList.add(etat)
-            const link = document.getElementsByClassName(etat)
-            const link0 = document.getElementsByClassName(etat)[0]
-            const link1 = document.getElementsByClassName(etat)[1]
-            console.log(link)
-            console.log(link0)
-            console.log(link1)
-            
-            if(link1 != undefined){
-                link1.classList.remove(etat)
-
-
-            }    
-            
+    useEffect(() => {
+        if(component) {
+            console.log('component not empty');
+        } else {
+            console.log('component empty');
         }
-        
-        
+    }, [component])
+
+    const removeElement = () => {
+        setComponent(null)
+    }
+
+    const changeEtat  = (ref) =>{
+        rulesRef.current.classList.remove('link-active')
+        charactersRef.current.classList.remove('link-active')
+        fichesRef.current.classList.remove('link-active')
+
+        ref.current.classList.add('link-active')
     }
     
     return <div className='navbar'>
         <ul>
-            <li onClick={changeEtat }>  Règles </li>
-            <li  onClick={changeEtat}> Personnages </li>
-            <li onClick={changeEtat}>   Fiche </li>
+            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  Règles </li>
+            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> Personnages </li>
+            <li onClick={() => changeEtat(fichesRef)} ref={fichesRef}>   Fiche </li>
         </ul>
+              
     </div>
 }
 
