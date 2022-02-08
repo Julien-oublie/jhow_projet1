@@ -12,7 +12,7 @@ import './components/Navbar.jsx'
 
 import './components/fondEcran.jsx'
 
-
+import './components/Regles.jsx'
 
 // start the Stimulus application
 import './bootstrap';

@@ -9,9 +9,7 @@ function FondEcran(){
 
     return (
         <div className='background'>
-            <video muted  autoPlay  loop>
             
-            </video>
         </div>
     )
 }

@@ -37,12 +37,17 @@ function MenuNavigation(){
     }
     
     return <div className='navbar'>
+        <div className='logo'>
+
+        </div>
         <ul>
             <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  Règles </li>
             <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> Personnages </li>
             <li onClick={() => changeEtat(fichesRef)} ref={fichesRef}>   Fiche </li>
         </ul>
-              
+        <div className='user'>
+            <label > connexion </label>
+        </div>      
     </div>
 }
 
