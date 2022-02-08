@@ -1,8 +1,12 @@
 
 
 body {
-    background-color: white;
+    margin: 0;
+    padding: 0
 }
 
 //style composant
-@import '/assets/styles/components/Navbar.scss'
+@import '/assets/styles/components/Navbar.scss';
+@import './components/Register';
+@import './components/Inscription';
+@import './fonts/fonts';

@@ -1,0 +1,68 @@
+/*body{
+    background-image: url('../../img/backgroundRegister.png');
+    background-size: cover;
+    background-color: black;
+    background-position: center;
+     background-repeat: no-repeat;
+     height: 100vh;
+ }*/
+
+ .form-inscription {
+     display: flex;
+     flex-direction: column;
+     width: 30%;
+     margin-left: auto;
+     margin-right: auto;
+     align-items: center;
+     justify-content: center;
+     margin-top: 30px;
+     p{
+         color: #DFAB2A;
+         font-family: "caudex-regular";
+         font-size: 24px;
+     }
+     input {
+         margin: 10px 0px;
+         padding: 5px 10px;
+         background: none;
+         border: 1px solid #DFAB2A;
+         border-radius: 4px;
+         color: #DFAB2A;
+         font-family: "caudex-regular";
+     }
+     input::placeholder {
+        color: #DFAB2A;
+        font-family: "caudex-regular";
+     }
+     input:focus{
+         border: 1px solid #DFAB2A;
+     }
+     button {
+         background-color: #DFAB2A;
+         color: white;
+         border-radius: 4px;
+         border: none;
+         padding: 5px 10px;
+         margin-top: 10px;
+         font-family: "caudex-regular";
+     }
+ }
+
+ .circle-lord{
+     background-image: url('../../img/circles.png');
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat;
+     width: 100%;
+     height: 100vh;
+     animation: rotation 20s infinite linear;
+ }
+
+ @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
