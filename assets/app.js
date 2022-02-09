@@ -11,6 +11,7 @@ import './styles/app.scss';
 //import components React
 import './components/Navbar.jsx';
 import './components/Connexion.jsx';
+import './components/Inscription';
 
 // start the Stimulus application
 import './bootstrap';

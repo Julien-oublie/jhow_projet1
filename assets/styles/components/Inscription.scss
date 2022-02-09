@@ -1,0 +1,66 @@
+.form-inscription{
+    font-family: "caudex-regular";
+    text-align: center;
+    color: #DFAB2A;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    input{
+        font-family: "caudex-regular";
+        margin: 10px 0px;
+        border: 1px solid #DFAB2A;
+        border-radius: 4px;
+    }
+    input::placeholder{
+        color: #DFAB2A
+    }
+    input:hover{
+        outline: none;
+    }
+    input:focus{
+        outline: none;
+    }
+    button{
+        background-color: #DFAB2A;
+        font-family: "caudex-regular";
+        color: white;
+        border: 1px solid #DFAB2A;
+        border-radius: 4px;
+        width: 60%;
+        margin-left: auto;
+    }
+}
+
+.main-div{
+    display: flex;
+    justify-content: center;
+    background-color: #3E211A;
+    height: 100vh;
+}
+.rotate {
+    position: absolute;
+    top: 0;
+    height: 700px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-image: url('../../img/circle.png');
+    background-position: center;
+    background-size: cover;
+    animation: rotation 15s infinite linear;
+}
+
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
