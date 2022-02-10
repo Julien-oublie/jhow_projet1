@@ -12,6 +12,7 @@ import './styles/app.scss';
 import './components/Navbar.jsx';
 import './components/Connexion.jsx';
 import './components/Inscription';
+import './components/PersonnagesPage';
 
 // start the Stimulus application
 import './bootstrap';
