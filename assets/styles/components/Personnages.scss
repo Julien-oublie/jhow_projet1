@@ -2,7 +2,7 @@
 .main-div-personnages{
     @include grid;
     display: grid;
-    background-image: url('../../img/background_papers.jpg');
+    //background-image: url('../../img/background_papers.jpg');
     height: 100vh;
 }
 
@@ -29,4 +29,13 @@
     background-position: center;
     background-repeat: no-repeat;
     grid-column: 9/ span 4;
+}
+
+.swipe-div{
+    grid-column: 6/ span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "caudex-regular";
+    font-size: 18px;
 }
