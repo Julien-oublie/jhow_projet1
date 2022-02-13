@@ -28,12 +28,12 @@ class PersonnageController extends AbstractController
         $personnage = new Personnage();
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($personnage);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            //$entityManager->persist($personnage);
+            //$entityManager->flush();
+            //return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('personnage/new.html.twig', [
