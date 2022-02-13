@@ -54,7 +54,8 @@ class PersonnageType extends AbstractType
                         $standard_de_vie = $classe["standard de vie"];
                         $avantage_culturelle= $classe["Avantage culturel"];
                         foreach ($classe["Origine"] as $origine) {
-                            $tabOrigine[$origine] = $origine;
+                            $tabOrigine[$origine['nom']] = $origine['nom'];
+                            dump($origine);
                             
                         }
                     }
@@ -66,9 +67,8 @@ class PersonnageType extends AbstractType
                     'disabled'   => true,
                     'attr' => ['value' => $standard_de_vie],
                 ])
-                ->add('avantage_culturelle', TextType::class, [
+                ->add('avantage_culturel', TextType::class, [
                     'disabled'   => true,
-                    'label'=> "Avantage culturel",
                     'attr' => ['value' => $avantage_culturelle],
                 ])
                 ->add('origine',ChoiceType::class, [

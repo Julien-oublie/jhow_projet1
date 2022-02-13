@@ -83,21 +83,6 @@ class Personnage
     private $prestige;
 
     /**
-     * @ORM\OneToOne(targetEntity=Classe::class, inversedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $classe;
-
-    /**
-     * @ORM\OneToOne(targetEntity=AvantageCulturelle::class, inversedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $avantage_culturelle;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Traits::class, inversedBy="personnages")
-     */
-    private $traits;
-
-    /**
      * @ORM\OneToOne(targetEntity=Vocation::class, inversedBy="personnage", cascade={"persist", "remove"})
      */
     private $vocation;
@@ -146,6 +131,31 @@ class Personnage
      * @ORM\Column(type="string", length=255)
      */
     private $origine;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $classe;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avantage_culturel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $background;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $specialite = [];
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $particularite = [];
 
     public function __construct()
     {
@@ -300,30 +310,6 @@ class Personnage
     public function setPrestige(int $prestige): self
     {
         $this->prestige = $prestige;
-
-        return $this;
-    }
-
-    public function getClasse(): ?Classe
-    {
-        return $this->classe;
-    }
-
-    public function setClasse(?Classe $classe): self
-    {
-        $this->classe = $classe;
-
-        return $this;
-    }
-
-    public function getAvantageCulturelle(): ?AvantageCulturelle
-    {
-        return $this->avantage_culturelle;
-    }
-
-    public function setAvantageCulturelle(?AvantageCulturelle $avantage_culturelle): self
-    {
-        $this->avantage_culturelle = $avantage_culturelle;
 
         return $this;
     }
@@ -533,6 +519,66 @@ class Personnage
     public function setOrigine(string $origine): self
     {
         $this->origine = $origine;
+
+        return $this;
+    }
+
+    public function getClasse(): ?string
+    {
+        return $this->classe;
+    }
+
+    public function setClasse(string $classe): self
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    public function getAvantageCulturel(): ?string
+    {
+        return $this->avantage_culturel;
+    }
+
+    public function setAvantageCulturel(string $avantage_culturel): self
+    {
+        $this->avantage_culturel = $avantage_culturel;
+
+        return $this;
+    }
+
+    public function getBackground(): ?string
+    {
+        return $this->background;
+    }
+
+    public function setBackground(string $background): self
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?array
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(array $specialite): self
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    public function getParticularite(): ?array
+    {
+        return $this->particularite;
+    }
+
+    public function setParticularite(array $particularite): self
+    {
+        $this->particularite = $particularite;
 
         return $this;
     }

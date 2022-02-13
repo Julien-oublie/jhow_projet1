@@ -28,16 +28,20 @@
             },
             "spécialités":["Batelier","Commerce","Forge","Menuisier","Natation","Tradition ancienne"],
             "Origine":{
-                "Le Marteau et l’Enclume":{
+                "1":
+                {
+                    "nom":"Le Marteau et l’Enclume",
                         "Attribut de base":{
                         "corps":5,
                         "coeur":7,
-                        "esprit":2
-                    },
+                         "esprit":2
+                        },
                     "compétence favorite":"Artisanat",
-                    "Particularité": ["Audacieux","Déterminé","Fier","Généreux","Miséricordieux","Prudent","Résistant","Sévère"]
+                   "Particularité": ["Audacieux","Déterminé","Fier","Généreux","Miséricordieux","Prudent","Résistant","Sévère"]
                 },
-                    "Au fil du verbe":{
+                "2":
+                {
+                        "nom":"Au fil du verbe",
                         "Attribut de base":{
                         "corps":4,
                         "coeur":6,
@@ -46,7 +50,9 @@
                     "compétence favorite":"Enigmes",
                     "Particularité": ["Astucieux","Audacieux","Courtois","Grand","Loyal","Majestueux","Passionné","Téméraire"]
                 },
-                    "Sens acérés":{
+                "3":
+                {
+                        "nom":"Sens acérés",
                         "Attribut de base":{
                         "corps":6,
                         "coeur":6,
@@ -55,7 +61,9 @@
                     "compétence favorite":"Fouille",
                     "Particularité": ["Audacieux","Circonspect","Courtois","Inébranlable","Malin","Patient","Prudent","Sincère"]
                 },
-                "Mains guérisseuses":{
+                "4":
+                {
+                    "nom":"Mains guérisseuses",
                     "Attribut de base":{
                         "corps":4,
                         "coeur":7,
@@ -63,8 +71,10 @@
                     },
                     "compétence favorite":"Guérison",
                     "Particularité": ["Astucieux","Audacieux","Beau","Fier","Grand","Majestueux","Résistant","Téméraire"]
-                    },
-                    "Oeil de Dragon":{
+                },
+                    "5":
+                    {
+                        "nom": "Oeil de Dragon",
                         "Attribut de base":{
                             "corps":5,
                             "coeur":6,
@@ -73,7 +83,9 @@
                         "compétence favorite":"Présence",
                         "Particularité": ["Audacieux","Déterminé","Généreux","Loyal","Malin","Observateur","Passionné","Sévère"]
                     },
-                    "Éternel chasseur":{
+                    "6":
+                    {
+                        "nom": "Éternel chasseur",
                         "Attribut de base":{
                             "corps":5,
                             "coeur":5,
@@ -114,7 +126,9 @@
                 },
                 "spécialités":["Connaissance de la faune","Connaissances régionales","Conte","Cuisine","Montagnard","Pêche"],
                 "Origine":{
-                        "Racines doubles":{
+                    "1":
+                    {
+                        "nom": "Racines doubles",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":6,
@@ -123,7 +137,9 @@
                         "compétence favorite":"Intuition",
                         "Particularité": ["Bourru", "Courageux", "Endurci","Entêté" ,"Fier", "Grand","Impétueux","Sinistre"]
                     },
-                        "Messager":{
+                    "2":
+                    {
+                        "nom": "Messager",
                         "Attribut de base":{
                             "corps":7,
                             "coeur":5,
@@ -132,7 +148,9 @@
                         "compétence favorite":"Inspiration",
                         "Particularité": ["Déterminé","Énergique","Endurci","Franc","Loyal","Rapide","Robuste","Sinistre"]
                     },
-                        "Chef de famille":{
+                    "3":
+                    {
+                        "nom": "Chef de famille",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":4,
@@ -141,7 +159,9 @@
                         "compétence favorite":"Vigilance",
                         "Particularité": ["Curieux","Déterminé","Entêté","Généreux","Inébranlable","Loyal","Résistant","Sinistre"]
                     },
-                    "Pied léger":{
+                    "4":
+                    {
+                        "nom": "Pied léger",
                         "Attribut de base":{
                             "corps":5,
                             "coeur":5,
@@ -150,7 +170,9 @@
                         "compétence favorite":"Discrétion",
                         "Particularité": ["Courageux","Curieux","Énergique","Franc","Méfiant","Rapide","Sinistre","Téméraire"]
                     },
-                    "Gardien des Contes":{
+                    "5":
+                    {
+                        "nom":  "Gardien des Contes",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":5,
@@ -159,7 +181,9 @@
                         "compétence favorite":"Connaissances",
                         "Particularité": ["Bourru","Courroucé","Impétueux","Méfiant","Résistant","Téméraire","Sinistre","Vengeur"]
                     },
-                    "Voix des  ges":{
+                    "6":
+                    {
+                        "nom":  "Voix des ges",
                         "Attribut de base":{
                             "corps":7,
                             "coeur":4,
@@ -198,7 +222,9 @@
                 },
                 "spécialités":["Allume-Feu","Forge","Fumer","Commerce","Tunnelier","Maçonnerie"],
                 "Origine":{
-                        "Une vie de labeur":{
+                    "1":
+                    {
+                        "nom": "Une vie de labeur",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":2,
@@ -207,7 +233,9 @@
                         "compétence favorite":"Exploration",
                         "Particularité": ["Circonspect","Endurci","Énergique","Entêté","Fier","Impétueux","Sévère","Vengeur"]
                     },
-                        "Marchand ambulant":{
+                    "2":
+                    {
+                        "nom":"Marchand ambulant",
                         "Attribut de base":{
                             "corps":7,
                             "coeur":2,
@@ -216,7 +244,9 @@
                         "compétence favorite":"Courtoisie",
                         "Particularité": ["Cachottier","Entêté","Honorable","Inébranlable","Malin","Passionné","Prudent","Résistant"]
                     },
-                        "Cruel exil":{
+                    "3":
+                    {
+                        "nom":"Cruel exil",
                         "Attribut de base":{
                             "corps":7,
                             "coeur":3,
@@ -225,7 +255,9 @@
                         "compétence favorite":"Guérison",
                         "Particularité": ["Bourru","Cachottier","Courroucé","Endurci","Entêté","Impétueux","Robuste","Sévère"]
                     },
-                    "Orateur talentueux":{
+                    "4":
+                    {
+                        "nom": "Orateur talentueux",
                         "Attribut de base":{
                             "corps":5,
                             "coeur":4,
@@ -234,7 +266,9 @@
                         "compétence favorite":"Persuasion",
                         "Particularité": ["Circonspect","Déterminé","Énergique","Entêté","Fier","Honorable","Inébranlable","Prudent"]
                     },
-                    "L’Art de la Vengeance":{
+                    "5":
+                    {
+                        "nom":  "L’Art de la Vengeance",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":3,
@@ -243,7 +277,9 @@
                         "compétence favorite":"Art de la guerre",
                         "Particularité": ["Courageux","Déterminé","Entêté","Majestueux","Malin","Méfiant","Résistant","Vengeur"]
                     },
-                    "Un regard pénétrant":{
+                    "6":
+                    {
+                        "nom": "Un regard pénétrant",
                         "Attribut de base":{
                             "corps":6,
                             "coeur":4,
