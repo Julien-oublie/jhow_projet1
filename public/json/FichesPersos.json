@@ -26,7 +26,7 @@
                 "Enigmes":0,
                 "Conaissances":1
             },
-            "spécialités":["Batelier","Commerce","Forge","Menuisier","Natation","Tradition ancienne"],
+            "specialite":["Batelier","Commerce","Forge","Menuisier","Natation","Tradition ancienne"],
             "Origine":{
                 "1":
                 {
@@ -36,8 +36,8 @@
                         "coeur":7,
                          "esprit":2
                         },
-                    "compétence favorite":"Artisanat",
-                   "Particularité": ["Audacieux","Déterminé","Fier","Généreux","Miséricordieux","Prudent","Résistant","Sévère"]
+                    "competence favorite":"Artisanat",
+                   "Particularite": ["Audacieux","Déterminé","Fier","Généreux","Miséricordieux","Prudent","Résistant","Sévère"]
                 },
                 "2":
                 {
@@ -47,8 +47,8 @@
                         "coeur":6,
                         "esprit":4
                     },
-                    "compétence favorite":"Enigmes",
-                    "Particularité": ["Astucieux","Audacieux","Courtois","Grand","Loyal","Majestueux","Passionné","Téméraire"]
+                    "competence favorite":"Enigmes",
+                    "Particularite": ["Astucieux","Audacieux","Courtois","Grand","Loyal","Majestueux","Passionné","Téméraire"]
                 },
                 "3":
                 {
@@ -58,8 +58,8 @@
                         "coeur":6,
                         "esprit":2
                     },
-                    "compétence favorite":"Fouille",
-                    "Particularité": ["Audacieux","Circonspect","Courtois","Inébranlable","Malin","Patient","Prudent","Sincère"]
+                    "competence favorite":"Fouille",
+                    "Particularite": ["Audacieux","Circonspect","Courtois","Inébranlable","Malin","Patient","Prudent","Sincère"]
                 },
                 "4":
                 {
@@ -69,8 +69,8 @@
                         "coeur":7,
                         "esprit":3
                     },
-                    "compétence favorite":"Guerison",
-                    "Particularité": ["Astucieux","Audacieux","Beau","Fier","Grand","Majestueux","Résistant","Téméraire"]
+                    "competence favorite":"Guerison",
+                    "Particularite": ["Astucieux","Audacieux","Beau","Fier","Grand","Majestueux","Résistant","Téméraire"]
                 },
                     "5":
                     {
@@ -80,8 +80,8 @@
                             "coeur":6,
                             "esprit":3
                         },
-                        "compétence favorite":"Présence",
-                        "Particularité": ["Audacieux","Déterminé","Généreux","Loyal","Malin","Observateur","Passionné","Sévère"]
+                        "competence favorite":"Présence",
+                        "Particularite": ["Audacieux","Déterminé","Généreux","Loyal","Malin","Observateur","Passionné","Sévère"]
                     },
                     "6":
                     {
@@ -91,8 +91,8 @@
                             "coeur":5,
                             "esprit":4
                         },
-                        "compétence favorite":"Chasse",
-                        "Particularité": ["Audacieux","Beau","Circonspect","Inébranlable","Miséricordieux","Observateur","Patient","Sincère"]
+                        "competence favorite":"Chasse",
+                        "Particularite": ["Audacieux","Beau","Circonspect","Inébranlable","Miséricordieux","Observateur","Patient","Sincère"]
                     
                     }
                 }
@@ -124,7 +124,7 @@
                         "Enigmes":1,
                         "Conaissances":0   
                 },
-                "spécialités":["Connaissance de la faune","Connaissances régionales","Conte","Cuisine","Montagnard","Pêche"],
+                "specialite":["Connaissance de la faune","Connaissances régionales","Conte","Cuisine","Montagnard","Pêche"],
                 "Origine":{
                     "1":
                     {
@@ -134,8 +134,8 @@
                             "coeur":6,
                             "esprit":2
                         },
-                        "compétence favorite":"Intuition",
-                        "Particularité": ["Bourru", "Courageux", "Endurci","Entêté" ,"Fier", "Grand","Impétueux","Sinistre"]
+                        "competence favorite":"Intuition",
+                        "Particularite": ["Bourru", "Courageux", "Endurci","Entêté" ,"Fier", "Grand","Impétueux","Sinistre"]
                     },
                     "2":
                     {
@@ -145,8 +145,8 @@
                             "coeur":5,
                             "esprit":2
                         },
-                        "compétence favorite":"Inspiration",
-                        "Particularité": ["Déterminé","Énergique","Endurci","Franc","Loyal","Rapide","Robuste","Sinistre"]
+                        "competence favorite":"Inspiration",
+                        "Particularite": ["Déterminé","Énergique","Endurci","Franc","Loyal","Rapide","Robuste","Sinistre"]
                     },
                     "3":
                     {
@@ -156,8 +156,8 @@
                             "coeur":4,
                             "esprit":4
                         },
-                        "compétence favorite":"Vigilance",
-                        "Particularité": ["Curieux","Déterminé","Entêté","Généreux","Inébranlable","Loyal","Résistant","Sinistre"]
+                        "competence favorite":"Vigilance",
+                        "Particularite": ["Curieux","Déterminé","Entêté","Généreux","Inébranlable","Loyal","Résistant","Sinistre"]
                     },
                     "4":
                     {
@@ -167,8 +167,8 @@
                             "coeur":5,
                             "esprit":4
                         },
-                        "compétence favorite":"Discrétion",
-                        "Particularité": ["Courageux","Curieux","Énergique","Franc","Méfiant","Rapide","Sinistre","Téméraire"]
+                        "competence favorite":"Discrétion",
+                        "Particularite": ["Courageux","Curieux","Énergique","Franc","Méfiant","Rapide","Sinistre","Téméraire"]
                     },
                     "5":
                     {
@@ -178,8 +178,8 @@
                             "coeur":5,
                             "esprit":3
                         },
-                        "compétence favorite":"Connaissances",
-                        "Particularité": ["Bourru","Courroucé","Impétueux","Méfiant","Résistant","Téméraire","Sinistre","Vengeur"]
+                        "competence favorite":"Connaissances",
+                        "Particularite": ["Bourru","Courroucé","Impétueux","Méfiant","Résistant","Téméraire","Sinistre","Vengeur"]
                     },
                     "6":
                     {
@@ -189,8 +189,8 @@
                             "coeur":4,
                             "esprit":3
                         },
-                        "compétence favorite":"Chant",
-                        "Particularité": ["Courroucé","Fier","Généreux","Grand","Inébranlable","Robuste","Sinistre","Vengeur"]
+                        "competence favorite":"Chant",
+                        "Particularite": ["Courroucé","Fier","Généreux","Grand","Inébranlable","Robuste","Sinistre","Vengeur"]
                     }
                 }
         },
@@ -220,7 +220,7 @@
                     "Enigmes":2,
                     "Conaissances":0     
                 },
-                "spécialités":["Allume-Feu","Forge","Fumer","Commerce","Tunnelier","Maçonnerie"],
+                "specialite":["Allume-Feu","Forge","Fumer","Commerce","Tunnelier","Maçonnerie"],
                 "Origine":{
                     "1":
                     {
@@ -230,8 +230,8 @@
                             "coeur":2,
                             "esprit":6
                         },
-                        "compétence favorite":"Exploration",
-                        "Particularité": ["Circonspect","Endurci","Énergique","Entêté","Fier","Impétueux","Sévère","Vengeur"]
+                        "competence favorite":"Exploration",
+                        "Particularite": ["Circonspect","Endurci","Énergique","Entêté","Fier","Impétueux","Sévère","Vengeur"]
                     },
                     "2":
                     {
@@ -241,8 +241,8 @@
                             "coeur":2,
                             "esprit":5
                         },
-                        "compétence favorite":"Courtoisie",
-                        "Particularité": ["Cachottier","Entêté","Honorable","Inébranlable","Malin","Passionné","Prudent","Résistant"]
+                        "competence favorite":"Courtoisie",
+                        "Particularite": ["Cachottier","Entêté","Honorable","Inébranlable","Malin","Passionné","Prudent","Résistant"]
                     },
                     "3":
                     {
@@ -252,8 +252,8 @@
                             "coeur":3,
                             "esprit":4
                         },
-                        "compétence favorite":"Guerison",
-                        "Particularité": ["Bourru","Cachottier","Courroucé","Endurci","Entêté","Impétueux","Robuste","Sévère"]
+                        "competence favorite":"Guerison",
+                        "Particularite": ["Bourru","Cachottier","Courroucé","Endurci","Entêté","Impétueux","Robuste","Sévère"]
                     },
                     "4":
                     {
@@ -263,8 +263,8 @@
                             "coeur":4,
                             "esprit":5
                         },
-                        "compétence favorite":"Persuasion",
-                        "Particularité": ["Circonspect","Déterminé","Énergique","Entêté","Fier","Honorable","Inébranlable","Prudent"]
+                        "competence favorite":"Persuasion",
+                        "Particularite": ["Circonspect","Déterminé","Énergique","Entêté","Fier","Honorable","Inébranlable","Prudent"]
                     },
                     "5":
                     {
@@ -274,8 +274,8 @@
                             "coeur":3,
                             "esprit":5
                         },
-                        "compétence favorite":"Art de la guerre",
-                        "Particularité": ["Courageux","Déterminé","Entêté","Majestueux","Malin","Méfiant","Résistant","Vengeur"]
+                        "competence favorite":"Art de la guerre",
+                        "Particularite": ["Courageux","Déterminé","Entêté","Majestueux","Malin","Méfiant","Résistant","Vengeur"]
                     },
                     "6":
                     {
@@ -285,8 +285,8 @@
                             "coeur":4,
                             "esprit":4
                         },
-                        "compétence favorite":"Intuition",
-                        "Particularité": ["Bourru","Courageux","Courroucé","Entêté","Majestueux","Méfiant","Passionné","Robuste"]
+                        "competence favorite":"Intuition",
+                        "Particularite": ["Bourru","Courageux","Courroucé","Entêté","Majestueux","Méfiant","Passionné","Robuste"]
                         }
                 }
         },
@@ -316,7 +316,7 @@
                 "Enigmes":0,
                 "Conaissances":3      
             },
-            "spécialités":["Allume-Feu","Batelier","Connaissances elfiques","Connaissances régionales ","Natation","Menuisier"],
+            "specialite":["Allume-Feu","Batelier","Connaissances elfiques","Connaissances régionales ","Natation","Menuisier"],
             "Origine":{
                 "1":
                 {
@@ -326,8 +326,8 @@
                         "coeur":2,
                         "esprit":7
                     },
-                    "compétence favorite":"Voyage",
-                    "Particularité": ["Astucieux","Circonspect","Déterminé","Entêté","Jovial","Ouïe fine","Patient","Rapide"]
+                    "competence favorite":"Voyage",
+                    "Particularite": ["Astucieux","Circonspect","Déterminé","Entêté","Jovial","Ouïe fine","Patient","Rapide"]
                 },
                 "2":
                 {
@@ -337,8 +337,8 @@
                     "coeur":4,
                     "esprit":5
                 },
-                "compétence favorite":"Courtoisie",
-                "Particularité": ["Cachottier","Courtois","Fier","Insaisissable","Malin","Miséricordieux","Ouïe fine","Prudent"]
+                "competence favorite":"Courtoisie",
+                "Particularite": ["Cachottier","Courtois","Fier","Insaisissable","Malin","Miséricordieux","Ouïe fine","Prudent"]
                 },
                 "3":
                 {
@@ -348,8 +348,8 @@
                     "coeur":3,
                     "esprit":6
                 },
-                "compétence favorite":"Discrétion",
-                "Particularité": ["Circonspect","Déterminé","Endurci","Insaisissable","Méfiant","Ouïe fine","Patient","Vue perçante"]
+                "competence favorite":"Discrétion",
+                "Particularite": ["Circonspect","Déterminé","Endurci","Insaisissable","Méfiant","Ouïe fine","Patient","Vue perçante"]
                 },
                 "4":
                 {
@@ -359,8 +359,8 @@
                         "coeur":4,
                         "esprit":6
                     },
-                    "compétence favorite":"Inspiration",
-                    "Particularité": ["Beau","Entêté","Fier","Honorable","Majestueux","Méfiant","Ouïe fine","Rapide"]
+                    "competence favorite":"Inspiration",
+                    "Particularite": ["Beau","Entêté","Fier","Honorable","Majestueux","Méfiant","Ouïe fine","Rapide"]
                 },
                 "5":
                 {
@@ -370,8 +370,8 @@
                         "coeur":3,
                         "esprit":7
                     },
-                    "compétence favorite":"Athletisme",
-                    "Particularité": ["Prudent","Astucieux","Beau","Honorable","Jovial","Ouïe fine","Preste","Vue perçante"]
+                    "competence favorite":"Athletisme",
+                    "Particularite": ["Prudent","Astucieux","Beau","Honorable","Jovial","Ouïe fine","Preste","Vue perçante"]
                 },
                 "6":
                 {
@@ -381,8 +381,8 @@
                         "coeur":2,
                         "esprit":6
                     },
-                    "compétence favorite":"Connaissances",
-                    "Particularité": ["Cachottier","Courtois","Endurci","Majestueux","Malin","Miséricordieux","Ouïe fine","Preste"]
+                    "competence favorite":"Connaissances",
+                    "Particularite": ["Cachottier","Courtois","Endurci","Majestueux","Malin","Miséricordieux","Ouïe fine","Preste"]
                 }
             }
         },
@@ -412,7 +412,7 @@
                 "Enigmes":2,
                 "Conaissances":0      
             },
-            "spécialités":["Cuisine","Jardinier","Herboristerie","Fumer","Conte","Tunnelier"],
+            "specialite":["Cuisine","Jardinier","Herboristerie","Fumer","Conte","Tunnelier"],
             "Origine":{
                 "1":
                 {
@@ -422,8 +422,8 @@
                     "coeur":6,
                     "esprit":5
                 },
-                "compétence favorite":"Artisanat",
-                "Particularité": ["Courageux","Généraux","Jovial","Loyal","Miséricordieux","Passionné","Patient","Sincère"]
+                "competence favorite":"Artisanat",
+                "Particularite": ["Courageux","Généraux","Jovial","Loyal","Miséricordieux","Passionné","Patient","Sincère"]
                 },
                 "2":
                 {
@@ -433,8 +433,8 @@
                     "coeur":5,
                     "esprit":5
                 },
-                "compétence favorite":"Voyage",
-                "Particularité": ["Astucieux","Audacieux","Curieux","Passionné","Preste","Robuste","Sincère","Vue perçante"]
+                "competence favorite":"Voyage",
+                "Particularite": ["Astucieux","Audacieux","Curieux","Passionné","Preste","Robuste","Sincère","Vue perçante"]
                 },
                 "3":
                 {
@@ -444,8 +444,8 @@
                     "coeur":7,
                     "esprit":4
                 },
-                "compétence favorite":"Enigmes",
-                "Particularité": ["Courtois","Curieux","Énergique","Honorable","Loyal","Ouïe fine","Prudent","Sincère"]
+                "competence favorite":"Enigmes",
+                "Particularite": ["Courtois","Curieux","Énergique","Honorable","Loyal","Ouïe fine","Prudent","Sincère"]
                 },
                 "4":
                 {
@@ -455,8 +455,8 @@
                     "coeur":6,
                     "esprit":6
                 },
-                "compétence favorite":"Persuasion",
-                "Particularité": ["Astucieux","Fier","Honorable","Insaisissable","Patient","Prudent","Sincère","Vue perçante"]
+                "competence favorite":"Persuasion",
+                "Particularite": ["Astucieux","Fier","Honorable","Insaisissable","Patient","Prudent","Sincère","Vue perçante"]
                 },
                 "5":
                 {
@@ -466,8 +466,8 @@
                         "coeur":6,
                         "esprit":4
                     },
-                    "compétence favorite":"Présence",
-                    "Particularité": ["Courtois","Énergique","Fier","Jovial","Ouïe fine","Preste","Sincère","Téméraire"]
+                    "competence favorite":"Présence",
+                    "Particularite": ["Courtois","Énergique","Fier","Jovial","Ouïe fine","Preste","Sincère","Téméraire"]
                 },
                 "6":
                 {
@@ -477,8 +477,8 @@
                         "coeur":7,
                         "esprit":5
                     },
-                    "compétence favorite":"Exploration",
-                    "Particularité": ["Audacieux","Courageux","Généreux","Insaisissable","Miséricordieux","Robuste","Sincère","Téméraire"]
+                    "competence favorite":"Exploration",
+                    "Particularite": ["Audacieux","Courageux","Généreux","Insaisissable","Miséricordieux","Robuste","Sincère","Téméraire"]
                 }
             }
         },
@@ -509,7 +509,7 @@
                 "Enigmes":1,
                 "Conaissances":0     
             },
-            "spécialités":["Connaissances régionales(Mirkwood)","Connaissance de la faune","Herboristerie","Médecine","Pêche","Connaissances régionales(Anduin)"],
+            "specialite":["Connaissances régionales(Mirkwood)","Connaissance de la faune","Herboristerie","Médecine","Pêche","Connaissances régionales(Anduin)"],
             "Origine":{
                 "1":
                 {
@@ -519,8 +519,8 @@
                     "coeur":4,
                     "esprit":7
                 },
-                "compétence favorite":"Chasse",
-                "Particularité": ["Bourru","Courageux","Fier","Franc","Généreux","Insaisissable","Passionné","Résistant"]
+                "competence favorite":"Chasse",
+                "Particularite": ["Bourru","Courageux","Fier","Franc","Généreux","Insaisissable","Passionné","Résistant"]
                 },
                 "2":
                 {
@@ -530,8 +530,8 @@
                     "coeur":5,
                     "esprit":6
                 },
-                "compétence favorite":"Chant",
-                "Particularité": ["Courageux","Grand","Fier","Franc","Malin","Observateur","Patient","Rapide"]
+                "competence favorite":"Chant",
+                "Particularite": ["Courageux","Grand","Fier","Franc","Malin","Observateur","Patient","Rapide"]
                 },
                 "3":
                 {
@@ -541,8 +541,8 @@
                     "coeur":4,
                     "esprit":6
                 },
-                "compétence favorite":"Vigilance",
-                "Particularité": ["Audacieux","Beau","Courageux","Curieux","Grand","Observateur","Sincère","Téméraire"]
+                "competence favorite":"Vigilance",
+                "Particularite": ["Audacieux","Beau","Courageux","Curieux","Grand","Observateur","Sincère","Téméraire"]
                 },
                 "4":
                 {
@@ -552,8 +552,8 @@
                         "coeur":5,
                         "esprit":5
                     },
-                    "compétence favorite":"Fouille",
-                    "Particularité": ["Bourru", "Circonspect", "Courageux","Endurci","Insaisissable", "Résistant", "Sévère", "Sincère" ]
+                    "competence favorite":"Fouille",
+                    "Particularite": ["Bourru", "Circonspect", "Courageux","Endurci","Insaisissable", "Résistant", "Sévère", "Sincère" ]
                     },
                     
                 "5":
@@ -564,8 +564,8 @@
                     "coeur":5,
                     "esprit":7
                 },
-                "compétence favorite":"Athletisme",
-                "Particularité": ["Audacieux","Courageux","Curieux","Déterminé","Généreux","Passionné","Rapide","Téméraire"]
+                "competence favorite":"Athletisme",
+                "Particularite": ["Audacieux","Courageux","Curieux","Déterminé","Généreux","Passionné","Rapide","Téméraire"]
                 },
                 "6":
                 {
@@ -575,8 +575,8 @@
                     "coeur":6,
                     "esprit":6
                 },
-                "compétence favorite":"Art de la guerre",
-                "Particularité": ["Beau","Bourru","Circonspect","Courageux","Déterminé","Endurci","Malin","Patient"]
+                "competence favorite":"Art de la guerre",
+                "Particularite": ["Beau","Bourru","Circonspect","Courageux","Déterminé","Endurci","Malin","Patient"]
                 }               
             }
         }

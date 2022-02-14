@@ -247,6 +247,16 @@ class Personnage
      */
     private $Conaissances;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $competence_favorite;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $coeur;
+
     public function __construct()
     {
         $this->traits = new ArrayCollection();
@@ -400,30 +410,6 @@ class Personnage
     public function setPrestige(int $prestige): self
     {
         $this->prestige = $prestige;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Traits[]
-     */
-    public function getTraits(): Collection
-    {
-        return $this->traits;
-    }
-
-    public function addTrait(Traits $trait): self
-    {
-        if (!$this->traits->contains($trait)) {
-            $this->traits[] = $trait;
-        }
-
-        return $this;
-    }
-
-    public function removeTrait(Traits $trait): self
-    {
-        $this->traits->removeElement($trait);
 
         return $this;
     }
@@ -885,6 +871,30 @@ class Personnage
     public function setConaissances(string $Conaissances): self
     {
         $this->Conaissances = $Conaissances;
+
+        return $this;
+    }
+
+    public function getCompetenceFavorite(): ?string
+    {
+        return $this->competence_favorite;
+    }
+
+    public function setCompetenceFavorite(string $competence_favorite): self
+    {
+        $this->competence_favorite = $competence_favorite;
+
+        return $this;
+    }
+
+    public function getCoeur(): ?int
+    {
+        return $this->coeur;
+    }
+
+    public function setCoeur(int $coeur): self
+    {
+        $this->coeur = $coeur;
 
         return $this;
     }
