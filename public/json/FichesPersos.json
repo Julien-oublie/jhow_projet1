@@ -318,7 +318,9 @@
             },
             "spécialités":["Allume-Feu","Batelier","Connaissances elfiques","Connaissances régionales ","Natation","Menuisier"],
             "Origine":{
-                    "Un nouvel espoir":{
+                "1":
+                {
+                    "nom":"Un nouvel espoir",
                     "Attribut de base":{
                         "corps":5,
                         "coeur":2,
@@ -327,25 +329,31 @@
                     "compétence favorite":"Voyage",
                     "Particularité": ["Astucieux","Circonspect","Déterminé","Entêté","Jovial","Ouïe fine","Patient","Rapide"]
                 },
-                    "Un héritage musical":{
-                    "Attribut de base":{
-                        "corps":5,
-                        "coeur":4,
-                        "esprit":5
-                    },
-                    "compétence favorite":"Courtoisie",
-                    "Particularité": ["Cachottier","Courtois","Fier","Insaisissable","Malin","Miséricordieux","Ouïe fine","Prudent"]
+                "2":
+                {
+                "nom":"Un héritage musical",
+                "Attribut de base":{
+                    "corps":5,
+                    "coeur":4,
+                    "esprit":5
                 },
-                    "Se souvenir du Mal":{
-                    "Attribut de base":{
-                        "corps":5,
-                        "coeur":3,
-                        "esprit":6
-                    },
-                    "compétence favorite":"Discrétion",
-                    "Particularité": ["Circonspect","Déterminé","Endurci","Insaisissable","Méfiant","Ouïe fine","Patient","Vue perçante"]
+                "compétence favorite":"Courtoisie",
+                "Particularité": ["Cachottier","Courtois","Fier","Insaisissable","Malin","Miséricordieux","Ouïe fine","Prudent"]
                 },
-                "Sang noble":{
+                "3":
+                {
+                "nom":"Se souvenir du Mal",
+                "Attribut de base":{
+                    "corps":5,
+                    "coeur":3,
+                    "esprit":6
+                },
+                "compétence favorite":"Discrétion",
+                "Particularité": ["Circonspect","Déterminé","Endurci","Insaisissable","Méfiant","Ouïe fine","Patient","Vue perçante"]
+                },
+                "4":
+                {
+                    "nom":"Sang noble",
                     "Attribut de base":{
                         "corps":4,
                         "coeur":4,
@@ -354,7 +362,9 @@
                     "compétence favorite":"Inspiration",
                     "Particularité": ["Beau","Entêté","Fier","Honorable","Majestueux","Méfiant","Ouïe fine","Rapide"]
                 },
-                "Coeur farouche":{
+                "5":
+                {
+                    "nom":"Coeur farouche",
                     "Attribut de base":{
                         "corps":4,
                         "coeur":3,
@@ -363,7 +373,9 @@
                     "compétence favorite":"Athlétisme",
                     "Particularité": ["Prudent","Astucieux","Beau","Honorable","Jovial","Ouïe fine","Preste","Vue perçante"]
                 },
-                "Emissaire du Roi":{
+                "6":
+                {
+                    "nom":"Emissaire du Roi",
                     "Attribut de base":{
                         "corps":6,
                         "coeur":2,
@@ -402,43 +414,53 @@
             },
             "spécialités":["Cuisine","Jardinier","Herboristerie","Fumer","Conte","Tunnelier"],
             "Origine":{
-                    "Fermier impétueux":{
-                    "Attribut de base":{
-                        "corps":3,
-                        "coeur":6,
-                        "esprit":5
-                    },
-                    "compétence favorite":"Artisanat",
-                    "Particularité": ["Courageux","Généraux","Jovial","Loyal","Miséricordieux","Passionné","Patient","Sincère"]
+                "1":
+                {
+                "nom":"Fermier impétueux",
+                "Attribut de base":{
+                    "corps":3,
+                    "coeur":6,
+                    "esprit":5
                 },
-                    "Trop de sentiers à fouler":{
-                    "Attribut de base":{
-                        "corps":4,
-                        "coeur":5,
-                        "esprit":5
-                    },
-                    "compétence favorite":"Voyage",
-                    "Particularité": ["Astucieux","Audacieux","Curieux","Passionné","Preste","Robuste","Sincère","Vue perçante"]
+                "compétence favorite":"Artisanat",
+                "Particularité": ["Courageux","Généraux","Jovial","Loyal","Miséricordieux","Passionné","Patient","Sincère"]
                 },
-                    "Une oreille attentive":{
-                    "Attribut de base":{
-                        "corps":3,
-                        "coeur":7,
-                        "esprit":4
-                    },
-                    "compétence favorite":"Enigmes",
-                    "Particularité": ["Courtois","Curieux","Énergique","Honorable","Loyal","Ouïe fine","Prudent","Sincère"]
+                "2":
+                {
+                "nom": "Trop de sentiers à fouler",
+                "Attribut de base":{
+                    "corps":4,
+                    "coeur":5,
+                    "esprit":5
                 },
-                "Un gentilhomme plein d’esprit":{
-                    "Attribut de base":{
-                        "corps":2,
-                        "coeur":6,
-                        "esprit":6
-                    },
-                    "compétence favorite":"Persuasion",
-                    "Particularité": ["Astucieux","Fier","Honorable","Insaisissable","Patient","Prudent","Sincère","Vue perçante"]
+                "compétence favorite":"Voyage",
+                "Particularité": ["Astucieux","Audacieux","Curieux","Passionné","Preste","Robuste","Sincère","Vue perçante"]
                 },
-                "Du Pays de Bouc":{
+                "3":
+                {
+                "nom":"Une oreille attentive",
+                "Attribut de base":{
+                    "corps":3,
+                    "coeur":7,
+                    "esprit":4
+                },
+                "compétence favorite":"Enigmes",
+                "Particularité": ["Courtois","Curieux","Énergique","Honorable","Loyal","Ouïe fine","Prudent","Sincère"]
+                },
+                "4":
+                {
+                "nom":"Un gentilhomme plein d’esprit",
+                "Attribut de base":{
+                    "corps":2,
+                    "coeur":6,
+                    "esprit":6
+                },
+                "compétence favorite":"Persuasion",
+                "Particularité": ["Astucieux","Fier","Honorable","Insaisissable","Patient","Prudent","Sincère","Vue perçante"]
+                },
+                "5":
+                {
+                    "nom":"Du Pays de Bouc",
                     "Attribut de base":{
                         "corps":4,
                         "coeur":6,
@@ -447,7 +469,9 @@
                     "compétence favorite":"Présence",
                     "Particularité": ["Courtois","Énergique","Fier","Jovial","Ouïe fine","Preste","Sincère","Téméraire"]
                 },
-                "Sang Touque":{
+                "6":
+                {
+                    "nom":"Sang Touque",
                     "Attribut de base":{
                         "corps":2,
                         "coeur":7,
@@ -487,57 +511,72 @@
             },
             "spécialités":["Connaissances régionales(Mirkwood)","Connaissance de la faune","Herboristerie","Médecine","Pêche","Connaissances régionales(Anduin)"],
             "Origine":{
-                    "Le limier":{
-                    "Attribut de base":{
-                        "corps":3,
-                        "coeur":4,
-                        "esprit":7
-                    },
-                    "compétence favorite":"Chasse",
-                    "Particularité": ["Bourru","Courageux","Fier","Franc","Généreux","Insaisissable","Passionné","Résistant"]
+                "1":
+                {
+                "nom":"Le limier",
+                "Attribut de base":{
+                    "corps":3,
+                    "coeur":4,
+                    "esprit":7
                 },
-                    "Disciple du Magicien":{
-                    "Attribut de base":{
-                        "corps":3,
-                        "coeur":5,
-                        "esprit":6
-                    },
-                    "compétence favorite":"Chant",
-                    "Particularité": ["Courageux","Grand","Fier","Franc","Malin","Observateur","Patient","Rapide"]
+                "compétence favorite":"Chasse",
+                "Particularité": ["Bourru","Courageux","Fier","Franc","Généreux","Insaisissable","Passionné","Résistant"]
                 },
-                    "Héritage féérique":{
-                    "Attribut de base":{
-                        "corps":4,
-                        "coeur":4,
-                        "esprit":6
-                    },
-                    "compétence favorite":"Vigilance",
-                    "Particularité": ["Audacieux","Beau","Courageux","Curieux","Grand","Observateur","Sincère","Téméraire"]
+                "2":
+                {
+                "nom":"Disciple du Magicien",
+                "Attribut de base":{
+                    "corps":3,
+                    "coeur":5,
+                    "esprit":6
                 },
-                "Apprenti des Montagnards":{
+                "compétence favorite":"Chant",
+                "Particularité": ["Courageux","Grand","Fier","Franc","Malin","Observateur","Patient","Rapide"]
+                },
+                "3":
+                {
+                "nom":"Héritage féérique",
+                "Attribut de base":{
+                    "corps":4,
+                    "coeur":4,
+                    "esprit":6
+                },
+                "compétence favorite":"Vigilance",
+                "Particularité": ["Audacieux","Beau","Courageux","Curieux","Grand","Observateur","Sincère","Téméraire"]
+                },
+                "4":
+                {
+                    "nom":"Apprenti des Montagnards",
                     "Attribut de base":{
                         "corps":4,
                         "coeur":5,
                         "esprit":5
-                    }
                     },
-                    "Prospecteur":{
-                    "Attribut de base":{
-                        "corps":2,
-                        "coeur":5,
-                        "esprit":7
+                    "compétence favorite":"Fouille",
+                    "Particularité": ["Bourru", "Circonspect", "Courageux","Endurci","Insaisissable", "Résistant", "Sévère", "Sincère" ]
                     },
-                    "compétence favorite":"Athlétisme",
-                    "Particularité": ["Audacieux","Courageux","Curieux","Déterminé","Généreux","Passionné","Rapide","Téméraire"]
-                    },
-                    "Guide des Épées":{
-                    "Attribut de base":{
-                        "corps":2,
-                        "coeur":6,
-                        "esprit":6
-                    },
-                    "compétence favorite":"Art de la guerre",
-                    "Particularité": ["Beau","Bourru","Circonspect","Courageux","Déterminé","Endurci","Malin","Patient"]
+                    
+                "5":
+                {
+                "nom":"Prospecteur",
+                "Attribut de base":{
+                    "corps":2,
+                    "coeur":5,
+                    "esprit":7
+                },
+                "compétence favorite":"Athlétisme",
+                "Particularité": ["Audacieux","Courageux","Curieux","Déterminé","Généreux","Passionné","Rapide","Téméraire"]
+                },
+                "6":
+                {
+                "nom":"Guide des Épées",
+                "Attribut de base":{
+                    "corps":2,
+                    "coeur":6,
+                    "esprit":6
+                },
+                "compétence favorite":"Art de la guerre",
+                "Particularité": ["Beau","Bourru","Circonspect","Courageux","Déterminé","Endurci","Malin","Patient"]
                 }               
             }
         }
