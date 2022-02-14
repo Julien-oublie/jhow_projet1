@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -45,20 +46,27 @@ class PersonnageType extends AbstractType
 
                 $persoJson = file_get_contents('../public/json/FichesPersos.json'); // a voir pour changer plus tard
                 $Classe = json_decode($persoJson,true);
+
+
                 $tabOrigine = [];
+                $tabCompetences = [];
                 $data = $event->getForm()->getData();
                 
                 foreach ($Classe["Classe"] as $classe){
-                    
+        
+                    // compare le perso selectionné au JSON 
                     if ($classe["nom"] == $data ) {
+                        //Vient chercher les compétences du personnage séléctionné pour les mettre dans le tableau
+                        $tabCompetences["competence"] = $classe["competence"];
+
+                        //Vient chercher l'origine du personnage dans le JSON pour la mettre dans le tableau
                         $standard_de_vie = $classe["standard de vie"];
                         $avantage_culturelle= $classe["Avantage culturel"];
                         foreach ($classe["Origine"] as $origine) {
                             $tabOrigine[$origine['nom']] = $origine['nom'];
-                            dump($origine);
-                            
                         }
                     }
+                    
                 }
                 
                 $form = $event->getForm();
@@ -76,36 +84,21 @@ class PersonnageType extends AbstractType
                     'placeholder' => 'Séléctionnez une origine',
                     'mapped'=>false     
                 ]);
+                foreach ($tabCompetences["competence"] as $key => $value) {
+                  
+                    $form->getParent()
+                    ->add( $key, IntegerType::class, [
+                        'disabled'   => true,
+                        'attr' => ['value' =>  $value],
+                    ]);
+                }
                 
             }
             
         );
         
-           /* ->add('nom')
-            ->add('corps')
-            ->add('esprit')
-            
-            ->add('experience')
-            ->add('courage')
-            ->add('sagesse')
-            ->add('dommage')
-            ->add('parade')
-            ->add('armure')
-            ->add('camaraderie')
-            ->add('prestige')
-            ->add('avantage_culturelle')
-            //->add('background')
-            ->add('traits')
-            ->add('vocation')
-            ->add('tableofyears')
-            ->add('espoir')
-            ->add('endurance')
-            ->add('competenceDeGroupe')
-            ->add('vertus')
-            ->add('competence')
-            ->add('recompenses')
-            ->add('groupes')*/
-        ;
+    
+        
         
     }
    

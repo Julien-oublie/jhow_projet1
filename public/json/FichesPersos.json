@@ -4,9 +4,9 @@
             "nom":"Bardides",
             "standard de vie": "Prospère",
             "Avantage culturel":"Intrépide",
-            "compétences":{
+            "competence":{
                 "Admiration":1,
-                "Athlétisme":0,
+                "Athletisme":0,
                 "Conscience":0,
                 "Exploration":2,
                 "Chant":1,
@@ -14,13 +14,13 @@
 
                 "Inspiration":2,
                 "Voyage":2,
-                "Perspicacité":2,
-                "Guérison":0,
+                "Perspicacite":2,
+                "Guerison":0,
                 "Courtoisie":2,
                 "Combat":2,
 
                 "Persuasion":3,
-                "Furtivité":0,
+                "Furtivite":0,
                 "Fouille":1,
                 "Chasse":0,
                 "Enigmes":0,
@@ -69,7 +69,7 @@
                         "coeur":7,
                         "esprit":3
                     },
-                    "compétence favorite":"Guérison",
+                    "compétence favorite":"Guerison",
                     "Particularité": ["Astucieux","Audacieux","Beau","Fier","Grand","Majestueux","Résistant","Téméraire"]
                 },
                     "5":
@@ -102,9 +102,9 @@
                 "nom":"Beornides",
                 "standard de vie": "Martial",
                 "Avantage culturel":"Forcené",
-                "compétences":{
+                "competence":{
                         "Admiration":3,
-                        "Athlétisme":2,
+                        "Athletisme":2,
                         "Conscience":2,
                         "Exploration":0,
                         "Chant":0,
@@ -112,13 +112,13 @@
 
                         "Inspiration":1,
                         "Voyage":0,
-                        "Perspicacité":3,
-                        "Guérison":1,
+                        "Perspicacite":3,
+                        "Guerison":1,
                         "Courtoisie":0,
                         "Combat":0,
 
                         "Persuasion":0,
-                        "Furtivité":0,
+                        "Furtivite":0,
                         "Fouille":1,
                         "Chasse":3,
                         "Enigmes":1,
@@ -198,9 +198,9 @@
                 "nom":"Nains du Mont Solitaire",
                 "standard de vie": "Riche",
                 "Avantage culturel":"Redoubtable",
-                "compétences":{
+                "competence":{
                     "Admiration":0,
-                    "Athlétisme":0,
+                    "Athletisme":0,
                     "Conscience":0,
                     "Exploration":2,
                     "Chant":1,
@@ -208,13 +208,13 @@
 
                     "Inspiration":2,
                     "Voyage":3,
-                    "Perspicacité":0,
-                    "Guérison":0,
+                    "Perspicacite":0,
+                    "Guerison":0,
                     "Courtoisie":0,
                     "Combat":1,
 
                     "Persuasion":0,
-                    "Furtivité":0,
+                    "Furtivite":0,
                     "Fouille":3,
                     "Chasse":0,
                     "Enigmes":2,
@@ -252,7 +252,7 @@
                             "coeur":3,
                             "esprit":4
                         },
-                        "compétence favorite":"Guérison",
+                        "compétence favorite":"Guerison",
                         "Particularité": ["Bourru","Cachottier","Courroucé","Endurci","Entêté","Impétueux","Robuste","Sévère"]
                     },
                     "4":
@@ -294,9 +294,9 @@
             "nom" : "Elfes de la Forêt Noire",
             "standard de vie": "Martial",
             "Avantage culturel":"Peuple du Crépuscule",
-            "compétences":{
+            "competence":{
                 "Admiration":2,
-                "Athlétisme":3,
+                "Athletisme":3,
                 "Conscience":2,
                 "Exploration":0,
                 "Chant":2,
@@ -304,13 +304,13 @@
 
                 "Inspiration":0,
                 "Voyage":0,
-                "Perspicacité":0,
-                "Guérison":1,
+                "Perspicacite":0,
+                "Guerison":1,
                 "Courtoisie":0,
                 "Combat":2,
 
                 "Persuasion":0,
-                "Furtivité":2,
+                "Furtivite":2,
                 "Fouille":0,
                 "Chasse":1,
                 "Enigmes":0,
@@ -370,7 +370,7 @@
                         "coeur":3,
                         "esprit":7
                     },
-                    "compétence favorite":"Athlétisme",
+                    "compétence favorite":"Athletisme",
                     "Particularité": ["Prudent","Astucieux","Beau","Honorable","Jovial","Ouïe fine","Preste","Vue perçante"]
                 },
                 "6":
@@ -390,9 +390,9 @@
             "nom": "Hobbits de la Comté",
             "standard de vie": "Prospère",
             "Avantage culturel": "Sens du Hobbit",
-            "compétences":{
+            "competence":{
                 "Admiration":0,
-                "Athlétisme":0,
+                "Athletisme":0,
                 "Conscience":2,
                 "Exploration":0,
                 "Chant":2,
@@ -400,13 +400,13 @@
 
                 "Inspiration":0,
                 "Voyage":1,
-                "Perspicacité":1,
-                "Guérison":0,
+                "Perspicacite":1,
+                "Guerison":0,
                 "Courtoisie":3,
                 "Combat":0,
 
                 "Persuasion":2,
-                "Furtivité":3,
+                "Furtivite":3,
                 "Fouille":2,
                 "Chasse":0,
                 "Enigmes":2,
@@ -487,9 +487,9 @@
             "nom" : "Hommes des Bois des Terres Sauvages",
             "standard de vie": "Modeste",
             "Avantage culturel": "Menuiserie",
-            "compétences":{
+            "competence":{
                 "Admiration":0,
-                "Athlétisme":2,
+                "Athletisme":2,
                 "Conscience":2,
                 "Exploration":3,
                 "Chant":1,
@@ -497,13 +497,13 @@
 
                 "Inspiration":1,
                 "Voyage":0,
-                "Perspicacité":0,
-                "Guérison":3,
+                "Perspicacite":0,
+                "Guerison":3,
                 "Courtoisie":0,
                 "Combat":1,
 
                 "Persuasion":0,
-                "Furtivité":2,
+                "Furtivite":2,
                 "Fouille":0,
                 "Chasse":2,
                 "Enigmes":1,
@@ -564,7 +564,7 @@
                     "coeur":5,
                     "esprit":7
                 },
-                "compétence favorite":"Athlétisme",
+                "compétence favorite":"Athletisme",
                 "Particularité": ["Audacieux","Courageux","Curieux","Déterminé","Généreux","Passionné","Rapide","Téméraire"]
                 },
                 "6":
