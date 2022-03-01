@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/personnage')]
 class PersonnageController extends AbstractController
@@ -25,20 +26,21 @@ class PersonnageController extends AbstractController
     #[Route('/new', name: 'personnage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $data = json_decode($request->getContent(), true);
         $personnage = new Personnage();
-        if ($request->isMethod('POST')) {
         dump($_POST);
         $form = $_POST;  
-        } else {
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
-        }
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd('ee');
-            //$entityManager->persist($personnage);
-            //$entityManager->flush();
-            //return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+   
+            if($this->isCsrfTokenValid( $personnage->getId(),$data['_token'])  ){
+                return new JsonResponse(['success' => 1]);
+            }
+            else{
+                return new JsonResponse(['error' => 'Token Invalide'], 400);
+            }
         }
 
         return $this->renderForm('personnage/new.html.twig', [

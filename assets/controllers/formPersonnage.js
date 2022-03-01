@@ -1,26 +1,29 @@
 
-let nom = $('#personnage_nom')
-$(document).on('change', '#personnage_class', function(){
-    console.log('salut');
-    let field = $(this)
-    let form = field.closest('form')
-    let data = {}
-    data['class'] = field.val()
-    data['nom'] = nom.val()
-
-    $.ajax({
-        type: "POST",
-        url: "/personnage/new",
-        data: data,
-        success: function (data, dataType) {
-            console.log(data);
+console.log('test');
+console.log(window.location.origin)
+var classe = document.getElementById('personnage_class')
+var link  = document.getElementById('request')
+classe.addEventListener("change", function(e){
+    console.log(link.getAttribute('href'),classe.value)
+    fetch(link.getAttribute('href'), {
+        method: "POST",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "Content-Type": "application/json"
         },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert('Error : ' + errorThrown);
+        body: JSON.stringify({"_token": this.dataset.token})
+    }).then(
+        // On récupère la réponse en JSON
+        response => response.json()
+    ).then(data => {
+        if(data.success){
+            console.log('success')
         }
-    });
-
-  
+        else{
+            alert(data.error)
+        }
+    }).catch(e => alert(e))
+    //console.log(data)
     
 
 })
