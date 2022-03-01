@@ -1,9 +1,14 @@
 
 .main-div-personnages{
-    @include grid;
-    display: grid;
+  //  @include grid;
+  //  display: grid;
     //background-image: url('../../img/background_papers.jpg');
     height: 100vh;
+}
+
+.swipe-main-div{
+    @include grid;
+    display: grid;
 }
 
 .background-personnages{
@@ -38,4 +43,8 @@
     align-items: center;
     font-family: "caudex-regular";
     font-size: 18px;
+}
+
+.perso-classe{
+    position: absolute;
 }
