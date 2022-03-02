@@ -36,18 +36,37 @@ function PersonnagesPage(){
         <div className='div-navigation-slide-left'></div>
        <span className="swipe-div">Swipe de classes</span>
        <div className='div-navigation-slide-right'></div>
-       <p>{data[0].class}</p>
-       <p>{data[1].class}</p>
-       <button onClick={swipe}>Swipe</button>
         </div>
        
+        {data.map((perso) => (
+          <div className='card'>
+              
+              <h1 className='title-card'>{perso.class}</h1>
+              <p className='paraph-card'>{perso.description}</p>
+
+              <div className='carac-main-div'>
+                  <div className='carac-div'>
+                  <span className='span-carac title-carac'>{perso.caractéristiques_1_title}</span>
+                  <span className='span-carac'>{perso.caractéristiques_1_content}</span>
+                  </div>
+
+                  <div className='carac-div'>
+                  <span className='span-carac title-carac'>{perso.caractéristiques_2_title}</span>
+                  <span className='span-carac'>{perso.caractéristiques_2_content}</span>
+                  </div>
+
+                  <div className='carac-div'>
+                  <span className='span-carac title-carac'>{perso.caractéristiques_3_title}</span>
+                  <span className='span-carac'>{perso.caractéristiques_3_content}</span>
+                  </div>
+              </div>
+          </div>
+        ))}
     </div>
 }
 
 function swipe(){
-    for (let i= 0; i< data.length; i++){
-        console.log(i)
-    }
+    console.log(1)
 }
 class Personnages extends HTMLElement {
     connectedCallback(){
