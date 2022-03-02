@@ -26,20 +26,18 @@ class PersonnageController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $personnage = new Personnage();
-        if ($request->isMethod('POST')) {
         dump($_POST);
         $form = $_POST;  
-        } else {
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
-        }
+        
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            dd('ee');
+       // if ($form->isSubmitted() /*&& $form->isValid()*/) {
+         //   dump('ee');
             //$entityManager->persist($personnage);
             //$entityManager->flush();
             //return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
-        }
+      //  }
 
         return $this->renderForm('personnage/new.html.twig', [
             'personnage' => $personnage,
