@@ -95,7 +95,21 @@
                         "Particularite": ["Audacieux","Beau","Circonspect","Inébranlable","Miséricordieux","Observateur","Patient","Sincère"]
                     
                     }
+             },
+              "Vocation":{
+                "1":{
+                    "nom":"Érudit",
+                    "competences favorites":["Perception rceMétierion","Métier"],
+                    "traits":"Rimes de savoir",
+                    "part d'ombre":"Attrait des secrets"
+                },
+                "2":{
+                    "nom":"Chasseur de trésors",
+                    "competences favorites":["Déplacement","Perception"],
+                    "traits":"Monte-en-l’air",
+                    "part d'ombre":"Mal du Dragon"
                 }
+              }
             }
         ,
         "2":{
@@ -192,8 +206,29 @@
                         "competence favorite":"Chant",
                         "Particularite": ["Courroucé","Fier","Généreux","Grand","Inébranlable","Robuste","Sinistre","Vengeur"]
                     }
+                },
+                "Vocation":{
+                    "1":{
+                        "nom":"Protecteur",
+                        "competences favorites":["Personnalité","Survie"],
+                        "traits":"Conscience de l’Ombre",
+                        "part d'ombre":"Attrait du pouvoir"
+                    },
+                    "2":{
+                        "nom":"Tueur",
+                        "competences favorites":["Déplacement","Personnalité"],
+                        "traits":"Connaissances des ennemis",
+                        "part d'ombre":"Malédiction de Vengeance"
+                    },
+                    "3":{
+                        "nom":"Chasseur de trésors",
+                        "competences favorites":["Déplacement","Perception"],
+                        "traits":"Monte-en-l’air",
+                        "part d'ombre":"Mal du Dragon"
+                    }
                 }
         },
+        
         "3":{
                 "nom":"Nains du Mont Solitaire",
                 "standard de vie": "Riche",
@@ -288,8 +323,29 @@
                         "competence favorite":"Intuition",
                         "Particularite": ["Bourru","Courageux","Courroucé","Entêté","Majestueux","Méfiant","Passionné","Robuste"]
                         }
+                },
+                "Vocation":{
+                  "1":{
+                        "nom":"Chasseur de trésors",
+                        "competences favorites":["Déplacement","Perception"],
+                        "traits":"Monte-en-l’air",
+                        "part d'ombre":"Mal du Dragon"
+                    },
+                    "2":{
+                        "nom":"Tueur",
+                        "competences favorites":["Déplacement","Personnalité"],
+                        "traits":"Connaissances des ennemis",
+                        "part d'ombre":"Malédiction de Vengeance"
+                    },
+                    "3":{
+                        "nom":"Protecteur",
+                        "competences favorites":["Personnalité","Survie"],
+                        "traits":"Conscience de l’Ombre",
+                        "part d'ombre":"Attrait du pouvoir"
+                    }
                 }
         },
+        
         "4":{
             "nom" : "Elfes de la Forêt Noire",
             "standard de vie": "Martial",
@@ -384,8 +440,29 @@
                     "competence favorite":"Connaissances",
                     "Particularite": ["Cachottier","Courtois","Endurci","Majestueux","Malin","Miséricordieux","Ouïe fine","Preste"]
                 }
-            }
-        },
+            },
+            "Vocation":{
+              "1":{
+                    "nom":"Érudit ",
+                    "competences favorites":["Perception ","Métier"],
+                    "traits":"Rimes de savoir",
+                    "part d'ombre":"Attrait des secrets"
+                },
+                "2":{
+                    "nom":"Protecteur",
+                    "competences favorites":["Personnalité","Survie"],
+                    "traits":"Conscience de l’Ombre",
+                    "part d'ombre":"Attrait du pouvoir"
+                },
+                "3":{
+                    "nom":"Vagabond",
+                    "competences favorites":["Coutume","Survie"],
+                    "traits":"Folklore",
+                    "part d'ombre":"Folie itinérante"
+                }
+            } 
+       
+    },
         "5":{
             "nom": "Hobbits de la Comté",
             "standard de vie": "Prospère",
@@ -480,8 +557,29 @@
                     "competence favorite":"Exploration",
                     "Particularite": ["Audacieux","Courageux","Généreux","Insaisissable","Miséricordieux","Robuste","Sincère","Téméraire"]
                 }
+            },
+            "Vocation":{
+              "1":{
+                "nom":"Chasseur de trésors",
+                "competences favorites":["Déplacement","Perception"],
+                "traits":"Monte-en-l’air",
+                "part d'ombre":"Mal du Dragon"
+            },
+            "2":{
+                "nom":"Vagabond",
+                "competences favorites":["Coutume","Survie"],
+                "traits":"Folklore",
+                "part d'ombre":"Folie itinérante"
+            },
+            "3":{
+                "nom":"Tueur",
+                "competences favorites":["Déplacement","Personnalité"],
+                "traits":"Connaissances des ennemis",
+                "part d'ombre":"Malédiction de Vengeance"
             }
-        },
+            }
+       
+     },
         "6":
         {
             "nom" : "Hommes des Bois des Terres Sauvages",
@@ -578,6 +676,26 @@
                 "competence favorite":"Art de la guerre",
                 "Particularite": ["Beau","Bourru","Circonspect","Courageux","Déterminé","Endurci","Malin","Patient"]
                 }               
+            },
+            "Vocation":{
+              "1":{
+                "nom":"Protecteur",
+                "competences favorites":["Personnalité","Survie"],
+                "traits":"Conscience de l’Ombre",
+                "part d'ombre":"Attrait du pouvoir"
+            },
+            "2":{
+                "nom":"Vagabond",
+                "competences favorites":["Coutume","Survie"],
+                "traits":"Folklore",
+                "part d'ombre":"Folie itinérante"
+            },
+            "3":{
+                "nom":"Érudit",
+                "competences favorites":["Perception ","Métier"],
+                "traits":"Rimes de savoir",
+                "part d'ombre":"Attrait des secrets"
+            }
             }
         }
     }
