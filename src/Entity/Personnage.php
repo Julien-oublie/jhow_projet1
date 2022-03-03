@@ -257,6 +257,21 @@ class Personnage
      */
     private $coeur;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $competences_favorites = [];
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $traits;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $part_ombre;
+
     public function __construct()
     {
         $this->traits = new ArrayCollection();
@@ -895,6 +910,42 @@ class Personnage
     public function setCoeur(int $coeur): self
     {
         $this->coeur = $coeur;
+
+        return $this;
+    }
+
+    public function getCompetencesFavorites(): ?array
+    {
+        return $this->competences_favorites;
+    }
+
+    public function setCompetencesFavorites(?array $competences_favorites): self
+    {
+        $this->competences_favorites = $competences_favorites;
+
+        return $this;
+    }
+
+    public function getTraits(): ?string
+    {
+        return $this->traits;
+    }
+
+    public function setTraits(?string $traits): self
+    {
+        $this->traits = $traits;
+
+        return $this;
+    }
+
+    public function getPartOmbre(): ?string
+    {
+        return $this->part_ombre;
+    }
+
+    public function setPartOmbre(?string $part_ombre): self
+    {
+        $this->part_ombre = $part_ombre;
 
         return $this;
     }
