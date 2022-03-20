@@ -119,14 +119,32 @@
             },
             "Armes":{
                 "1":{
-                    "1" :["Épées",2],
-                    "2": ["Lance",1],
-                    "3": ["Dague",1]
+                    "1":{
+                        "nom" : "Épées",
+                        "competence" : 2
+                    },
+                    "2" :{
+                        "nom" : "Lance",
+                        "competence" : 1
+                    },
+                    "3" :{
+                        "nom" : "Dague",
+                        "competence" : 1
+                    }
                 },
                 "2":{
-                    "1": ["Grand arc",2],
-                    "2" : ["Lance",1],
-                    "3" : ["Dague",1]
+                    "1":{
+                        "nom" : "Grand arc",
+                        "competence" : 2
+                    },
+                    "2" :{
+                        "nom" : "Lance",
+                        "competence" : 1
+                    },
+                    "3" :{
+                        "nom" : "Dague",
+                        "competence" : 1
+                    }
                 }
             }
         }
@@ -255,17 +273,31 @@
                 },
                 "Armes":{
                     "1":{
-                        "competence d'arme" : {
-                            "1": ["Haches",2],
-                            "2": ["Lance",1],
-                            "3": ["Dague",1]
+                        "1":{ 
+                            "nom" : "Haches",
+                            "competence" : 2
+                        },
+                        "2":{
+                            "nom" : "Lance",
+                            "competence" : 1
+                        },
+                        "3":{
+                            "nom" : "Dague",
+                            "competence" : 1
                         }
                     },
                     "2":{
-                        "competence d'arme":{
-                            "1":["Grande lance",2],
-                            "2": ["Lance",1],
-                            "3": ["Dague",1]
+                        "1":{ 
+                            "nom" : "Grande lance",
+                            "competence" : 2
+                        },
+                        "2":{
+                            "nom" : "Lance",
+                            "competence" : 1
+                        },
+                        "3":{
+                            "nom" : "Dague",
+                            "competence" : 1
                         }
                     }
                 }
@@ -395,17 +427,31 @@
                 },
                 "Armes":{
                     "1":{
-                        "competence d'arme" : {
-                            "1" : ["Haches",2],
-                             "2" :["Épée courte",1],
-                            "3" : ["Dague",1]
+                        "1" :{
+                            "nom" :"Haches",
+                            "competence":2
+                        },
+                        "2" :{
+                            "nom" :"Épée courte",
+                            "competence":1
+                        },
+                        "3" :{
+                            "nom" :"Dague",
+                            "competence":1
                         }
                     },
                     "2":{
-                        "competence d'arme":{
-                             "1" : ["Bigot",2],
-                             "2" : ["Épée courte",1],
-                            "3" : ["Dague",1]
+                        "1" :{
+                            "nom" :"Bigot",
+                            "competence":2
+                        },
+                        "2" :{
+                            "nom" :"Épée courte",
+                            "competence":1
+                        },
+                        "3" :{
+                            "nom" :"Dague",
+                            "competence":1
                         }
                     }
                 }
@@ -535,20 +581,32 @@
             },
             "Armes":{
                 "1":{
-                    "competence d'arme" : {
-                         "1": ["Lances",2],
-                         "2": ["Épée",1],
-                        "3": ["Dague",1]
-                        
+                    "1" :{
+                        "nom" :"Lances",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Épée",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
                     }
                 },
                 "2":{
-                    "competence d'arme":{
-                         "1": ["Arc",2],
-                        "2": ["Épée",1],
-                        "3": ["Dague",1]
-                        
-                     }
+                    "1" :{
+                        "nom" :"Arc",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Épée",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
+                    }
                 }
             } 
        
@@ -677,19 +735,31 @@
             },
             "Armes":{
                 "1":{
-                    "competence d'arme" : {
-                        "1": ["Epée courte",2],
-                        "2": ["Arc",1],
-                        "3": ["Dague",1]
-                    
+                    "1" :{
+                        "nom" :"Epée courte",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Arc",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
                     }
                 },
                 "2":{
-                    "competence d'arme":{
-                        "1": ["Arc",2],
-                        "2": ["Épée courte",1],
-                        "3": ["Dague",1]
-                    
+                    "1" :{
+                        "nom" :"Arc",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Épée courte",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
                     }
                 }
             } 
@@ -821,19 +891,31 @@
             },
             "Armes":{
                 "1":{
-                    "competence d'arme" : {
-                        "1": ["Arcs",2],
-                        "2": ["Hache à long manche",1],
-                        "3": ["Dague",1]
-                    
+                    "1" :{
+                        "nom" :"Arcs",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Hache à long manche",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
                     }
                 },
                 "2":{
-                    "competence d'arme":{
-                        "1": ["Hache à long manche",2],
-                        "2": ["Lance",1],
-                        "3": ["Dague",1]
-                    
+                    "1" :{
+                        "nom" :"Hache à long manche",
+                        "competence":2
+                    },
+                    "2" :{
+                        "nom" :"Lance",
+                        "competence":1
+                    },
+                    "3" :{
+                        "nom" :"Dague",
+                        "competence":1
                     }
                 }
             }

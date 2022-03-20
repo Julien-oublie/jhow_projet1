@@ -91,7 +91,7 @@ class PersonnageType extends AbstractType
         $tabSpecialite2 = [];
         $tabArmes = [];
         $tabVocation = [];
-       
+        $int = 1;
         foreach ($allClasses["Classe"] as $classe){
             
             // compare le perso selectionné au JSON 
@@ -104,7 +104,9 @@ class PersonnageType extends AbstractType
                 //************ARMES************
                 //Vient chercher les armes du personnage dans le JSON pour la mettre dans le tableau
                 foreach ($classe["Armes"] as $data) {
-                    $tabArmes[] = $data;
+                    $listArmes = $data["1"]["nom"].' ('.$data["1"]["competence"].'), '.$data["2"]["nom"].' ('.$data["2"]["competence"].'), '.$data["3"]["nom"].' ('.$data["3"]["competence"].')';
+                    $tabArmes[$listArmes] = $listArmes;
+                    
                 }
                 //On vient mettre les bonnes données dans le builder
                 $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
@@ -116,7 +118,7 @@ class PersonnageType extends AbstractType
                         'label' => 'Armes',
                     ],
                 );
-               // $form->add($builder->getForm());
+                $form->add($builder->getForm());
                 //************ARMES************
                 //************SPECIALITES************
                 //Vient chercher la  1 specialite du personnage dans le JSON pour la mettre dans le tableau
