@@ -11,10 +11,11 @@ import './styles/app.scss';
 import './components/Navbar.jsx';
 import './components/Register.jsx';
 import './components/Inscrition';
-
 import './components/fondEcran.jsx'
-
 import './components/Regles.jsx'
+//import components React
+import './components/Connexion.jsx';
+import './components/PersonnagesPage';
 
 // start the Stimulus application
 import './bootstrap';

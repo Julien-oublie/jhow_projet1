@@ -59,10 +59,6 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "support": {
-                "issues": "https://github.com/composer/package-versions-deprecated/issues",
-                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.4"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -145,10 +141,6 @@
                 "docblock",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
-            },
             "time": "2021-08-05T19:00:23+00:00"
         },
         {
@@ -230,10 +222,6 @@
                 "redis",
                 "xcache"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/2.1.1"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -313,10 +301,6 @@
                 "iterators",
                 "php"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/collections/issues",
-                "source": "https://github.com/doctrine/collections/tree/1.6.8"
-            },
             "time": "2021-08-10T18:51:53+00:00"
         },
         {
@@ -389,10 +373,13 @@
                 "doctrine",
                 "php"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/common/issues",
                 "source": "https://github.com/doctrine/common/tree/3.2.2"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -500,10 +487,13 @@
                 "sqlserver",
                 "sqlsrv"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
                 "source": "https://github.com/doctrine/dbal/tree/3.3.2"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -557,10 +547,6 @@
             ],
             "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
             "homepage": "https://www.doctrine-project.org/",
-            "support": {
-                "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v0.5.3"
-            },
             "time": "2021-03-21T12:59:47+00:00"
         },
         {
@@ -656,10 +642,6 @@
                 "orm",
                 "persistence"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.5.5"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -741,10 +723,13 @@
                 "migrations",
                 "schema"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineMigrationsBundle/issues",
                 "source": "https://github.com/doctrine/DoctrineMigrationsBundle/tree/3.2.2"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -835,10 +820,6 @@
                 "event system",
                 "events"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/event-manager/issues",
-                "source": "https://github.com/doctrine/event-manager/tree/1.1.x"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -926,10 +907,6 @@
                 "uppercase",
                 "words"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/inflector/issues",
-                "source": "https://github.com/doctrine/inflector/tree/2.0.4"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -995,10 +972,6 @@
                 "constructor",
                 "instantiate"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/instantiator/issues",
-                "source": "https://github.com/doctrine/instantiator/tree/1.4.0"
-            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1071,10 +1044,13 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
                 "source": "https://github.com/doctrine/lexer/tree/1.2.2"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1177,10 +1153,13 @@
                 "dbal",
                 "migrations"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/migrations/issues",
                 "source": "https://github.com/doctrine/migrations/tree/3.4.1"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1290,11 +1269,15 @@
                 "database",
                 "orm"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
                 "source": "https://github.com/doctrine/orm/tree/2.11.1"
             },
             "time": "2022-01-30T21:47:06+00:00"
+=======
+            "time": "2021-12-20T21:23:47+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "doctrine/persistence",
@@ -1378,10 +1361,6 @@
                 "orm",
                 "persistence"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/2.3.0"
-            },
             "time": "2022-01-09T19:58:46+00:00"
         },
         {
@@ -1430,10 +1409,6 @@
                 "highlight",
                 "sql"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/sql-formatter/issues",
-                "source": "https://github.com/doctrine/sql-formatter/tree/1.1.2"
-            },
             "time": "2021-11-05T11:11:14+00:00"
         },
         {
@@ -1492,10 +1467,6 @@
                 "validation",
                 "validator"
             ],
-            "support": {
-                "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/3.1.2"
-            },
             "funding": [
                 {
                     "url": "https://github.com/egulias",
@@ -1570,10 +1541,6 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "support": {
-                "issues": "https://github.com/FriendsOfPHP/proxy-manager-lts/issues",
-                "source": "https://github.com/FriendsOfPHP/proxy-manager-lts/tree/v1.0.5"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Ocramius",
@@ -1665,11 +1632,15 @@
                 "pager",
                 "paginator"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/KnpLabs/knp-components/issues",
                 "source": "https://github.com/KnpLabs/knp-components/tree/v3.5.0"
             },
             "time": "2021-12-11T12:45:19+00:00"
+=======
+            "time": "2021-12-04T18:46:24+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -1739,10 +1710,6 @@
                 "paginator",
                 "symfony"
             ],
-            "support": {
-                "issues": "https://github.com/KnpLabs/KnpPaginatorBundle/issues",
-                "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/v5.8.0"
-            },
             "time": "2021-10-30T08:27:46+00:00"
         },
         {
@@ -1795,6 +1762,7 @@
                 "laminas",
                 "laminasframework"
             ],
+<<<<<<< HEAD
             "support": {
                 "chat": "https://laminas.dev/chat",
                 "docs": "https://docs.laminas.dev/laminas-code/",
@@ -1803,6 +1771,116 @@
                 "rss": "https://github.com/laminas/laminas-code/releases.atom",
                 "source": "https://github.com/laminas/laminas-code"
             },
+=======
+            "time": "2019-12-31T16:28:24+00:00"
+        },
+        {
+            "name": "laminas/laminas-eventmanager",
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-eventmanager.git",
+                "reference": "a93fd278c97b2d41ebbce5ba048a24e3e6f580ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-eventmanager/zipball/a93fd278c97b2d41ebbce5ba048a24e3e6f580ba",
+                "reference": "a93fd278c97b2d41ebbce5ba048a24e3e6f580ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
+            },
+            "conflict": {
+                "zendframework/zend-eventmanager": "*"
+            },
+            "require-dev": {
+                "container-interop/container-interop": "^1.1",
+                "laminas/laminas-coding-standard": "~2.2.1",
+                "laminas/laminas-stdlib": "^3.6",
+                "phpbench/phpbench": "^1.1",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5.5"
+            },
+            "suggest": {
+                "container-interop/container-interop": "^1.1, to use the lazy listeners feature",
+                "laminas/laminas-stdlib": "^2.7.3 || ^3.0, to use the FilterChain feature"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\EventManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Trigger and listen to events within a PHP application",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "event",
+                "eventmanager",
+                "events",
+                "laminas"
+            ],
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2021-09-07T22:35:32+00:00"
+        },
+        {
+            "name": "laminas/laminas-zendframework-bridge",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
+                "reference": "88bf037259869891afce6504cacc4f8a07b24d0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/88bf037259869891afce6504cacc4f8a07b24d0f",
+                "reference": "88bf037259869891afce6504cacc4f8a07b24d0f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ~8.0.0 || ~8.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3",
+                "psalm/plugin-phpunit": "^0.15.1",
+                "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.6"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "module": "Laminas\\ZendFrameworkBridge"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ],
+                "psr-4": {
+                    "Laminas\\ZendFrameworkBridge\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Alias legacy ZF class names to Laminas Project equivalents.",
+            "keywords": [
+                "ZendFramework",
+                "autoloading",
+                "laminas",
+                "zf"
+            ],
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -1894,10 +1972,6 @@
                 "logging",
                 "psr-3"
             ],
-            "support": {
-                "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.5"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -1957,10 +2031,6 @@
                 "reflection",
                 "static analysis"
             ],
-            "support": {
-                "issues": "https://github.com/phpDocumentor/ReflectionCommon/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionCommon/tree/2.x"
-            },
             "time": "2020-06-27T09:03:43+00:00"
         },
         {
@@ -2014,10 +2084,6 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "support": {
-                "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.3.0"
-            },
             "time": "2021-10-19T17:43:47+00:00"
         },
         {
@@ -2064,10 +2130,6 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "support": {
-                "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.0"
-            },
             "time": "2022-01-04T19:58:01+00:00"
         },
         {
@@ -2113,10 +2175,6 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
-            "support": {
-                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.2.0"
-            },
             "time": "2021-09-16T20:46:02+00:00"
         },
         {
@@ -2163,10 +2221,14 @@
                 "psr",
                 "psr-6"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/php-fig/cache/tree/2.0.0"
             },
             "time": "2021-02-03T23:23:37+00:00"
+=======
+            "time": "2016-08-06T20:24:11+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "psr/container",
@@ -2210,11 +2272,15 @@
                 "container-interop",
                 "psr"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
                 "source": "https://github.com/php-fig/container/tree/1.1.2"
             },
             "time": "2021-11-05T16:50:12+00:00"
+=======
+            "time": "2021-03-05T17:36:06+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "psr/event-dispatcher",
@@ -2260,10 +2326,6 @@
                 "psr",
                 "psr-14"
             ],
-            "support": {
-                "issues": "https://github.com/php-fig/event-dispatcher/issues",
-                "source": "https://github.com/php-fig/event-dispatcher/tree/1.0.0"
-            },
             "time": "2019-01-08T18:20:26+00:00"
         },
         {
@@ -2314,10 +2376,14 @@
                 "psr-13",
                 "rest"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/php-fig/link/tree/1.1.1"
             },
             "time": "2021-03-11T22:59:13+00:00"
+=======
+            "time": "2016-10-28T16:06:13+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "psr/log",
@@ -2364,10 +2430,14 @@
                 "psr",
                 "psr-3"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/php-fig/log/tree/2.0.0"
             },
             "time": "2021-07-14T16:41:46+00:00"
+=======
+            "time": "2021-05-03T11:20:27+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2441,11 +2511,15 @@
                 "annotations",
                 "controllers"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/issues",
                 "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.2.6"
             },
             "time": "2022-01-14T11:51:13+00:00"
+=======
+            "time": "2022-01-02T16:55:10+00:00"
+>>>>>>> origin/ophelie
         },
         {
             "name": "symfony/asset",
@@ -2502,9 +2576,12 @@
             ],
             "description": "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/asset/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2599,9 +2676,12 @@
                 "caching",
                 "psr6"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/cache/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2678,9 +2758,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2757,9 +2834,6 @@
             ],
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/config/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2856,9 +2930,12 @@
                 "console",
                 "terminal"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/console/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2945,9 +3022,6 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3012,9 +3086,12 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.0"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3129,9 +3206,12 @@
             ],
             "description": "Provides integration for Doctrine with various Symfony components",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/doctrine-bridge/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3200,9 +3280,12 @@
                 "env",
                 "environment"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/dotenv/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3271,9 +3354,6 @@
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3356,9 +3436,6 @@
             ],
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3435,9 +3512,12 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.0.0"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3498,9 +3578,12 @@
             ],
             "description": "Provides an engine that can compile and evaluate expressions",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/expression-language/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3562,9 +3645,6 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3625,9 +3705,12 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3689,10 +3772,13 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
                 "source": "https://github.com/symfony/flex/tree/v2.1.4"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3793,9 +3879,12 @@
             ],
             "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/form/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3946,9 +4035,12 @@
             ],
             "description": "Provides a tight integration between Symfony components and the Symfony full-stack framework",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/framework-bundle/tree/v5.4.4"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4033,9 +4125,12 @@
             ],
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/http-client/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4111,9 +4206,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/http-client-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4184,9 +4276,6 @@
             ],
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4296,9 +4385,6 @@
             ],
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v5.4.4"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4384,9 +4470,12 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/intl/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4460,9 +4549,12 @@
             ],
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/mailer/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4543,9 +4635,12 @@
                 "mime",
                 "mime-type"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/mime/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4627,9 +4722,12 @@
             ],
             "description": "Provides integration for Monolog with various Symfony components",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/monolog-bridge/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4707,10 +4805,6 @@
                 "log",
                 "logging"
             ],
-            "support": {
-                "issues": "https://github.com/symfony/monolog-bundle/issues",
-                "source": "https://github.com/symfony/monolog-bundle/tree/v3.7.1"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4803,9 +4897,12 @@
                 "notification",
                 "notifier"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/notifier/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4872,9 +4969,12 @@
                 "configuration",
                 "options"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/options-resolver/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4945,9 +5045,12 @@
                 "hashing",
                 "password"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/password-hasher/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5026,9 +5129,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5113,9 +5213,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-icu/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5200,9 +5297,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5284,9 +5378,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5367,9 +5458,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5446,9 +5534,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5529,9 +5614,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5608,9 +5690,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php81/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5670,9 +5749,12 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/process/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5751,9 +5833,12 @@
                 "property path",
                 "reflection"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/property-access/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5842,9 +5927,12 @@
                 "type",
                 "validator"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/property-info/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5909,9 +5997,12 @@
             ],
             "description": "Provides integration for ProxyManager with various Symfony components",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/proxy-manager-bridge/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5999,9 +6090,6 @@
                 "uri",
                 "url"
             ],
-            "support": {
-                "source": "https://github.com/symfony/routing/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6076,9 +6164,12 @@
             ],
             "description": "Enables decoupling PHP applications from global state",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/runtime/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6178,9 +6269,12 @@
             ],
             "description": "Provides a tight integration of the Security component into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/security-bundle/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6271,9 +6365,12 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/security-core/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6343,9 +6440,12 @@
             ],
             "description": "Symfony Security Component - CSRF Library",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/security-csrf/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6410,9 +6510,12 @@
             ],
             "description": "Symfony Security Component - Guard",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/security-guard/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6495,9 +6598,12 @@
             ],
             "description": "Symfony Security Component - HTTP Integration",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/security-http/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6598,9 +6704,12 @@
             ],
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/serializer/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6680,9 +6789,12 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/service-contracts/tree/v2.4.1"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6742,9 +6854,12 @@
             ],
             "description": "Provides a way to profile code",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/stopwatch/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6828,9 +6943,12 @@
                 "utf-8",
                 "utf8"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/string/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6925,9 +7043,12 @@
             ],
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/translation/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7003,9 +7124,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7124,9 +7242,12 @@
             ],
             "description": "Provides integration for Twig with various Symfony components",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/twig-bridge/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7213,9 +7334,12 @@
             ],
             "description": "Provides a tight integration of Twig into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/twig-bundle/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7326,9 +7450,12 @@
             ],
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/validator/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7415,9 +7542,6 @@
                 "debug",
                 "dump"
             ],
-            "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7488,9 +7612,12 @@
                 "instantiate",
                 "serialize"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/var-exporter/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7575,9 +7702,12 @@
                 "psr13",
                 "push"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/web-link/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7645,10 +7775,6 @@
                 }
             ],
             "description": "Integration with your Symfony app & Webpack Encore!",
-            "support": {
-                "issues": "https://github.com/symfony/webpack-encore-bundle/issues",
-                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v1.13.2"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7721,9 +7847,12 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/yaml/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7804,9 +7933,12 @@
                 "extra",
                 "twig"
             ],
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.3.8"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -7879,10 +8011,13 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
                 "source": "https://github.com/twigphp/Twig/tree/v3.3.8"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -7947,10 +8082,6 @@
                 "check",
                 "validate"
             ],
-            "support": {
-                "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.10.0"
-            },
             "time": "2021-03-09T10:59:23+00:00"
         }
     ],
@@ -7998,10 +8129,6 @@
                 "object",
                 "object graph"
             ],
-            "support": {
-                "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.10.2"
-            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
@@ -8060,10 +8187,6 @@
                 "parser",
                 "php"
             ],
-            "support": {
-                "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.2"
-            },
             "time": "2021-11-30T19:35:32+00:00"
         },
         {
@@ -8120,10 +8243,6 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "support": {
-                "issues": "https://github.com/phar-io/manifest/issues",
-                "source": "https://github.com/phar-io/manifest/tree/2.0.3"
-            },
             "time": "2021-07-20T11:28:43+00:00"
         },
         {
@@ -8171,10 +8290,6 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "support": {
-                "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.0"
-            },
             "time": "2021-02-23T14:00:09+00:00"
         },
         {
@@ -8238,10 +8353,6 @@
                 "spy",
                 "stub"
             ],
-            "support": {
-                "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/v1.15.0"
-            },
             "time": "2021-12-08T12:19:24+00:00"
         },
         {
@@ -8309,10 +8420,6 @@
                 "testing",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.10"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8369,10 +8476,6 @@
                 "filesystem",
                 "iterator"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/3.0.6"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8432,10 +8535,6 @@
             "keywords": [
                 "process"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-invoker/issues",
-                "source": "https://github.com/sebastianbergmann/php-invoker/tree/3.1.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8491,10 +8590,6 @@
             "keywords": [
                 "template"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-text-template/issues",
-                "source": "https://github.com/sebastianbergmann/php-text-template/tree/2.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8550,10 +8645,6 @@
             "keywords": [
                 "timer"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-timer/issues",
-                "source": "https://github.com/sebastianbergmann/php-timer/tree/5.0.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8649,10 +8740,13 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://phpunit.de/sponsors.html",
@@ -8709,10 +8803,6 @@
             ],
             "description": "Library for parsing CLI options",
             "homepage": "https://github.com/sebastianbergmann/cli-parser",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/cli-parser/issues",
-                "source": "https://github.com/sebastianbergmann/cli-parser/tree/1.0.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8765,10 +8855,6 @@
             ],
             "description": "Collection of value objects that represent the PHP code units",
             "homepage": "https://github.com/sebastianbergmann/code-unit",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/code-unit/issues",
-                "source": "https://github.com/sebastianbergmann/code-unit/tree/1.0.8"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8820,10 +8906,6 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
-                "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/2.0.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8894,10 +8976,6 @@
                 "compare",
                 "equality"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/comparator/issues",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/4.0.6"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -8951,10 +9029,6 @@
             ],
             "description": "Library for calculating the complexity of PHP code units",
             "homepage": "https://github.com/sebastianbergmann/complexity",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/complexity/issues",
-                "source": "https://github.com/sebastianbergmann/complexity/tree/2.0.2"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9017,10 +9091,6 @@
                 "unidiff",
                 "unified diff"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/diff/issues",
-                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9080,10 +9150,6 @@
                 "environment",
                 "hhvm"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/environment/issues",
-                "source": "https://github.com/sebastianbergmann/environment/tree/5.1.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9157,10 +9223,6 @@
                 "export",
                 "exporter"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/exporter/issues",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/4.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9221,10 +9283,6 @@
             "keywords": [
                 "global state"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9278,10 +9336,6 @@
             ],
             "description": "Library for counting the lines of code in PHP source code",
             "homepage": "https://github.com/sebastianbergmann/lines-of-code",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
-                "source": "https://github.com/sebastianbergmann/lines-of-code/tree/1.0.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9335,10 +9389,6 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
-                "source": "https://github.com/sebastianbergmann/object-enumerator/tree/4.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9390,10 +9440,6 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
-                "source": "https://github.com/sebastianbergmann/object-reflector/tree/2.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9453,10 +9499,6 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
-                "source": "https://github.com/sebastianbergmann/recursion-context/tree/4.0.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9508,10 +9550,6 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
-                "source": "https://github.com/sebastianbergmann/resource-operations/tree/3.0.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9564,10 +9602,6 @@
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
             "homepage": "https://github.com/sebastianbergmann/type",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/type/issues",
-                "source": "https://github.com/sebastianbergmann/type/tree/2.3.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9617,10 +9651,6 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/version/issues",
-                "source": "https://github.com/sebastianbergmann/version/tree/3.0.2"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -9682,9 +9712,12 @@
             ],
             "description": "Simulates the behavior of a web browser, allowing you to make requests, click on links and submit forms programmatically",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/browser-kit/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9748,9 +9781,12 @@
             ],
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/css-selector/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9827,9 +9863,12 @@
             ],
             "description": "Provides a tight integration of the Symfony VarDumper component and the ServerLogCommand from MonologBridge into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/debug-bundle/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9902,9 +9941,12 @@
             ],
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/dom-crawler/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9989,10 +10031,6 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "support": {
-                "issues": "https://github.com/symfony/maker-bundle/issues",
-                "source": "https://github.com/symfony/maker-bundle/tree/v1.36.4"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10073,9 +10111,12 @@
             ],
             "description": "Provides utilities for PHPUnit, especially user deprecation notices management",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/phpunit-bridge/tree/v6.0.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10153,9 +10194,12 @@
             ],
             "description": "Provides a development tool that gives detailed information about the execution of any request",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "support": {
                 "source": "https://github.com/symfony/web-profiler-bundle/tree/v5.4.3"
             },
+=======
+>>>>>>> origin/ophelie
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10210,10 +10254,6 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "support": {
-                "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/1.2.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/theseer",
@@ -10234,5 +10274,9 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.2.0"
+=======
+    "plugin-api-version": "1.1.0"
+>>>>>>> origin/ophelie
 }
