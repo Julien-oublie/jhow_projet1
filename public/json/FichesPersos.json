@@ -4,6 +4,19 @@
             "nom":"Bardides",
             "standard de vie": "Prospère",
             "Avantage culturel":"Intrépide",
+            "Vertus":{
+                "1": "Épouvantables visions",
+                "2": "Héritage",
+                "3": "Homme du Roi",
+                "4": "Épouvantables",
+                "5": "Épouvantables",
+                "6": "Épouvantables",
+                "7": "Épouvantables",
+                "8": "Épouvantables",
+                "9": "Épouvantables",
+                "10": "Épouvantables"
+
+            },
             "competence":{
                 "Admiration":1,
                 "Athletisme":0,
