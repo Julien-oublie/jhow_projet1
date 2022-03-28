@@ -1,4 +1,10 @@
-{ "Classe":{
+{ 
+    "Attribut ameliorés" :{
+        "corps": [1,2,3],
+        "coeur" : [1,2,3],
+        "esprit":[1,2,3]
+    },
+    "Classe":{
         "1":
         {
             "nom":"Bardides",
@@ -159,6 +165,7 @@
                     }
                 }
             }
+            
         }
         ,
         "2":{

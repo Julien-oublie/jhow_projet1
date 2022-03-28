@@ -83,6 +83,8 @@ class PersonnageType extends AbstractType
         );
         
     }
+ 
+        
     // Ajoute La classe, les compétences, standard de vie, avantage culturel + select origine
     private function addClassAtribut(FormInterface $form, $formData, $allClasses)
     {    
@@ -91,6 +93,7 @@ class PersonnageType extends AbstractType
         $tabSpecialite2 = [];
         $tabArmes = [];
         $tabVocation = [];
+        $tabAttributCorps = [];
         $int = 1;
         foreach ($allClasses["Classe"] as $classe){
             
@@ -101,6 +104,7 @@ class PersonnageType extends AbstractType
 
                 //Vient chercher les compétences du personnage séléctionné pour les mettre dans le tableau
                 $tabCompetences["competence"] = $classe["competence"];
+                
                 //************ARMES************
                 //Vient chercher les armes du personnage dans le JSON pour la mettre dans le tableau
                 foreach ($classe["Armes"] as $data) {
@@ -237,12 +241,57 @@ class PersonnageType extends AbstractType
                   );  
                 $form->add($builder->getForm());
                
+                //************ATTRIBUT AMELIORES************
+                    //************Corps************
+                    foreach ($allClasses["Attribut ameliorés"]["corps"] as $attibutAmeliores) {
+                          $tabAttributCorps[$attibutAmeliores] = $attibutAmeliores;
+                          //On vient mettre les bonnes données dans le builder
+                          }
+                          $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
+                              'attributCorps', ChoiceType::class, null, [
+                                  'choices'  =>  $tabAttributCorps,
+                                  'placeholder'=>'Attribut à ameliorés',
+                                  'mapped'=>false,
+                                  'auto_initialize' => false, 
+                                  'label' => ' Définir les attribut à améliorés Corps :',
+                              ],
+                          );
+                          //On parametre le listener avec la fonction de ce qu'il doit faire
+                          $builder->addEventListener(
+                              FormEvents::POST_SUBMIT,
+                              function (FormEvent $event) {
+                                  $form = $event->getForm();
+                                  $this->addAtributAmelioreCoeur($form->getParent(), $form->getData());
+                              }
+                          );
+                          $form->add($builder->getForm());
+                          
+                          
+                      //************ATTRIBUT AMELIORES************
 
             }
             
         }
     }
-
+    private function addAtributAmelioreCoeur(FormInterface $form, $data)
+    { 
+        $tabAttributCoeur = [];
+        $AttributAmeliores = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
+        foreach ($AttributAmeliores["Attribut ameliorés"]["coeur"] as $attributCoeur){
+            if($attributCoeur!=$data){
+                $tabAttributCoeur[$attributCoeur] = $attributCoeur;
+            }
+            //On vient mettre les bonnes données dans le builder
+            if($data){
+                $form->add('attributCoeur', ChoiceType::class, [
+                    'choices'  =>  $tabAttributCoeur,
+                    'mapped'=>false,
+                    'auto_initialize' => false, 
+                    'label' => ' Coeur :',
+                ]);
+            }
+        }
+    }
     //Ajoute les champs particularités 
     private function addOrigineAtribut(FormInterface $form, $data){
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
@@ -321,6 +370,7 @@ class PersonnageType extends AbstractType
             }
         }
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {
