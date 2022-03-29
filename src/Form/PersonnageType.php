@@ -93,7 +93,6 @@ class PersonnageType extends AbstractType
         $tabSpecialite2 = [];
         $tabArmes = [];
         $tabVocation = [];
-        $tabAttributCorps = [];
         $int = 1;
         foreach ($allClasses["Classe"] as $classe){
             
@@ -241,57 +240,13 @@ class PersonnageType extends AbstractType
                   );  
                 $form->add($builder->getForm());
                
-                //************ATTRIBUT AMELIORES************
-                    //************Corps************
-                    foreach ($allClasses["Attribut ameliorés"]["corps"] as $attibutAmeliores) {
-                          $tabAttributCorps[$attibutAmeliores] = $attibutAmeliores;
-                          //On vient mettre les bonnes données dans le builder
-                          }
-                          $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
-                              'attributCorps', ChoiceType::class, null, [
-                                  'choices'  =>  $tabAttributCorps,
-                                  'placeholder'=>'Attribut à ameliorés',
-                                  'mapped'=>false,
-                                  'auto_initialize' => false, 
-                                  'label' => ' Définir les attribut à améliorés Corps :',
-                              ],
-                          );
-                          //On parametre le listener avec la fonction de ce qu'il doit faire
-                          $builder->addEventListener(
-                              FormEvents::POST_SUBMIT,
-                              function (FormEvent $event) {
-                                  $form = $event->getForm();
-                                  $this->addAtributAmelioreCoeur($form->getParent(), $form->getData());
-                              }
-                          );
-                          $form->add($builder->getForm());
-                          
-                          
-                      //************ATTRIBUT AMELIORES************
+               
 
             }
             
         }
     }
-    private function addAtributAmelioreCoeur(FormInterface $form, $data)
-    { 
-        $tabAttributCoeur = [];
-        $AttributAmeliores = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
-        foreach ($AttributAmeliores["Attribut ameliorés"]["coeur"] as $attributCoeur){
-            if($attributCoeur!=$data){
-                $tabAttributCoeur[$attributCoeur] = $attributCoeur;
-            }
-            //On vient mettre les bonnes données dans le builder
-            if($data){
-                $form->add('attributCoeur', ChoiceType::class, [
-                    'choices'  =>  $tabAttributCoeur,
-                    'mapped'=>false,
-                    'auto_initialize' => false, 
-                    'label' => ' Coeur :',
-                ]);
-            }
-        }
-    }
+    
     //Ajoute les champs particularités 
     private function addOrigineAtribut(FormInterface $form, $data){
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
@@ -302,18 +257,6 @@ class PersonnageType extends AbstractType
             foreach ($value["Origine"] as $origine){
                 if ($origine["nom"] == $data ) {
 
-                    //On ajoute les champs relatifs aux origines
-                    $form->add('competence_favorite', TextType::class, [
-                        'disabled'   => true,
-                        'attr' => ['value' => $origine["competence favorite"]],
-                    ]);
-                    foreach ($origine["Attribut de base"] as $key => $value) {
-                        $form->add( $key, IntegerType::class, [
-                            'disabled'   => true,
-                            'attr' => ['value' =>  $value],
-                        ]);
-                    };
-                    
                     //PARTICULARITES
                     //On ajoute toutes les particularitées dans le tableau
                     foreach ($origine["Particularite"] as $dataOrigine) {
@@ -325,17 +268,29 @@ class PersonnageType extends AbstractType
                         'multiple'=> true,
                         'expanded'=>true
                     ]);
+
+                    //On ajoute les champs relatifs aux origines
+                    $form->add('competence_favorite', TextType::class, [
+                        'disabled'   => true,
+                        'attr' => ['value' => $origine["competence favorite"]],
+                    ]);
+                    foreach ($origine["Attribut de base"] as $key => $value) {
+                        $form->add( $key, IntegerType::class, [
+                            'disabled'   => true,
+                            'attr' => ['value' =>  $value],
+                        ]);
+                    }
                 }
-            }     
+            } 
+           
         }
     }
 
-
-
-
     private function addVocationAtribut(FormInterface $form, $data){
+        dump($form);
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
         $tabVocations = [];
+        $tabAttributCorps = [];
         foreach ($Classe["Classe"] as $value){
             foreach ($value["Vocation"] as $vocation){
             
@@ -368,9 +323,90 @@ class PersonnageType extends AbstractType
                     
                 }    
             }
+             //************ATTRIBUT AMELIORES************
+                //************Corps************
+                foreach ($Classe["Attribut ameliorés"]["corps"] as $attibutAmeliores) {
+                    $tabAttributCorps[$attibutAmeliores] = $attibutAmeliores;
+                    //On vient mettre les bonnes données dans le builder
+                }
+                $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
+                    'attributCorps', ChoiceType::class, null, [
+                    'choices'  =>  $tabAttributCorps,
+                    'placeholder'=>'Attribut à ameliorés',
+                    'mapped'=>false,
+                    'auto_initialize' => false, 
+                    'label' => ' Définir les attribut à améliorés Corps :',
+                    ],
+                );
+                //On parametre le listener avec la fonction de ce qu'il doit faire
+                $builder->addEventListener(
+                FormEvents::POST_SUBMIT,
+                    function (FormEvent $event) {
+                        $form = $event->getForm();
+                        $this->addAtributAmelioreCoeur($form->getParent(), $form->getData());
+                    }
+                );
+                $form->add($builder->getForm()); 
+            //************ATTRIBUT AMELIORES************    
         }
     }
     
+    private function addAtributAmelioreCoeur(FormInterface $form, $data)
+    { 
+        $tabAttributCoeur = [];
+        $AttributAmeliores = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
+        foreach ($AttributAmeliores["Attribut ameliorés"]["coeur"] as $attributCoeur){
+            if($attributCoeur!=$data){
+                $tabAttributCoeur[$attributCoeur] = $attributCoeur.':'.$data;
+            }
+            //On vient mettre les bonnes données dans le builder
+            if($data){
+                $builder =$form->getConfig()->getFormFactory()->createNamedBuilder(
+                    'attributCoeur', ChoiceType::class, null, [
+                    'choices'  =>  $tabAttributCoeur,
+                    'mapped'=>false,
+                    'auto_initialize' => false, 
+                    'label' => ' Coeur :',
+                ]);
+                //On parametre le listener avec la fonction de ce qu'il doit faire
+                $builder->addEventListener(
+                    FormEvents::POST_SUBMIT,
+                        function (FormEvent $event) {
+                            $form = $event->getForm();
+                            $this->addAtributAmelioreEsprit($form->getParent(), $form->getData());
+                        }
+                    );
+                $form->add($builder->getForm()); 
+            }
+        }
+    }
+
+    private function addAtributAmelioreEsprit(FormInterface $form, $data)
+    { 
+        $tabAttributEsprit = [];
+        $allData= explode(":", $data);
+        if($data){
+            $dataCorps =  $allData[1];
+            $dataCoeur =  $allData[0];
+        
+            $AttributAmeliores = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
+            foreach ($AttributAmeliores["Attribut ameliorés"]["esprit"] as $attributEsprit){
+                if($attributEsprit!=$dataCorps  && $attributEsprit!=$dataCoeur){
+                    $tabAttributEsprit[$attributEsprit] = $attributEsprit;
+                }
+                //On vient mettre les bonnes données dans le builder
+                if( $dataCorps && $dataCoeur){
+                    $form->add('attributEsprit', ChoiceType::class, [
+                        'choices'  =>  $tabAttributEsprit,
+                        'mapped'=>false,
+                        'auto_initialize' => false, 
+                        'label' => ' Esprit :',
+                        'disabled' => true
+                    ]);
+                }
+            }
+        }
+    }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
