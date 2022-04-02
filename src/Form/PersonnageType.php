@@ -287,7 +287,7 @@ class PersonnageType extends AbstractType
     }
 
     private function addVocationAtribut(FormInterface $form, $data){
-        dump($form);
+        //dump($form);
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
         $tabVocations = [];
         $tabAttributCorps = [];
