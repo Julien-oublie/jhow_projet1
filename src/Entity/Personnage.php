@@ -40,14 +40,8 @@ class Personnage
     
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $standard_de_vie;
-
-    /**
-     *@ORM\Column(type="string", length=255)
-     */
-    private $competence;
 
     /**
      * @ORM\Column(type="array")
@@ -60,92 +54,92 @@ class Personnage
     private $avantage_culturel;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Admiration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Athletisme;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Conscience;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Exploration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Chant;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Artisanat;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Inspiration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Voyage;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Perspicacite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Guerison;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Courtoisie;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Combat;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Persuasion;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Furtivite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Fouille;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Chasse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     *@ORM\Column(type="integer")
      */
     private $Enigmes;
 
     /**
-     * @ORM\Column(type="string", length=255)
+    *@ORM\Column(type="integer")
      */
     private $Conaissances;
 
@@ -193,9 +187,9 @@ class Personnage
      */
     private $competence_favorite;
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $competences_favorites = [];
+    private $competences_favorites_vocation;
 
      /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -282,26 +276,7 @@ class Personnage
 
         return $this;
     }
-
-
     
-
-    public function getCompetence(): ?string
-    {
-        return $this->competence;
-    }
-
-    public function setCompetence(?string $competence): self
-    {
-       
-        $this->competence = $competence;
-
-        return $this;
-    }
-
-
-   
-
     public function getOrigine(): ?string
     {
         return $this->origine;
@@ -603,14 +578,14 @@ class Personnage
         return $this;
     }
 
-    public function getCompetencesFavorites(): ?array
+    public function getCompetencesFavoritesVocation(): ?string
     {
-        return $this->competences_favorites;
+        return $this->competences_favorites_vocation;
     }
 
-    public function setCompetencesFavorites(?array $competences_favorites): self
+    public function setCompetencesFavoritesVocation(?string $competences_favorites_vocation): self
     {
-        $this->competences_favorites = $competences_favorites;
+        $this->competences_favorites_vocation = $competences_favorites_vocation;
 
         return $this;
     }

@@ -32,8 +32,10 @@ class PersonnageController extends AbstractController
         $form->handleRequest($request);
         
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            dump($form);
+        if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
+            dump($form->getData());
+            $specialite = [$request->request->get('specialites1'),$request->request->get('specialites1')];
+            $personnage->setSpecialite($specialite);
             $pdf = new \FPDF();
                 //$pdf->AddPage();
               //  $y = $pdf->getY();
@@ -62,9 +64,9 @@ class PersonnageController extends AbstractController
                 //créer le pdf
                 $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
                // $pdf->Output( $pdfFilepath ,'I');
-            //$entityManager->persist($personnage);
-            //$entityManager->flush();
-            //return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+            $entityManager->persist($personnage);
+            $entityManager->flush();
+           // return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('personnage/new.html.twig', [

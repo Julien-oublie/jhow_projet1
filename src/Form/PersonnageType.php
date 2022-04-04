@@ -32,10 +32,9 @@ class PersonnageType extends AbstractType
         
         $builder
                 ->add('nom')
-                ->add('class',ChoiceType::class, [
+                ->add('classe',ChoiceType::class, [
                 'choices'  =>  $tabClasse,
                 'placeholder' => 'Séléctionnez une classe',
-                'mapped'=>false,  
                 ])
                 ->add('origine', ChoiceType::class, [
                     'choices'  => [],
@@ -51,7 +50,7 @@ class PersonnageType extends AbstractType
                 ]);
         
 
-        $builder->get('class')->addEventListener(
+        $builder->get('classe')->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) {   
                 $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
@@ -155,17 +154,14 @@ class PersonnageType extends AbstractType
                 
                 //************SPECIALITES************
                 $form->add('standard_de_vie', TextType::class, [
-                    'disabled'   => true,
                     'attr' => ['value' => $classe["standard de vie"]],
                     ])
                     ->add('avantage_culturel', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $classe["Avantage culturel"], 'class' => 'form-control-sm col-2'],
                     ]);
                 //add un champ form pour chaque champ de compétence
                 foreach ($tabCompetences["competence"] as $key => $value) {
                     $form->add( $key, IntegerType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2'],
                     ]);
                 }
@@ -184,7 +180,6 @@ class PersonnageType extends AbstractType
                     'origine', ChoiceType::class, null, [
                         'choices'  =>  $tabOrigine,
                         'placeholder' => 'Séléctionnez une origine',
-                        'mapped'=>false,
                         'auto_initialize' => false,  
                     ],
                 );
@@ -225,7 +220,6 @@ class PersonnageType extends AbstractType
                     'vocation', ChoiceType::class, null, [
                         'choices'  =>  $tabVocation,
                         'placeholder' => 'Séléctionnez une origine vocation',
-                        'mapped'=>false,
                         'auto_initialize' => false,  
                     ]
                 );
@@ -270,12 +264,10 @@ class PersonnageType extends AbstractType
 
                     //On ajoute les champs relatifs aux origines
                     $form->add('competence_favorite', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $origine["competence favorite"]],
                     ]);
                     foreach ($origine["Attribut de base"] as $key => $value) {
                         $form->add( $key, IntegerType::class, [
-                            'disabled'   => true,
                             'attr' => ['value' =>  $value],
                         ]);
                     }
@@ -299,11 +291,9 @@ class PersonnageType extends AbstractType
                         $tabVocations[$dataCompetencesFav] = $dataCompetencesFav;
                     }
 
-                    $form->add('competences_favorites', ChoiceType::class, [
-                        'label'    => 'competences favorites',
+                    $form->add('competences_favorites_vocation', ChoiceType::class, [
+                        'label'    => 'Competences vocation',
                         'choices'  =>  $tabVocations,
-                        'multiple'=> true,
-                        'expanded'=>true,
                         'empty_data' => 1
                     
                     ]);
