@@ -26,16 +26,18 @@ class Personnage
      */
     private $nom;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $corps;
+    /****************************** PARTIE CLASSE ******************************/
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $esprit;
-
+    private $classe; 
+    
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $specialite = [];
+    
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
@@ -43,119 +45,19 @@ class Personnage
     private $standard_de_vie;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $experience;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $courage;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $sagesse;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $dommage;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $parade;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $armure;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $camaraderie;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $prestige;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Vocation::class, inversedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $vocation;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=TableOfYears::class, inversedBy="personnages")
-     */
-    private $tableofyears;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Espoir::class, inversedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $espoir;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Endurance::class, inversedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $endurance;
-
-    /**
-     * @ORM\OneToOne(targetEntity=CompetenceDeGroupe::class, mappedBy="personnage", cascade={"persist", "remove"})
-     */
-    private $competenceDeGroupe;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Vertu::class, mappedBy="personnage")
-     */
-    private $vertus;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Competence::class, mappedBy="personnage", cascade={"persist", "remove"})
+     *@ORM\Column(type="string", length=255)
      */
     private $competence;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Recompense::class, mappedBy="personnage")
+     * @ORM\Column(type="array")
      */
-    private $recompenses;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Groupe::class, mappedBy="personnage")
-     */
-    private $groupes;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $origine;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $classe;
-
+    private $armes = [];
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $avantage_culturel;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $background;
-
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $specialite = [];
-
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $particularite = [];
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -247,10 +149,18 @@ class Personnage
      */
     private $Conaissances;
 
-    /**
+   /****************************** PARTIE CLASSE ******************************/
+
+   /****************************** PARTIE ORIGINE ******************************/
+   /**
      * @ORM\Column(type="string", length=255)
      */
-    private $competence_favorite;
+    private $origine;
+
+     /**
+     * @ORM\Column(type="array")
+     */
+    private $particularite = [];
 
     /**
      * @ORM\Column(type="integer")
@@ -258,26 +168,53 @@ class Personnage
     private $coeur;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $corps;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $esprit;
+
+
+    /****************************** PARTIE ORIGINE ******************************/
+
+
+    /****************************** PARTIE VOCATION ******************************/
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $vocation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $competence_favorite;
+    /**
      * @ORM\Column(type="array", nullable=true)
      */
     private $competences_favorites = [];
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $traits;
-
-    /**
+     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $part_ombre;
+
+      /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $traits;
+    /****************************** PARTIE VOCATION ******************************/
+
 
     public function __construct()
     {
         $this->traits = new ArrayCollection();
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
-        $this->groupes = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -333,274 +270,37 @@ class Personnage
         return $this;
     }
 
-    public function getExperience(): ?int
-    {
-        return $this->experience;
-    }
 
-    public function setExperience(?int $experience): self
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
-    public function getCourage(): ?int
-    {
-        return $this->courage;
-    }
-
-    public function setCourage(int $courage): self
-    {
-        $this->courage = $courage;
-
-        return $this;
-    }
-
-    public function getSagesse(): ?int
-    {
-        return $this->sagesse;
-    }
-
-    public function setSagesse(int $sagesse): self
-    {
-        $this->sagesse = $sagesse;
-
-        return $this;
-    }
-
-    public function getDommage(): ?int
-    {
-        return $this->dommage;
-    }
-
-    public function setDommage(int $dommage): self
-    {
-        $this->dommage = $dommage;
-
-        return $this;
-    }
-
-    public function getParade(): ?int
-    {
-        return $this->parade;
-    }
-
-    public function setParade(int $parade): self
-    {
-        $this->parade = $parade;
-
-        return $this;
-    }
-
-    public function getArmure(): ?int
-    {
-        return $this->armure;
-    }
-
-    public function setArmure(int $armure): self
-    {
-        $this->armure = $armure;
-
-        return $this;
-    }
-
-    public function getCamaraderie(): ?int
-    {
-        return $this->camaraderie;
-    }
-
-    public function setCamaraderie(int $camaraderie): self
-    {
-        $this->camaraderie = $camaraderie;
-
-        return $this;
-    }
-
-    public function getPrestige(): ?int
-    {
-        return $this->prestige;
-    }
-
-    public function setPrestige(int $prestige): self
-    {
-        $this->prestige = $prestige;
-
-        return $this;
-    }
-
-    public function getVocation(): ?Vocation
+    public function getVocation():  ?string
     {
         return $this->vocation;
     }
 
-    public function setVocation(?Vocation $vocation): self
+    public function setVocation(?string $vocation): self
     {
         $this->vocation = $vocation;
 
         return $this;
     }
 
-    public function getTableofyears(): ?TableOfYears
-    {
-        return $this->tableofyears;
-    }
 
-    public function setTableofyears(?TableOfYears $tableofyears): self
-    {
-        $this->tableofyears = $tableofyears;
+    
 
-        return $this;
-    }
-
-    public function getEspoir(): ?Espoir
-    {
-        return $this->espoir;
-    }
-
-    public function setEspoir(?Espoir $espoir): self
-    {
-        $this->espoir = $espoir;
-
-        return $this;
-    }
-
-    public function getEndurance(): ?Endurance
-    {
-        return $this->endurance;
-    }
-
-    public function setEndurance(?Endurance $endurance): self
-    {
-        $this->endurance = $endurance;
-
-        return $this;
-    }
-
-    public function getCompetenceDeGroupe(): ?CompetenceDeGroupe
-    {
-        return $this->competenceDeGroupe;
-    }
-
-    public function setCompetenceDeGroupe(?CompetenceDeGroupe $competenceDeGroupe): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($competenceDeGroupe === null && $this->competenceDeGroupe !== null) {
-            $this->competenceDeGroupe->setPersonnage(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($competenceDeGroupe !== null && $competenceDeGroupe->getPersonnage() !== $this) {
-            $competenceDeGroupe->setPersonnage($this);
-        }
-
-        $this->competenceDeGroupe = $competenceDeGroupe;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Vertu[]
-     */
-    public function getVertus(): Collection
-    {
-        return $this->vertus;
-    }
-
-    public function addVertu(Vertu $vertu): self
-    {
-        if (!$this->vertus->contains($vertu)) {
-            $this->vertus[] = $vertu;
-            $vertu->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeVertu(Vertu $vertu): self
-    {
-        if ($this->vertus->removeElement($vertu)) {
-            $vertu->removePersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function getCompetence(): ?Competence
+    public function getCompetence(): ?string
     {
         return $this->competence;
     }
 
-    public function setCompetence(?Competence $competence): self
+    public function setCompetence(?string $competence): self
     {
-        // unset the owning side of the relation if necessary
-        if ($competence === null && $this->competence !== null) {
-            $this->competence->setPersonnage(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($competence !== null && $competence->getPersonnage() !== $this) {
-            $competence->setPersonnage($this);
-        }
-
+       
         $this->competence = $competence;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Recompense[]
-     */
-    public function getRecompenses(): Collection
-    {
-        return $this->recompenses;
-    }
 
-    public function addRecompense(Recompense $recompense): self
-    {
-        if (!$this->recompenses->contains($recompense)) {
-            $this->recompenses[] = $recompense;
-            $recompense->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecompense(Recompense $recompense): self
-    {
-        if ($this->recompenses->removeElement($recompense)) {
-            $recompense->removePersonnage($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Groupe[]
-     */
-    public function getGroupes(): Collection
-    {
-        return $this->groupes;
-    }
-
-    public function addGroupe(Groupe $groupe): self
-    {
-        if (!$this->groupes->contains($groupe)) {
-            $this->groupes[] = $groupe;
-            $groupe->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeGroupe(Groupe $groupe): self
-    {
-        if ($this->groupes->removeElement($groupe)) {
-            $groupe->removePersonnage($this);
-        }
-
-        return $this;
-    }
+   
 
     public function getOrigine(): ?string
     {
@@ -638,17 +338,6 @@ class Personnage
         return $this;
     }
 
-    public function getBackground(): ?string
-    {
-        return $this->background;
-    }
-
-    public function setBackground(string $background): self
-    {
-        $this->background = $background;
-
-        return $this;
-    }
 
     public function getSpecialite(): ?array
     {
@@ -946,6 +635,18 @@ class Personnage
     public function setPartOmbre(?string $part_ombre): self
     {
         $this->part_ombre = $part_ombre;
+
+        return $this;
+    }
+
+    public function getArmes(): ?array
+    {
+        return $this->armes;
+    }
+
+    public function setArmes(array $armes): self
+    {
+        $this->armes = $armes;
 
         return $this;
     }

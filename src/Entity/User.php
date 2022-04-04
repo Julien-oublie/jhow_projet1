@@ -37,10 +37,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Groupe::class, mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $groupe;
 
     public function getId(): ?int
     {
@@ -131,25 +127,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getGroupe(): ?Groupe
-    {
-        return $this->groupe;
-    }
-
-    public function setGroupe(?Groupe $groupe): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($groupe === null && $this->groupe !== null) {
-            $this->groupe->setUser(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($groupe !== null && $groupe->getUser() !== $this) {
-            $groupe->setUser($this);
-        }
-
-        $this->groupe = $groupe;
-
-        return $this;
-    }
 }

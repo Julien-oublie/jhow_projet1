@@ -27,7 +27,6 @@ class PersonnageController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $personnage = new Personnage();
-        dump($_POST);
         $form = $_POST;  
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
