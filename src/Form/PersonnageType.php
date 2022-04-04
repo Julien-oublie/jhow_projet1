@@ -22,9 +22,6 @@ use Symfony\Component\Form\FormInterface;
 
 class PersonnageType extends AbstractType
 {
-    
-    
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
@@ -38,7 +35,7 @@ class PersonnageType extends AbstractType
                 ->add('class',ChoiceType::class, [
                 'choices'  =>  $tabClasse,
                 'placeholder' => 'Séléctionnez une classe',
-                'mapped'=>false     
+                'mapped'=>false,  
                 ])
                 ->add('origine', ChoiceType::class, [
                     'choices'  => [],
@@ -123,6 +120,7 @@ class PersonnageType extends AbstractType
                 );
                 $form->add($builder->getForm());
                 //************ARMES************
+
                 //************SPECIALITES************
                 //Vient chercher la  1 specialite du personnage dans le JSON pour la mettre dans le tableau
                 foreach ($classe["specialite"] as $data) {
@@ -154,6 +152,7 @@ class PersonnageType extends AbstractType
                     ],
                 );
                 $form->add($builder->getForm());
+                
                 //************SPECIALITES************
                 $form->add('standard_de_vie', TextType::class, [
                     'disabled'   => true,
@@ -161,13 +160,13 @@ class PersonnageType extends AbstractType
                     ])
                     ->add('avantage_culturel', TextType::class, [
                         'disabled'   => true,
-                        'attr' => ['value' => $classe["Avantage culturel"]],
+                        'attr' => ['value' => $classe["Avantage culturel"], 'class' => 'form-control-sm col-2'],
                     ]);
                 //add un champ form pour chaque champ de compétence
                 foreach ($tabCompetences["competence"] as $key => $value) {
                     $form->add( $key, IntegerType::class, [
                         'disabled'   => true,
-                        'attr' => ['value' =>  $value],
+                        'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2'],
                     ]);
                 }
                  //************On ajoute les champs relatifs à la classe************
@@ -287,7 +286,7 @@ class PersonnageType extends AbstractType
     }
 
     private function addVocationAtribut(FormInterface $form, $data){
-        //dump($form);
+
         $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
         $tabVocations = [];
         $tabAttributCorps = [];
