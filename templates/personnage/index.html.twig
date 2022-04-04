@@ -1,20 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PersonnageController!{% endblock %}
+{% block title %}Personnage index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Personnage index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Corps</th>
+                <th>Esprit</th>
+                <th>Standard_de_vie</th>
+                <th>Experience</th>
+                <th>Courage</th>
+                <th>Sagesse</th>
+                <th>Dommage</th>
+                <th>Parade</th>
+                <th>Armure</th>
+                <th>Camaraderie</th>
+                <th>Prestige</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnage in personnages %}
+            <tr>
+                <td>{{ personnage.id }}</td>
+                <td>{{ personnage.nom }}</td>
+                <td>{{ personnage.corps }}</td>
+                <td>{{ personnage.esprit }}</td>
+                <td>{{ personnage.standardDeVie }}</td>
+                <td>{{ personnage.experience }}</td>
+                <td>{{ personnage.courage }}</td>
+                <td>{{ personnage.sagesse }}</td>
+                <td>{{ personnage.dommage }}</td>
+                <td>{{ personnage.parade }}</td>
+                <td>{{ personnage.armure }}</td>
+                <td>{{ personnage.camaraderie }}</td>
+                <td>{{ personnage.prestige }}</td>
+                <td>
+                    <a href="{{ path('personnage_show', {'id': personnage.id}) }}">show</a>
+                    <a href="{{ path('personnage_edit', {'id': personnage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Mlle-/Desktop/projet/jhow_projet1/src/Controller/PersonnageController.php'|file_link(0) }}">src/Controller/PersonnageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Mlle-/Desktop/projet/jhow_projet1/templates/personnage/index.html.twig'|file_link(0) }}">templates/personnage/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('personnage_new') }}">Create new</a>
 {% endblock %}

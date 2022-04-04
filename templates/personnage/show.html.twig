@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnage{% endblock %}
+
+{% block body %}
+    <h1>Personnage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnage.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personnage.nom }}</td>
+            </tr>
+            <tr>
+                <th>Corps</th>
+                <td>{{ personnage.corps }}</td>
+            </tr>
+            <tr>
+                <th>Esprit</th>
+                <td>{{ personnage.esprit }}</td>
+            </tr>
+            <tr>
+                <th>Standard_de_vie</th>
+                <td>{{ personnage.standardDeVie }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ personnage.experience }}</td>
+            </tr>
+            <tr>
+                <th>Courage</th>
+                <td>{{ personnage.courage }}</td>
+            </tr>
+            <tr>
+                <th>Sagesse</th>
+                <td>{{ personnage.sagesse }}</td>
+            </tr>
+            <tr>
+                <th>Dommage</th>
+                <td>{{ personnage.dommage }}</td>
+            </tr>
+            <tr>
+                <th>Parade</th>
+                <td>{{ personnage.parade }}</td>
+            </tr>
+            <tr>
+                <th>Armure</th>
+                <td>{{ personnage.armure }}</td>
+            </tr>
+            <tr>
+                <th>Camaraderie</th>
+                <td>{{ personnage.camaraderie }}</td>
+            </tr>
+            <tr>
+                <th>Prestige</th>
+                <td>{{ personnage.prestige }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personnage_index') }}">back to list</a>
+
+    <a href="{{ path('personnage_edit', {'id': personnage.id}) }}">edit</a>
+
+    {{ include('personnage/_delete_form.html.twig') }}
+{% endblock %}
