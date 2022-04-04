@@ -34,7 +34,7 @@ class PersonnageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
             dump($form->getData());
-            $specialite = [$request->request->get('specialites1'),$request->request->get('specialites1')];
+            $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
             $personnage->setSpecialite($specialite);
             $pdf = new \FPDF();
                 //$pdf->AddPage();
