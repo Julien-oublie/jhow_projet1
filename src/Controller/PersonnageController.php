@@ -62,7 +62,7 @@ class PersonnageController extends AbstractController
 
                 //créer le pdf
                 $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
-                $pdf->Output( $pdfFilepath ,'I');
+               // $pdf->Output( $pdfFilepath ,'I');
             //$entityManager->persist($personnage);
             //$entityManager->flush();
             //return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
