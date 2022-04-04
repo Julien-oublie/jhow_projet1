@@ -9,6 +9,11 @@ body {
     padding: 0
 }
 
+@mixin grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 32px;
+}
+
 //style composant
 @import '/assets/styles/components/Navbar.scss';
 @import './components/Register';
