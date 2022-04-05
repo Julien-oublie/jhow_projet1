@@ -200,6 +200,10 @@ class Personnage
      * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
      */
     private $arme;
+    /**
+     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
+     */
+    private $parties;
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -209,6 +213,7 @@ class Personnage
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
         $this->arme = new ArrayCollection();
+        $this->parties = new ArrayCollection();
        
     }
 
@@ -640,6 +645,33 @@ class Personnage
             if ($arme->getPersonnage() === $this) {
                 $arme->setPersonnage(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getParties(): Collection
+    {
+        return $this->parties;
+    }
+
+    public function addParty(Partie $party): self
+    {
+        if (!$this->parties->contains($party)) {
+            $this->parties[] = $party;
+            $party->addPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParty(Partie $party): self
+    {
+        if ($this->parties->removeElement($party)) {
+            $party->removePersonnage($this);
         }
 
         return $this;

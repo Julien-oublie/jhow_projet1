@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Fpdf\Fpdf;
 
 #[Route('/personnage')]
@@ -27,6 +28,7 @@ class PersonnageController extends AbstractController
     #[Route('/new', name: 'personnage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $data = json_decode($request->getContent(), true);
         $personnage = new Personnage();
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
