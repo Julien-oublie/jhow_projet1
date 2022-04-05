@@ -1,0 +1,29 @@
+.form-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/assets/img/background-form.png);
+  background-position: center;
+  background-size: cover;
+  .form-login {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    justify-content: space-between;
+    color: #dfab2a;
+    font-family: "Caudex";
+    height: 20%;
+    text-align: center;
+    .input-login {
+      height: 19%;
+      border-color: #dfab2a;
+      border-radius: 5px;
+      background-image: url(/assets/img/background-form.png);
+    }
+    .input-login::placeholder {
+      color: #dfab2a;
+      padding-left: 15px;
+    }
+  }
+}
