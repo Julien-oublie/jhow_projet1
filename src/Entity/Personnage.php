@@ -708,5 +708,4 @@ class Personnage
 
         return $this;
     }
-
 }
