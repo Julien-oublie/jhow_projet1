@@ -327,7 +327,7 @@ class PersonnageType extends AbstractType
                 $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
                     'attributCorps', ChoiceType::class, null, [
                     'choices'  =>  $tabAttributCorps,
-                    'placeholder'=>'Attribut à ameliorés',
+                    'label'=>'Attribut à ameliorés : Corps :',
                     'mapped'=>false,
                     'auto_initialize' => false,
                     ],
