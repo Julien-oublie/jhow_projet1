@@ -204,6 +204,13 @@ class Personnage
      * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
      */
     private $parties;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="personnages")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $joueur;
+
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -214,6 +221,7 @@ class Personnage
         $this->recompenses = new ArrayCollection();
         $this->arme = new ArrayCollection();
         $this->parties = new ArrayCollection();
+        $this->partie = new ArrayCollection();
        
     }
 
@@ -677,33 +685,6 @@ class Personnage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Partie>
-     */
-    public function getParties(): Collection
-    {
-        return $this->parties;
-    }
-
-    public function addParty(Partie $party): self
-    {
-        if (!$this->parties->contains($party)) {
-            $this->parties[] = $party;
-            $party->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParty(Partie $party): self
-    {
-        if ($this->parties->removeElement($party)) {
-            $party->removePersonnage($this);
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -715,4 +696,17 @@ class Personnage
 
         return $this;
     }
+
+    public function getJoueur(): ?User
+    {
+        return $this->joueur;
+    }
+
+    public function setJoueur(?User $joueur): self
+    {
+        $this->joueur = $joueur;
+
+        return $this;
+    }
+
 }

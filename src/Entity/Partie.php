@@ -29,10 +29,21 @@ class Partie
      */
     private $personnage;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Personnage::class, mappedBy="partie")
+     */
+    private $personnages;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
     public function __construct()
     {
         $this->joueurs = new ArrayCollection();
         $this->personnage = new ArrayCollection();
+        $this->personnages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,6 +95,26 @@ class Partie
     public function removePersonnage(Personnage $personnage): self
     {
         $this->personnage->removeElement($personnage);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersonnages(): Collection
+    {
+        return $this->personnages;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }
