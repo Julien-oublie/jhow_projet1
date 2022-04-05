@@ -30,7 +30,9 @@ class PersonnageController extends AbstractController
         $personnage = new Personnage();
         dump($_POST);
         $form = $_POST;  
-        $form = $this->createForm(PersonnageType::class, $personnage);
+        $form = $this->createForm(PersonnageType::class, $personnage
+        );
+    
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
