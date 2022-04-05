@@ -127,4 +127,61 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getParties(): Collection
+    {
+        return $this->parties;
+    }
+
+    public function addParty(Partie $party): self
+    {
+        if (!$this->parties->contains($party)) {
+            $this->parties[] = $party;
+            $party->addJoueur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParty(Partie $party): self
+    {
+        if ($this->parties->removeElement($party)) {
+            $party->removeJoueur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersos(): Collection
+    {
+        return $this->persos;
+    }
+
+    public function addPerso(Personnage $perso): self
+    {
+        if (!$this->persos->contains($perso)) {
+            $this->persos[] = $perso;
+            $perso->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerso(Personnage $perso): self
+    {
+        if ($this->persos->removeElement($perso)) {
+            // set the owning side to null (unless already changed)
+            if ($perso->getUser() === $this) {
+                $perso->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
