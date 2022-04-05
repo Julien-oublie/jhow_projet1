@@ -187,12 +187,12 @@ class Personnage
     private $competences_favorites_vocation;
 
      /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $part_ombre;
 
       /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $traits;
 
