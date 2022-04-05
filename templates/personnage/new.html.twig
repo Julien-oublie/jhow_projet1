@@ -3,12 +3,11 @@
 {% block title %}Nouveau Personnage{% endblock %}
 
 {% block body %}
-    <h1>Créer votre Personnage</h1>
 
-    {{ include('personnage/_form.html.twig') }}
-    <a  class="hide" id="request" href="{{ path('personnage_new') }}"></a>
-    <a href="{{ path('personnage_index') }}">back to list</a>
-
-
-    
+    <div class="col" >
+        <h1>Créer votre Personnage</h1>
+        <div class="d-flex flex-row justify-content-center">
+            {{ include('personnage/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

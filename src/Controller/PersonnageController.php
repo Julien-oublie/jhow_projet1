@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Fpdf\Fpdf;
 
 #[Route('/personnage')]
 class PersonnageController extends AbstractController
@@ -28,21 +29,46 @@ class PersonnageController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
         $personnage = new Personnage();
-        dump($_POST);
         $form = $_POST;  
-        $form = $this->createForm(PersonnageType::class, $personnage
-        );
-    
+        $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
+        
 
-        if ($form->isSubmitted() && $form->isValid()) {
-   
-            if($this->isCsrfTokenValid( $personnage->getId(),$data['_token'])  ){
-                return new JsonResponse(['success' => 1]);
-            }
-            else{
-                return new JsonResponse(['error' => 'Token Invalide'], 400);
-            }
+        if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
+            dump($form->getData());
+            $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
+            $personnage->setSpecialite($specialite);
+            $pdf = new \FPDF();
+                //$pdf->AddPage();
+              //  $y = $pdf->getY();
+                $x = $pdf->getX();
+                $x +=10;
+                $pdf->AliasNbPages();
+                $pdf->AddPage();
+                $pdf->Ln(23);
+                $x += 24;
+                $pdf->SetLeftMargin($x);
+                $pdf->Image('./fichesPersoVierge/recto-fiche.png',0,0,210);
+                $pdf->SetFont('Times','',12);
+                $pdf->Cell(17,10,utf8_decode('Nom'),'');
+                $pdf->Ln(7);
+                $x += 2;
+                $pdf->SetLeftMargin($x);
+                $pdf->Cell(17,10,utf8_decode('Culture'),'');
+                $x += 85;
+                $pdf->SetLeftMargin($x);
+                $pdf->Cell(17,10,utf8_decode('Standart'),'');
+                $x -= 66;
+                $pdf->SetLeftMargin($x);
+                $pdf->Ln(9);
+                $pdf->MultiCell(110,7,'Avantage culturel zejbdezjd ozeid zeo dozei dzeio dozie dozedzoiedozedziediozdz edize dize dze  dize dize doized');
+
+                //créer le pdf
+                $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
+               // $pdf->Output( $pdfFilepath ,'I');
+            $entityManager->persist($personnage);
+            $entityManager->flush();
+           // return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('personnage/new.html.twig', [
