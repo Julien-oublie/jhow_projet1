@@ -197,7 +197,7 @@ class Personnage
     private $traits;
 
     /**
-     * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
+     * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage", cascade={"persist"})
      */
     private $arme;
     /**

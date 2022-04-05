@@ -121,6 +121,7 @@ class PersonnageType extends AbstractType
                         'choices'  =>  $tabArmes,
                         'placeholder' => 'Séléctionnez un competence d\'armes',
                         'auto_initialize' => false, 
+                        'mapped' =>false,
                         'label' => 'Armes',
                     ],
                 );

@@ -46,6 +46,7 @@ class PersonnageController extends AbstractController
                 $AllCompetenceArmes = explode("(", $arme);
                 $Armes->setArme($AllCompetenceArmes[0]);
                 $Armes->setCompetence($AllCompetenceArmes[1]);
+                $entityManager->persist($Armes);
             }
             $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
             $personnage->setSpecialite($specialite);
