@@ -166,4 +166,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersos(): Collection
+    {
+        return $this->persos;
+    }
+
+    public function addPerso(Personnage $perso): self
+    {
+        if (!$this->persos->contains($perso)) {
+            $this->persos[] = $perso;
+            $perso->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerso(Personnage $perso): self
+    {
+        if ($this->persos->removeElement($perso)) {
+            // set the owning side to null (unless already changed)
+            if ($perso->getUser() === $this) {
+                $perso->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
