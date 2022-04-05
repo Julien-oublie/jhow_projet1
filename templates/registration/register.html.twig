@@ -1,16 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Register{% endblock %}
-
 {% block body %}
-<barre-navigation></barre-navigation>
-     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email)}}
+<!-- <register-page></register-page> -->
+<div class="main-body-register">
+    {{ form_start(registrationForm) }}
+    <div class="rotate-circle"></div>
+    <div class="main-div-register">
+      <div class="email-register-div">
+        {{ form_row(registrationForm.email,  {'attr': {'class': 'input-email'}}) }}
+      </div>
+      <div class="password-register-div">
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
+        },  {'attr': {'class': 'input-password'}}) }}
+        </div>
+        <div class="submit-register-div">
         <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }} 
+        </div>
+    </div>
+    {{ form_end(registrationForm, {'attr': {'class': 'submit-form'}}) }}
+    </div>
 {% endblock %}
