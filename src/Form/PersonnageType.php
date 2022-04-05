@@ -328,8 +328,7 @@ class PersonnageType extends AbstractType
                     'choices'  =>  $tabAttributCorps,
                     'placeholder'=>'Attribut à ameliorés',
                     'mapped'=>false,
-                    'auto_initialize' => false, 
-                    'label' => ' Définir les attribut à améliorés Corps :',
+                    'auto_initialize' => false,
                     ],
                 );
                 //On parametre le listener avec la fonction de ce qu'il doit faire

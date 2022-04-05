@@ -42,11 +42,6 @@ class Personnage
      * @ORM\Column(type="string", length=255)
      */
     private $standard_de_vie;
-     
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $armes;
     
     /**
      * @ORM\Column(type="string", length=255)
@@ -200,6 +195,15 @@ class Personnage
      * @ORM\Column(type="string", length=255)
      */
     private $traits;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
+     */
+    private $arme;
+    /**
+     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
+     */
+    private $parties;
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -208,6 +212,8 @@ class Personnage
         $this->traits = new ArrayCollection();
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
+        $this->arme = new ArrayCollection();
+        $this->parties = new ArrayCollection();
        
     }
 
@@ -614,14 +620,59 @@ class Personnage
         return $this;
     }
 
-    public function getArmes(): ?string
+    /**
+     * @return Collection<int, Armes>
+     */
+    public function getArme(): Collection
     {
-        return $this->armes;
+        return $this->arme;
     }
 
-    public function setArmes(string $armes): self
+    public function addArme(Armes $arme): self
     {
-        $this->armes = $armes;
+        if (!$this->arme->contains($arme)) {
+            $this->arme[] = $arme;
+            $arme->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArme(Armes $arme): self
+    {
+        if ($this->arme->removeElement($arme)) {
+            // set the owning side to null (unless already changed)
+            if ($arme->getPersonnage() === $this) {
+                $arme->setPersonnage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getParties(): Collection
+    {
+        return $this->parties;
+    }
+
+    public function addParty(Partie $party): self
+    {
+        if (!$this->parties->contains($party)) {
+            $this->parties[] = $party;
+            $party->addPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParty(Partie $party): self
+    {
+        if ($this->parties->removeElement($party)) {
+            $party->removePersonnage($this);
+        }
 
         return $this;
     }
