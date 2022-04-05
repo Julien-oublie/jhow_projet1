@@ -1,24 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Register{% endblock %}
-
 {% block body %}
-<barre-navigation></barre-navigation>
-
-    <h1>Créer votre Personnage</h1>
-    <div class="d-flex justify-content-center">
-        {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Password'
-            }) }}
-            {{ form_row(registrationForm.agreeTerms) }}
-            <div class="d-grid">
-                <button type="submit" class="btn btn-outline-dark ">Register</button>
-            </div>
-        {{ form_end(registrationForm) }}
-
+<!-- <register-page></register-page> -->
+<div class="main-body-register">
+    {{ form_start(registrationForm) }}
+    <div class="rotate-circle"></div>
+    <div class="main-div-register">
+      <div class="email-register-div">
+        {{ form_row(registrationForm.email,  {'attr': {'class': 'input-email'}}) }}
+      </div>
+      <div class="password-register-div">
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        },  {'attr': {'class': 'input-password'}}) }}
+        </div>
+        <div class="submit-register-div">
+        <button type="submit" class="btn">Register</button>
+        </div>
     </div>
-
-  
+    {{ form_end(registrationForm, {'attr': {'class': 'submit-form'}}) }}
+    </div>
 {% endblock %}
