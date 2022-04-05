@@ -44,9 +44,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $parties;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Personnage::class, mappedBy="joueur")
+     */
+    private $personnages;
+
     public function __construct()
     {
         $this->parties = new ArrayCollection();
+        $this->personnages = new ArrayCollection();
     }
 
 
@@ -195,5 +201,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersonnages(): Collection
+    {
+        return $this->personnages;
+    }
+
+    public function addPersonnage(Personnage $personnage): self
+    {
+        if (!$this->personnages->contains($personnage)) {
+            $this->personnages[] = $personnage;
+            $personnage->setJoueur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonnage(Personnage $personnage): self
+    {
+        if ($this->personnages->removeElement($personnage)) {
+            // set the owning side to null (unless already changed)
+            if ($personnage->getJoueur() === $this) {
+                $personnage->setJoueur(null);
+            }
+        }
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->id;
+    }
+
 
 }
