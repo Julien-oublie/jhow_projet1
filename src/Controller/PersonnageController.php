@@ -97,13 +97,20 @@ class PersonnageController extends AbstractController
         return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/generate', name: 'personnage_generate_fiche', methods: ['GET'])]
+    #[Route('/{id}/generate', name: 'personnage_generate_fiche', methods: ['POST','GET'])]
     public function generate(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
+       /* $specialites = '';
+        foreach ($personnage->getSpecialite() as  $specialite) {
+            $specialites .= $specialite;
+            $specialites .= ',';
+        }
+        dump($specialites);*/
         $pdf = new \FPDF();
             //$pdf->AddPage();
             //  $y = $pdf->getY();
-            $x = $pdf->getX();
+            
+            $ $x = $pdf->getX();
             $x +=10;
             $pdf->AliasNbPages();
             $pdf->AddPage();
@@ -123,14 +130,26 @@ class PersonnageController extends AbstractController
             $x -= 66;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(9);
-            $pdf->MultiCell(110,7,utf8_decode($personnage->getAvantageCulturel()));
+            $pdf->Cell(110,7,utf8_decode($personnage->getAvantageCulturel()));
             $x -= 18;
             $pdf->SetLeftMargin($x);
-            $pdf->Ln(6);
+            $pdf->Ln(13);
             $pdf->Cell(17,10,utf8_decode($personnage->getStandardDeVie()),'');
-            $x += 90;
+            $x += 84;
             $pdf->SetLeftMargin($x);
             $pdf->Cell(17,10,utf8_decode($personnage->getPartOmbre()),'');
+            $x -= 84;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(11);
+            $pdf->Cell(17,10,utf8_decode('specialités'),'');
+            $x += 10;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(7);
+            $pdf->Cell(17,10,utf8_decode('particularités'),'');
+            $x += 10;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(7);
+            $pdf->Cell(17,10,utf8_decode($personnage->getCoeur()),'');
 
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
