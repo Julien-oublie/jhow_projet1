@@ -300,11 +300,9 @@ class PersonnageType extends AbstractType
                     
                     
                     $form->add('part_ombre', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $vocation["part d'ombre"]],
                     ])
                     ->add('traits', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $vocation["traits"]],
                     ]);
                     
@@ -323,8 +321,7 @@ class PersonnageType extends AbstractType
                     'choices'  =>  $tabAttributCorps,
                     'placeholder'=>'Attribut à ameliorés',
                     'mapped'=>false,
-                    'auto_initialize' => false, 
-                    'label' => ' Définir les attribut à améliorés Corps :',
+                    'auto_initialize' => false,
                     ],
                 );
                 //On parametre le listener avec la fonction de ce qu'il doit faire

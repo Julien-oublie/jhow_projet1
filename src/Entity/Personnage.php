@@ -42,11 +42,6 @@ class Personnage
      * @ORM\Column(type="string", length=255)
      */
     private $standard_de_vie;
-
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $armes = [];
     
     /**
      * @ORM\Column(type="string", length=255)
@@ -200,6 +195,11 @@ class Personnage
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $traits;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
+     */
+    private $arme;
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -208,6 +208,7 @@ class Personnage
         $this->traits = new ArrayCollection();
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
+        $this->arme = new ArrayCollection();
        
     }
 
@@ -614,14 +615,32 @@ class Personnage
         return $this;
     }
 
-    public function getArmes(): ?array
+    /**
+     * @return Collection<int, Armes>
+     */
+    public function getArme(): Collection
     {
-        return $this->armes;
+        return $this->arme;
     }
 
-    public function setArmes(array $armes): self
+    public function addArme(Armes $arme): self
     {
-        $this->armes = $armes;
+        if (!$this->arme->contains($arme)) {
+            $this->arme[] = $arme;
+            $arme->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArme(Armes $arme): self
+    {
+        if ($this->arme->removeElement($arme)) {
+            // set the owning side to null (unless already changed)
+            if ($arme->getPersonnage() === $this) {
+                $arme->setPersonnage(null);
+            }
+        }
 
         return $this;
     }
