@@ -4,3 +4,23 @@ $(document).on('change', '#personnage_attributCoeur,#personnage_attributCorps, #
     form.submit();
 })
 
+
+var nombreMax;
+
+
+$(document).on('change', '#partie_Nombre', function(){
+   
+    $('#partie_joueurs').css("display", "block");
+    nombreMax = $('#partie_Nombre').val()
+    
+})
+
+$(document).on('change', '#partie_joueurs', function(e){ 
+    var current =  $('.chxck').children()
+    var currentCheck = current.filter(':checked').length;
+    if (currentCheck > nombreMax ) {
+        console.log();
+        e.target.checked = false
+        alert('Vous devez séléctionner '+nombreMax+' joueur(s)')
+    }
+})

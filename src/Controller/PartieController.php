@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Partie;
 use App\Form\PartieType;
 use App\Repository\PartieRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,14 +23,25 @@ class PartieController extends AbstractController
     }
 
     #[Route('/new', name: 'app_partie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PartieRepository $partieRepository): Response
+    public function new(Request $request, PartieRepository $partieRepository , EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
+        $user->setRoles(['GAME_MASTER']);
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+
         $partie = new Partie();
         $form = $this->createForm(PartieType::class, $partie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
             $partieRepository->add($partie);
+            $user->setRoles([]);
+            $entityManager->persist($user);
+            $entityManager->flush();
             return $this->redirectToRoute('app_partie_index', [], Response::HTTP_SEE_OTHER);
         }
 
