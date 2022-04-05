@@ -31,22 +31,30 @@ class PersonnageType extends AbstractType
         }
         
         $builder
-                ->add('nom')
+                ->add('nom',TextType::class, [
+                    'attr' => ['placeholder' => 'Votre Nom'],
+                    'label' => false
+                    ])
                 ->add('classe',ChoiceType::class, [
                 'choices'  =>  $tabClasse,
-                'placeholder' => 'Séléctionnez une classe',
+                'placeholder' => 'Votre classe',
+                
                 ])
                 ->add('origine', ChoiceType::class, [
                     'choices'  => [],
                     'placeholder' => 'Séléctionnez une origine',
                     'mapped'=>false,
-                    'auto_initialize' => false,  
+                    'auto_initialize' => false,
+                    'label' => false,
+                    'attr' => ['data-id' => 'dNoneOrigine']
                 ])
                 ->add('vocation', ChoiceType::class,[
                     'choices'  =>  [],
-                    'placeholder' => 'Séléctionnez une origine vocation',
+                    'placeholder' => 'Séléctionnez une vocation',
                     'mapped'=>false,
-                    'auto_initialize' => false,  
+                    'auto_initialize' => false,
+                    'label' => false,
+                    'attr' => ['data-id' => 'dNoneVocation']
                 ]);
         
 
@@ -112,7 +120,6 @@ class PersonnageType extends AbstractType
                     'armes', ChoiceType::class, null, [
                         'choices'  =>  $tabArmes,
                         'placeholder' => 'Séléctionnez un competence d\'armes',
-                        'mapped'=>false,
                         'auto_initialize' => false, 
                         'label' => 'Armes',
                     ],
@@ -300,11 +307,9 @@ class PersonnageType extends AbstractType
                     
                     
                     $form->add('part_ombre', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $vocation["part d'ombre"]],
                     ])
                     ->add('traits', TextType::class, [
-                        'disabled'   => true,
                         'attr' => ['value' => $vocation["traits"]],
                     ]);
                     
