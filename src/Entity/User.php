@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -38,9 +40,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity=Groupe::class, mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="joueurs")
      */
-    private $groupe;
+    private $parties;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Personnage::class, mappedBy="joueur")
+     */
+    private $personnages;
+
+    public function __construct()
+    {
+        $this->parties = new ArrayCollection();
+        $this->personnages = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -131,25 +145,97 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getGroupe(): ?Groupe
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getParties(): Collection
     {
-        return $this->groupe;
+        return $this->parties;
     }
 
-    public function setGroupe(?Groupe $groupe): self
+    public function addParty(Partie $party): self
     {
-        // unset the owning side of the relation if necessary
-        if ($groupe === null && $this->groupe !== null) {
-            $this->groupe->setUser(null);
+        if (!$this->parties->contains($party)) {
+            $this->parties[] = $party;
+            $party->addJoueur($this);
         }
-
-        // set the owning side of the relation if necessary
-        if ($groupe !== null && $groupe->getUser() !== $this) {
-            $groupe->setUser($this);
-        }
-
-        $this->groupe = $groupe;
 
         return $this;
     }
+
+    public function removeParty(Partie $party): self
+    {
+        if ($this->parties->removeElement($party)) {
+            $party->removeJoueur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersos(): Collection
+    {
+        return $this->persos;
+    }
+
+    public function addPerso(Personnage $perso): self
+    {
+        if (!$this->persos->contains($perso)) {
+            $this->persos[] = $perso;
+            $perso->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePerso(Personnage $perso): self
+    {
+        if ($this->persos->removeElement($perso)) {
+            // set the owning side to null (unless already changed)
+            if ($perso->getUser() === $this) {
+                $perso->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personnage>
+     */
+    public function getPersonnages(): Collection
+    {
+        return $this->personnages;
+    }
+
+    public function addPersonnage(Personnage $personnage): self
+    {
+        if (!$this->personnages->contains($personnage)) {
+            $this->personnages[] = $personnage;
+            $personnage->setJoueur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonnage(Personnage $personnage): self
+    {
+        if ($this->personnages->removeElement($personnage)) {
+            // set the owning side to null (unless already changed)
+            if ($personnage->getJoueur() === $this) {
+                $personnage->setJoueur(null);
+            }
+        }
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->id;
+    }
+
+
 }
