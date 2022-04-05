@@ -200,6 +200,11 @@ class Personnage
      * @ORM\Column(type="string", length=255)
      */
     private $traits;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
+     */
+    private $parties;
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -208,6 +213,7 @@ class Personnage
         $this->traits = new ArrayCollection();
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
+        $this->parties = new ArrayCollection();
        
     }
 
@@ -622,6 +628,33 @@ class Personnage
     public function setArmes(string $armes): self
     {
         $this->armes = $armes;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getParties(): Collection
+    {
+        return $this->parties;
+    }
+
+    public function addParty(Partie $party): self
+    {
+        if (!$this->parties->contains($party)) {
+            $this->parties[] = $party;
+            $party->addPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParty(Partie $party): self
+    {
+        if ($this->parties->removeElement($party)) {
+            $party->removePersonnage($this);
+        }
 
         return $this;
     }

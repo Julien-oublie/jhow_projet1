@@ -3,55 +3,6 @@
 {% block title %}Personnage index{% endblock %}
 
 {% block body %}
-    <h1>Personnage index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Corps</th>
-                <th>Esprit</th>
-                <th>Standard_de_vie</th>
-                <th>Experience</th>
-                <th>Courage</th>
-                <th>Sagesse</th>
-                <th>Dommage</th>
-                <th>Parade</th>
-                <th>Armure</th>
-                <th>Camaraderie</th>
-                <th>Prestige</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for personnage in personnages %}
-            <tr>
-                <td>{{ personnage.id }}</td>
-                <td>{{ personnage.nom }}</td>
-                <td>{{ personnage.corps }}</td>
-                <td>{{ personnage.esprit }}</td>
-                <td>{{ personnage.standardDeVie }}</td>
-                <td>{{ personnage.experience }}</td>
-                <td>{{ personnage.courage }}</td>
-                <td>{{ personnage.sagesse }}</td>
-                <td>{{ personnage.dommage }}</td>
-                <td>{{ personnage.parade }}</td>
-                <td>{{ personnage.armure }}</td>
-                <td>{{ personnage.camaraderie }}</td>
-                <td>{{ personnage.prestige }}</td>
-                <td>
-                    <a href="{{ path('personnage_show', {'id': personnage.id}) }}">show</a>
-                    <a href="{{ path('personnage_edit', {'id': personnage.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="14">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('personnage_new') }}">Create new</a>
+    <h1>Page Perso</h1>
+ 
 {% endblock %}
