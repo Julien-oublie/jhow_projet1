@@ -40,13 +40,17 @@ function MenuNavigation(){
         <div className='logo'>
 
         </div>
-        <ul>
-            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  Règles </li>
-            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> Personnages </li>
+        <div className='items-navbar'>
+          <ul>
+            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="http://localhost:8000/regles">Règles</a> </li>
+            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="http://localhost:8000/personnages">Personnages</a> </li>
             <li onClick={() => changeEtat(fichesRef)} ref={fichesRef}>   Fiche </li>
-        </ul>
+        </ul>  
+        </div>
+        
         <div className='user'>
-            <label > connexion </label>
+            <a href="http://localhost:8000/register"> connexion </a>
+            <img src="{{ asset('build/img/circle.png') }}" />
         </div>      
     </div>
 }

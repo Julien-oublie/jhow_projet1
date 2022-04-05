@@ -68,7 +68,7 @@ function PersonnagesPage(){
 function swipe(){
     console.log(1)
 }
-class Personnages extends HTMLElement {
+export default class Personnages extends HTMLElement {
     connectedCallback(){
         render(<PersonnagesPage/>,this)
     }

@@ -20,3 +20,6 @@ import './components/PersonnagesPage';
 // start the Stimulus application
 import './bootstrap';
 import './controllers/formPersonnage.js' ;
+
+
+
