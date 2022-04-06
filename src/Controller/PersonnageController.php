@@ -110,12 +110,16 @@ class PersonnageController extends AbstractController
     #[Route('/{id}/generate', name: 'personnage_generate_fiche', methods: ['POST','GET'])]
     public function generate(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
-       /* $specialites = '';
+        $specialites = '';
         foreach ($personnage->getSpecialite() as  $specialite) {
             $specialites .= $specialite;
-            $specialites .= ',';
+            $specialites .= ', ';
         }
-        dump($specialites);*/
+        $particularites = '';
+        foreach ($personnage->getParticularite() as  $particularite) {
+            $particularites .= $particularite;
+            $particularites .= ', ';
+        }
         $inspiration = str_repeat('X ',$personnage->getInspiration());
         $admiration = str_repeat('X ',$personnage->getAdmiration());
         $persuasion = str_repeat('X ',$personnage->getPersuasion());
@@ -170,11 +174,11 @@ class PersonnageController extends AbstractController
             $x -= 84;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(11);
-            $pdf->Cell(17,10,utf8_decode('specialités'),'');
+            $pdf->Cell(17,10,utf8_decode($specialites),'');
             $x += 10;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(7);
-            $pdf->Cell(17,10,utf8_decode('particularités'),'');
+            $pdf->Cell(17,10,utf8_decode($particularites),'');
             $x += 1.5;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(15.5);
@@ -227,8 +231,55 @@ class PersonnageController extends AbstractController
             $x += 46.7;
             $pdf->SetLeftMargin($x);
             $pdf->Cell(18,10,$fouille,'');
-           
-           
+
+            $x -= 92.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(6);
+            $pdf->Cell(18,10,$exploration,'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$guerison,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$chasse,'');
+
+            $x -=92.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(5.5);
+            $pdf->Cell(18,10,$chant,'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$courtois,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$enigmes,'');
+
+            $x -=92.1;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(6);
+            $pdf->Cell(18,10,$artisanat,'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$combat,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$conaissances,'');
+
+            $x -=108;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(16);
+            foreach ($personnage->getArme() as $key => $arme) {
+                $pdf->Cell(16,10,utf8_decode($arme->getArme()),'');
+                
+                $pdf->Cell(30,11, str_repeat('X ',$arme->getCompetence()) ,'');
+                $x +=45;
+                $pdf->SetLeftMargin($x);
+                if($key == 2 ){
+                    $x -=135;
+                    $pdf->SetLeftMargin($x);
+                    $pdf->Ln(6);
+                }
+            }
             
 
             //créer le pdf
