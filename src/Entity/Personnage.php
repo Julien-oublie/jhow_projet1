@@ -211,6 +211,11 @@ class Personnage
      */
     private $joueur;
 
+    /**
+     * @ORM\OneToOne(targetEntity=AttributAmeliores::class, mappedBy="personnage", cascade={"persist", "remove"})
+     */
+    private $attributAmeliores;
+
     /****************************** PARTIE VOCATION ******************************/
 
 
@@ -352,7 +357,7 @@ class Personnage
         return $this;
     }
 
-    public function getAdmiration(): ?string
+    public function getAdmiration(): ?int
     {
         return $this->Admiration;
     }
@@ -376,7 +381,7 @@ class Personnage
         return $this;
     }
 
-    public function getConscience(): ?string
+    public function getConscience(): ?int
     {
         return $this->Conscience;
     }
@@ -388,7 +393,7 @@ class Personnage
         return $this;
     }
 
-    public function getExploration(): ?string
+    public function getExploration(): ?int
     {
         return $this->Exploration;
     }
@@ -400,7 +405,7 @@ class Personnage
         return $this;
     }
 
-    public function getChant(): ?string
+    public function getChant(): ?int
     {
         return $this->Chant;
     }
@@ -424,7 +429,7 @@ class Personnage
         return $this;
     }
 
-    public function getInspiration(): ?string
+    public function getInspiration(): ?int
     {
         return $this->Inspiration;
     }
@@ -436,7 +441,7 @@ class Personnage
         return $this;
     }
 
-    public function getVoyage(): ?string
+    public function getVoyage(): ?int
     {
         return $this->Voyage;
     }
@@ -448,7 +453,7 @@ class Personnage
         return $this;
     }
 
-    public function getPerspicacite(): ?string
+    public function getPerspicacite(): ?int
     {
         return $this->Perspicacite;
     }
@@ -460,7 +465,7 @@ class Personnage
         return $this;
     }
 
-    public function getGuerison(): ?string
+    public function getGuerison(): ?int
     {
         return $this->Guerison;
     }
@@ -496,7 +501,7 @@ class Personnage
         return $this;
     }
 
-    public function getPersuasion(): ?string
+    public function getPersuasion(): ?int
     {
         return $this->Persuasion;
     }
@@ -508,7 +513,7 @@ class Personnage
         return $this;
     }
 
-    public function getFurtivite(): ?string
+    public function getFurtivite(): ?int
     {
         return $this->Furtivite;
     }
@@ -520,7 +525,7 @@ class Personnage
         return $this;
     }
 
-    public function getFouille(): ?string
+    public function getFouille(): ?int
     {
         return $this->Fouille;
     }
@@ -532,7 +537,7 @@ class Personnage
         return $this;
     }
 
-    public function getChasse(): ?string
+    public function getChasse(): ?int
     {
         return $this->Chasse;
     }
@@ -544,7 +549,7 @@ class Personnage
         return $this;
     }
 
-    public function getEnigmes(): ?string
+    public function getEnigmes(): ?int
     {
         return $this->Enigmes;
     }
@@ -556,7 +561,7 @@ class Personnage
         return $this;
     }
 
-    public function getConaissances(): ?string
+    public function getConaissances(): ?int
     {
         return $this->Conaissances;
     }
@@ -705,6 +710,28 @@ class Personnage
     public function setJoueur(?User $joueur): self
     {
         $this->joueur = $joueur;
+
+        return $this;
+    }
+
+    public function getAttributAmeliores(): ?AttributAmeliores
+    {
+        return $this->attributAmeliores;
+    }
+
+    public function setAttributAmeliores(?AttributAmeliores $attributAmeliores): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($attributAmeliores === null && $this->attributAmeliores !== null) {
+            $this->attributAmeliores->setPersonnage(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($attributAmeliores !== null && $attributAmeliores->getPersonnage() !== $this) {
+            $attributAmeliores->setPersonnage($this);
+        }
+
+        $this->attributAmeliores = $attributAmeliores;
 
         return $this;
     }

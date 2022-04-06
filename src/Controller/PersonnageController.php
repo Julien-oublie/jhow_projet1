@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Personnage;
 use App\Entity\Armes;
+use App\Entity\AttributAmeliores;
 use App\Form\PersonnageType;
 use App\Repository\PersonnageRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,6 +36,7 @@ class PersonnageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
             dump($form->getData());
+            /*********ARMES********* */
             $tabArmes = $form->get('armes')->getData();
             $allArmes= explode(",", $tabArmes);
             $allCompetence = [];
@@ -47,6 +49,14 @@ class PersonnageController extends AbstractController
                 $Armes->setCompetence($AllCompetenceArmes[1]);
                 $entityManager->persist($Armes);
             }
+            /*********ARMES********* */
+            /*********ATTRIBUT AMELIORES**********/
+            $attributAmeliores = new AttributAmeliores();
+            $attributAmeliores->setCorps($form->get('attributCorps')->getData());
+            $attributAmeliores->setCoeur($form->get('attributCoeur')->getData());
+            $attributAmeliores->setEsprit($form->get('attributEsprit')->getData());
+            $entityManager->persist($attributAmeliores);
+            /*********ATTRIBUT AMELIORES**********/
             $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
             $personnage->setSpecialite($specialite);
             $entityManager->persist($personnage);
@@ -106,11 +116,30 @@ class PersonnageController extends AbstractController
             $specialites .= ',';
         }
         dump($specialites);*/
+        $inspiration = str_repeat('X ',$personnage->getInspiration());
+        $admiration = str_repeat('X ',$personnage->getAdmiration());
+        $persuasion = str_repeat('X ',$personnage->getPersuasion());
+        $athletisme =  str_repeat('X ',$personnage->getAthletisme());
+        $voyage =  str_repeat('X ',$personnage->getVoyage());
+        $furtive =  str_repeat('X ',$personnage->getFurtivite());
+        $conscience =  str_repeat('X ',$personnage->getConscience());
+        $perspicacite =  str_repeat('X ',$personnage->getPerspicacite());
+        $fouille =  str_repeat('X ',$personnage->getFouille());
+        $exploration =  str_repeat('X ',$personnage->getExploration());
+        $guerison =  str_repeat('X ',$personnage->getGuerison());
+        $chasse = str_repeat('X ',$personnage->getChasse());
+        $chant = str_repeat('X ',$personnage->getChant());
+        $courtois = str_repeat('X ',$personnage->getCourtoisie());
+        $enigmes = str_repeat('X ',$personnage->getEnigmes());
+        $artisanat = str_repeat('X ',$personnage->getArtisanat());
+        $combat = str_repeat('X ',$personnage->getCombat());
+        $conaissances = str_repeat('X ',$personnage->getConaissances());
+
         $pdf = new \FPDF();
             //$pdf->AddPage();
             //  $y = $pdf->getY();
             
-            $ $x = $pdf->getX();
+            $x = $pdf->getX();
             $x +=10;
             $pdf->AliasNbPages();
             $pdf->AddPage();
@@ -146,10 +175,61 @@ class PersonnageController extends AbstractController
             $pdf->SetLeftMargin($x);
             $pdf->Ln(7);
             $pdf->Cell(17,10,utf8_decode('particularités'),'');
-            $x += 10;
+            $x += 1.5;
             $pdf->SetLeftMargin($x);
-            $pdf->Ln(7);
+            $pdf->Ln(15.5);
+            $pdf->Cell(17,10,utf8_decode('+'.$personnage->getAttributAmeliores()->getCorps()),'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(17,10,utf8_decode('+'.$personnage->getAttributAmeliores()->getCoeur()),'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(17,10,utf8_decode('+'.$personnage->getAttributAmeliores()->getEsprit()),'');
+            $x -= 93;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(6);
+            $pdf->Cell(17,10,utf8_decode($personnage->getCorps()),'');
+            $x += 45;
+            $pdf->SetLeftMargin($x);
             $pdf->Cell(17,10,utf8_decode($personnage->getCoeur()),'');
+            $x += 46;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(17,10,utf8_decode($personnage->getEsprit()),'');
+            $x -= 100;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(18);
+            $pdf->Cell(17,10,$admiration,'');
+            $x += 45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$inspiration,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$persuasion,'');
+
+            $x -= 92;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(5.5);
+            $pdf->Cell(18,10,$athletisme,'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$voyage,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$furtive,'');
+            
+            $x -= 92;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(6);
+            $pdf->Cell(18,10,$conscience,'');
+            $x +=45.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$perspicacite,'');
+            $x += 46.7;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$fouille,'');
+           
+           
+            
 
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
