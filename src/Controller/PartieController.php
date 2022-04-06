@@ -39,10 +39,9 @@ class PartieController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             $partieRepository->add($partie);
-            $user->setRoles([]);
-            $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('app_partie_index', [], Response::HTTP_SEE_OTHER);
+    
+            return $this->redirectToRoute('app_partie_show', ["id"=>$partie->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('partie/new.html.twig', [
@@ -67,7 +66,7 @@ class PartieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $partieRepository->add($partie);
-            return $this->redirectToRoute('app_partie_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_partie_show', ["id"=>$partie->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('partie/edit.html.twig', [
