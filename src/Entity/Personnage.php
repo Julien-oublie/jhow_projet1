@@ -200,16 +200,19 @@ class Personnage
      * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
      */
     private $arme;
-    /**
-     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
-     */
-    private $parties;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="personnages")
      * @ORM\JoinColumn(nullable=false)
      */
     private $joueur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Partie::class, inversedBy="personnages")
+     */
+    private $partie;
+
+   
 
     /****************************** PARTIE VOCATION ******************************/
 
@@ -220,8 +223,8 @@ class Personnage
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
         $this->arme = new ArrayCollection();
-        $this->parties = new ArrayCollection();
         $this->partie = new ArrayCollection();
+        
        
     }
 
@@ -658,33 +661,6 @@ class Personnage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Partie>
-     */
-    public function getParties(): Collection
-    {
-        return $this->parties;
-    }
-
-    public function addParty(Partie $party): self
-    {
-        if (!$this->parties->contains($party)) {
-            $this->parties[] = $party;
-            $party->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParty(Partie $party): self
-    {
-        if ($this->parties->removeElement($party)) {
-            $party->removePersonnage($this);
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -708,4 +684,30 @@ class Personnage
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getPartie(): Collection
+    {
+        return $this->partie;
+    }
+
+    public function addPartie(Partie $partie): self
+    {
+        if (!$this->partie->contains($partie)) {
+            $this->partie[] = $partie;
+        }
+
+        return $this;
+    }
+
+    public function removePartie(Partie $partie): self
+    {
+        $this->partie->removeElement($partie);
+
+        return $this;
+    }
+
+    
 }

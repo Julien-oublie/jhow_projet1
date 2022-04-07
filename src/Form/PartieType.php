@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Partie;
+use App\Entity\Personnage;
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -44,6 +45,7 @@ class PartieType extends AbstractType
                 'label'=>false
 
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

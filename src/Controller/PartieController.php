@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Partie;
 use App\Form\PartieType;
 use App\Repository\PartieRepository;
+use App\Repository\PersonnageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +20,21 @@ class PartieController extends AbstractController
     {
         return $this->render('partie/index.html.twig', [
             'parties' => $partieRepository->findAll(),
+        ]);
+    }
+    #[Route('/partie/{id}', name: 'app_partie_en_cours', methods: ['POST'])]
+    public function partieEnCours(Partie $partie, Request $request, EntityManagerInterface $entityManager, PersonnageRepository $personnageRep): Response
+    {
+        $quest = $request->request->all();
+        foreach ($quest as $key => $value) {
+          $personnage = $personnageRep->find($value);
+          $partie->addPersonnage($personnage);
+          $entityManager->persist($partie);
+        } 
+        $entityManager->flush();
+        
+        return $this->render('partie/en_cours.html.twig', [
+            'partie' => $partie,
         ]);
     }
 
