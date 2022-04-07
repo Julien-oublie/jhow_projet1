@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Partie;
+use App\Entity\Personnage;
 use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -30,12 +32,20 @@ class PartieType extends AbstractType
             ])
             ->add('joueurs', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
-                'choice_value'=>'id',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                    ->Where('u.roles NOT LIKE \'%GAME_MASTER%\' ');
+                },
+                'choice_label' => 'pseudo',
+                'choice_value'=>'pseudo',
                 'placeholder' => 'Choisir un joueur',
                 'multiple'=>true,
-                'expanded'=>true
+                'expanded'=>true,
+                'attr'=>['style' => 'display:none;', 'class'=>'chxck'],
+                'label'=>false
+
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

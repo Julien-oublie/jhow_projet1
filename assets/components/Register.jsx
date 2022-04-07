@@ -11,7 +11,7 @@ function RegisterPage(){
     </div>
 }
 
-class Register extends HTMLElement {
+export default class Register extends HTMLElement {
     connectedCallback(){
         render(<RegisterPage/>,this)
     }
