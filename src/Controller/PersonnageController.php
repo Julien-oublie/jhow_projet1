@@ -44,6 +44,8 @@ class PersonnageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
             $attibut = explode(":", $form->get('attributCoeur')->getData());
             $attibutCoeur = $attibut[0];
+            $Principale = explode(":", $form->get('valeurPrincipale')->getData());
+            $valeurPrincipale = $Principale[0];
            
             /*********ARMES********* */
             $tabArmes = $form->get('armes')->getData();
@@ -67,7 +69,8 @@ class PersonnageController extends AbstractController
             $entityManager->persist($attributAmeliores);
             /*********valeur principale**********/
             dump($form->get('valeurPrincipale')->getData());
-            $form->get('valeurPrincipale')->getData() == 'Sagesse' ? $personnage->setSagesse(2)  ->setVaillance(1) :$personnage->setSagesse(1) ->setVaillance(2);
+
+            $valeurPrincipale == 'Sagesse' ? $personnage->setSagesse(2) ->setVaillance(1) :$personnage->setSagesse(1) ->setVaillance(2);
             /*********valeur principale**********/
             $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
             $personnage->setSpecialite($specialite)
