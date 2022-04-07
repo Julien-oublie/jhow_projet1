@@ -293,7 +293,9 @@ class PersonnageType extends AbstractType
 
                     $form->add('valeurPrincipale', ChoiceType::class, [
                         'label'    => 'Valeur princiapel',
-                        'choices'  =>  ['Sagesse', 'Vaillance'],
+                        'choices'  =>  ['Sagesse' =>'Sagesse',
+                                        'Vaillance' => 'Vaillance'
+                                    ],
                         'mapped' => false,
                     ]);
 
