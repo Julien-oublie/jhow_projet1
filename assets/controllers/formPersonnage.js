@@ -14,7 +14,6 @@ $(document).on('change', '#partie_Nombre', function(){
    
     $('#partie_joueurs').css("display", "block");
     nombreMax = $('#partie_Nombre').val()
-    
 })
 
 $(document).on('change', '#partie_joueurs', function(e){ 

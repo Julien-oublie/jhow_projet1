@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>{{ partie.nom}}</h1>
-
     <h2>Game Master :{{app.user.pseudo}}</h2>
     <form method="post" action="{{path('app_partie_en_cours', {'id': partie.id})}}">
         <table class="table">

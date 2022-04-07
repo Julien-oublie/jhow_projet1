@@ -25,6 +25,11 @@ class PartieController extends AbstractController
     #[Route('/partie/{id}', name: 'app_partie_en_cours', methods: ['POST'])]
     public function partieEnCours(Partie $partie, Request $request, EntityManagerInterface $entityManager, PersonnageRepository $personnageRep): Response
     {
+        //On vide les persos a chaque entrée si jamais il revient en arrière pour pas cumuler les joueurs
+        foreach ($partie->getPersonnages() as $key) {
+            $partie->removePersonnage($key);
+        }
+        
         $quest = $request->request->all();
         foreach ($quest as $key => $value) {
           $personnage = $personnageRep->find($value);
@@ -98,6 +103,6 @@ class PartieController extends AbstractController
             $partieRepository->remove($partie);
         }
 
-        return $this->redirectToRoute('app_partie_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_partie_new', [], Response::HTTP_SEE_OTHER);
     }
 }
