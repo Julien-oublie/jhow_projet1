@@ -3,20 +3,39 @@
 {% block title %}Partie{% endblock %}
 
 {% block body %}
-    <h1>Partie</h1>
+    <h1>{{ partie.nom}}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ partie.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h2>Game Master :{{app.user.pseudo}}</h2>
+    <form method="post" action="{{path('app_partie_en_cours', {'id': partie.id})}}">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <h2>Joueurs</h2>         
+                    {% for joueurs in partie.Joueurs %}
+                        <tr>
+                            <th>{{joueurs.pseudo}}</th>
+                            <td>
+                                <button ><a href="{{ path('personnage_new', {'id': joueurs.id, 'partie_id':partie.id}) }}">Nouveau personnage</a></button>
+                            </td>
+                            <td>
+                                {% for personnages in joueurs.personnages %}     
+                                            <input type="radio" id="{{personnages.id}}" name="{{joueurs.id}}" value="{{personnages.id}}">
+                                            <label for="{{personnages.id}}">{{personnages.nom}} - ({{personnages.classe}})<i class="fa-regular fa-file-pdf"></i></label>                               
+                                {% endfor %}
+                            </td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    
+        <button type="submit">Valider la partie</button>
+    </form>
 
-    <a href="{{ path('app_partie_index') }}">back to list</a>
+        <a href="{{ path('app_partie_edit', {'id': partie.id}) }}">Modifier</a>
 
-    <a href="{{ path('app_partie_edit', {'id': partie.id}) }}">edit</a>
-
-    {{ include('partie/_delete_form.html.twig') }}
+        {{ include('partie/_delete_form.html.twig') }}
+    
+        
+    
 {% endblock %}

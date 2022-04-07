@@ -5,7 +5,11 @@
 {% block body %}
 
     <div class="col" >
-        <h1>Créer votre Personnage</h1>
+        {% if user %}
+            <h1>Créer un personnage pour {{user.pseudo}}</h1>
+        {% else %}    
+            <h1>Créer votre Personnage</h1>
+        {% endif %}
         <div class="d-flex flex-row justify-content-center">
             {{ include('personnage/_form.html.twig') }}
         </div>

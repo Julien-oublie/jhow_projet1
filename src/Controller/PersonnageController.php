@@ -6,7 +6,9 @@ use App\Entity\Personnage;
 use App\Entity\Armes;
 use App\Entity\AttributAmeliores;
 use App\Form\PersonnageType;
+use App\Repository\PartieRepository;
 use App\Repository\PersonnageRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,10 +28,15 @@ class PersonnageController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'personnage_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+   
+    #[Route('/new/{id?null}/{partie_id?null}', name: 'personnage_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
-        $data = json_decode($request->getContent(), true);
+        // Si il y a un ID la création vient d'un GM, sinon c'est le joueur qui cree sa fiche
+        $id ? $joueur =$userRep->find($id): $joueur= $this->getUser();
+        //On recup la partie pour l'ajouter au personnage si j'ajout vient du GM
+        $partie_id ? $partie =$partieRep->find($partie_id): $partie= null;
+        
         $personnage = new Personnage();
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
@@ -39,7 +46,6 @@ class PersonnageController extends AbstractController
             /*********ARMES********* */
             $tabArmes = $form->get('armes')->getData();
             $allArmes= explode(",", $tabArmes);
-            $allCompetence = [];
             foreach ($allArmes as $armes){
                 $Armes = new Armes();
                 $Armes->SetPersonnage($personnage);
@@ -58,16 +64,33 @@ class PersonnageController extends AbstractController
             $entityManager->persist($attributAmeliores);
             /*********ATTRIBUT AMELIORES**********/
             $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
-            $personnage->setSpecialite($specialite);
+            $personnage->setSpecialite($specialite)
+                       ->setJoueur($joueur);
+         
+
             $entityManager->persist($personnage);
             $entityManager->flush();
-            return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
-        }
 
-        return $this->renderForm('personnage/new.html.twig', [
+
+            if ($id) {
+                return $this->redirectToRoute('app_partie_show', ['id'=>$partie_id], Response::HTTP_SEE_OTHER);
+            }else{
+                return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
+            }
+        }
+        if ($id) {
+            return $this->renderForm('personnage/new.html.twig', [
+                'personnage' => $personnage,
+                'form' => $form,
+                'user'=>$joueur
+            ]);
+        }else{
+            return $this->renderForm('personnage/new.html.twig', [
             'personnage' => $personnage,
             'form' => $form,
         ]);
+        }
+        
     }
 
     #[Route('/{id}', name: 'personnage_show', methods: ['GET'])]
