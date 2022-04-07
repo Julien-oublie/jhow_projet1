@@ -18,6 +18,9 @@ use Fpdf\Fpdf;
 class PersonnageController extends AbstractController
 {
     #[Route('/', name: 'personnage_index', methods: ['GET'])]
+    /**
+     * @Route("/personnage", name="personnage_index")
+     */
     public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage/index.html.twig', [
@@ -26,6 +29,9 @@ class PersonnageController extends AbstractController
     }
 
     #[Route('/new', name: 'personnage_new', methods: ['GET', 'POST'])]
+     /**
+     * @Route("/personnage/new", name="personnage_new")
+     */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $data = json_decode($request->getContent(), true);

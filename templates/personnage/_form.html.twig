@@ -1,5 +1,73 @@
 
-{{ form_start(form, { 'attr' : {'id': 'personnageForm'}}) }}
-    {{ form_widget(form) }}
+{{ form_start(form, { 'attr' : {'id': 'personnageForm' , 'class' : 'persoForm'}}) }}
+    <div class="start">
+
+        {{ form_row(form.nom)}}
+        {{ form_row(form.classe)}}
+        {{ form_row(form.origine)}}
+        {{ form_row(form.vocation)}}
+    </div>
+    <div class="main-content">
+
+    
+        <div class="left">
+            {% if form.Admiration is defined %}
+                
+                <div class="left-content">
+                    {{ form_row(form.Admiration)}}
+                    {{ form_row(form.Athletisme)}}
+                    {{ form_row(form.Conscience)}}
+                    {{ form_row(form.Exploration)}}
+                    {{ form_row(form.Chant)}}
+                    {{ form_row(form.Artisanat)}}
+                    {{ form_row(form.Inspiration)}}
+                    {{ form_row(form.Voyage)}}
+                    {{ form_row(form.Perspicacite)}}
+                </div>
+                <div class="right-content">
+                    {{ form_row(form.Guerison)}}
+                    {{ form_row(form.Courtoisie)}}
+                    {{ form_row(form.Combat)}}
+                    {{ form_row(form.Persuasion)}}
+                    {{ form_row(form.Furtivite)}}
+                    {{ form_row(form.Fouille)}}
+                    {{ form_row(form.Chasse)}}
+                    {{ form_row(form.Enigmes)}}
+                    {{ form_row(form.Conaissances)}}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="midle">
+            {% if form.armes is defined %}
+                <div class="right-content">
+                    {{ form_row(form.armes)}}
+                    {{ form_row(form.specialites1)}}
+                    {{ form_row(form.specialites2)}}
+                </div>
+                <div class="left-content">
+                    {{ form_row(form.attributCorps)}}
+                    {{ form_row(form.standard_de_vie)}}
+                    {{ form_row(form.avantage_culturel)}}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="right">
+            {% if form.Particularite is defined %}
+            <div class="right-content">
+                {{ form_row(form.Particularite)}}
+            </div>
+            <div class="left-content">
+                {{ form_row(form.competence_favorite)}}
+                {{ form_row(form.corps)}}
+                {{ form_row(form.coeur)}}
+                {{ form_row(form.attributCoeur)}}
+                {{ form_row(form.esprit)}}
+            </div>
+            {% endif %}
+            
+        </div>
+    </div>
     <button class="btn btn-outline-dark justify-content-center" type="submit" name="_valid" value="1" >{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

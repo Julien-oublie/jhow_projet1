@@ -6,15 +6,16 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-
+//import 'regenerator-runtime/runtime';
+//import axios from 'axios';
 import './styles/app.scss';
 
+//import components React
 import './components/Navbar.jsx';
 import './components/Register.jsx';
 import './components/Inscrition';
 import './components/fondEcran.jsx'
 import './components/Regles.jsx'
-//import components React
 import './components/Connexion.jsx';
 import './components/PersonnagesPage';
 
@@ -22,3 +23,5 @@ import './components/PersonnagesPage';
 import './bootstrap';
 import './controllers/formPersonnage.js' ;
 
+//import function js
+import './js/dynaForm';
