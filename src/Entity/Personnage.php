@@ -217,6 +217,26 @@ class Personnage
      */
     private $partie;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $espoir;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $endurance;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $vaillance;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $sagesse;
+
    
 
     /****************************** PARTIE VOCATION ******************************/
@@ -732,6 +752,54 @@ class Personnage
         }
 
         $this->attributAmeliores = $attributAmeliores;
+
+        return $this;
+    }
+
+    public function getEspoir(): ?int
+    {
+        return $this->espoir;
+    }
+
+    public function setEspoir(int $espoir): self
+    {
+        $this->espoir = $espoir;
+
+        return $this;
+    }
+
+    public function getEndurance(): ?int
+    {
+        return $this->endurance;
+    }
+
+    public function setEndurance(int $endurance): self
+    {
+        $this->endurance = $endurance;
+
+        return $this;
+    }
+
+    public function getVaillance(): ?int
+    {
+        return $this->vaillance;
+    }
+
+    public function setVaillance(int $vaillance): self
+    {
+        $this->vaillance = $vaillance;
+
+        return $this;
+    }
+
+    public function getSagesse(): ?int
+    {
+        return $this->sagesse;
+    }
+
+    public function setSagesse(int $sagesse): self
+    {
+        $this->sagesse = $sagesse;
 
         return $this;
     }

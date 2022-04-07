@@ -33,16 +33,18 @@ class PersonnageController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
         // Si il y a un ID la création vient d'un GM, sinon c'est le joueur qui cree sa fiche
-        $id ? $joueur =$userRep->find($id): $joueur= $this->getUser();
+        $id != 'null' ? $joueur =$userRep->find($id):$joueur = $this->getUser();    
         //On recup la partie pour l'ajouter au personnage si j'ajout vient du GM
-        $partie_id ? $partie =$partieRep->find($partie_id): $partie= null;
+        $partie_id != 'null' ? $partie =$partieRep->find($partie_id): $partie= null;
         
         $personnage = new Personnage();
         $form = $this->createForm(PersonnageType::class, $personnage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
-            dump($form->getData());
+            $attibut = explode(":", $form->get('attributCoeur')->getData());
+            $attibutCoeur = $attibut[0];
+           
             /*********ARMES********* */
             $tabArmes = $form->get('armes')->getData();
             $allArmes= explode(",", $tabArmes);
@@ -58,27 +60,28 @@ class PersonnageController extends AbstractController
             /*********ARMES********* */
             /*********ATTRIBUT AMELIORES**********/
             $attributAmeliores = new AttributAmeliores();
-            $attributAmeliores->setCorps($form->get('attributCorps')->getData());
-            $attributAmeliores->setCoeur($form->get('attributCoeur')->getData());
-            $attributAmeliores->setEsprit($form->get('attributEsprit')->getData());
+            $attributAmeliores->setCorps($form->get('attributCorps')->getData())
+                              ->setCoeur($attibutCoeur)
+                              ->setEsprit($form->get('attributEsprit')->getData())
+                              ->setPersonnage($personnage);
             $entityManager->persist($attributAmeliores);
-            /*********ATTRIBUT AMELIORES**********/
+            /*********valeur principale**********/
+            dump($form->get('valeurPrincipale')->getData());
+            $form->get('valeurPrincipale')->getData() == 'Sagesse' ? $personnage->setSagesse(2)  ->setVaillance(1) :$personnage->setSagesse(1) ->setVaillance(2);
+            /*********valeur principale**********/
             $specialite = [$form->get('specialites1')->getData(),$form->get('specialites2')->getData()];
             $personnage->setSpecialite($specialite)
                        ->setJoueur($joueur);
-         
-
             $entityManager->persist($personnage);
             $entityManager->flush();
 
-
-            if ($id) {
+            if ($id != 'null'  ) {
                 return $this->redirectToRoute('app_partie_show', ['id'=>$partie_id], Response::HTTP_SEE_OTHER);
             }else{
                 return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
             }
         }
-        if ($id) {
+        if ($id != 'null' ) {
             return $this->renderForm('personnage/new.html.twig', [
                 'personnage' => $personnage,
                 'form' => $form,
@@ -303,7 +306,13 @@ class PersonnageController extends AbstractController
                     $pdf->Ln(6);
                 }
             }
-            
+            $x +=77;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(83.5);
+            $pdf->Cell(18,10,$personnage->getEndurance(),'');
+            $x +=33.5;
+            $pdf->SetLeftMargin($x);
+            $pdf->Cell(18,10,$personnage->getEspoir(),'');
 
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
