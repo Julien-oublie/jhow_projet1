@@ -10,6 +10,8 @@
             "nom":"Bardides",
             "standard de vie": "Prospère",
             "Avantage culturel":"Intrépide",
+            "Endurance" : 22,
+            "Espoir" : 8,
             "Vertus":{
                 "1": "Épouvantables visions",
                 "2": "Héritage",
@@ -172,6 +174,8 @@
                 "nom":"Beornides",
                 "standard de vie": "Martial",
                 "Avantage culturel":"Forcené",
+                "Endurance" : 24,
+                "Espoir" : 8,
                 "competence":{
                         "Admiration":3,
                         "Athletisme":2,
@@ -326,6 +330,8 @@
                 "nom":"Nains du Mont Solitaire",
                 "standard de vie": "Riche",
                 "Avantage culturel":"Redoubtable",
+                "Endurance" : 28,
+                "Espoir" : 6,
                 "competence":{
                     "Admiration":0,
                     "Athletisme":0,
@@ -480,6 +486,8 @@
             "nom" : "Elfes de la Forêt Noire",
             "standard de vie": "Martial",
             "Avantage culturel":"Peuple du Crépuscule",
+            "Endurance" : 22,
+            "Espoir" : 8,
             "competence":{
                 "Admiration":2,
                 "Athletisme":3,
@@ -634,6 +642,8 @@
             "nom": "Hobbits de la Comté",
             "standard de vie": "Prospère",
             "Avantage culturel": "Sens du Hobbit",
+            "Endurance" : 16,
+            "Espoir" : 12,
             "competence":{
                 "Admiration":0,
                 "Athletisme":0,
@@ -789,6 +799,8 @@
             "nom" : "Hommes des Bois des Terres Sauvages",
             "standard de vie": "Modeste",
             "Avantage culturel": "Menuiserie",
+            "Endurance" : 20,
+            "Espoir" : 10,
             "competence":{
                 "Admiration":0,
                 "Athletisme":2,

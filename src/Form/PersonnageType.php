@@ -254,7 +254,8 @@ class PersonnageType extends AbstractType
         $tabParticularite = [];
 
         foreach ($Classe["Classe"] as $value){
-    
+            $espoir = $value['Espoir'];
+            $endurance =  $value['Endurance'];
             foreach ($value["Origine"] as $origine){
                 if ($origine["nom"] == $data ) {
 
@@ -263,11 +264,9 @@ class PersonnageType extends AbstractType
                     foreach ($origine["Particularite"] as $dataOrigine) {
                         $tabParticularite[$dataOrigine] = $dataOrigine;
                     }
-                    $form->add('Particularite', ChoiceType::class, [
-                        'label'    => 'Particularités',
-                        'choices'  =>  $tabParticularite,
-                        'multiple'=> true,
-                        'expanded'=>true
+                    $form->add('endurance', IntegerType::class, [
+                        'label'    => 'Endurance',
+                        'attr' => ['value' =>  $endurance],
                     ]);
 
                     //On ajoute les champs relatifs aux origines
@@ -279,6 +278,27 @@ class PersonnageType extends AbstractType
                             'attr' => ['value' =>  $value],
                         ]);
                     }
+
+                    $espoir +=  $origine["Attribut de base"]['coeur'];
+                    $endurance +=  $origine["Attribut de base"]['coeur'];
+                    $form->add('espoir', IntegerType::class, [
+                        'label'    => 'Espoir',
+                        'attr' => ['value' =>  $espoir ],
+                    ]);
+
+                    $form->add('endurance', IntegerType::class, [
+                        'label'    => 'Endurance',
+                        'attr' => ['value' =>  $endurance],
+                    ]);
+
+                    $form->add('valeurPrincipale', ChoiceType::class, [
+                        'label'    => 'Valeur princiapel',
+                        'choices'  =>  ['Sagesse' =>'Sagesse',
+                                        'Vaillance' => 'Vaillance'
+                                    ],
+                        'mapped' => false,
+                    ]);
+
                 }
             } 
            
@@ -394,8 +414,7 @@ class PersonnageType extends AbstractType
                         'choices'  =>  $tabAttributEsprit,
                         'mapped'=>false,
                         'auto_initialize' => false, 
-                        'label' => ' Esprit :',
-                        'disabled' => true
+                        'label' => ' Esprit :'
                     ]);
                 }
             }
