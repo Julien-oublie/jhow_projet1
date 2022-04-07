@@ -15,13 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/partie')]
 class PartieController extends AbstractController
 {
-    #[Route('/', name: 'app_partie_index', methods: ['GET'])]
-    public function index(PartieRepository $partieRepository): Response
-    {
-        return $this->render('partie/index.html.twig', [
-            'parties' => $partieRepository->findAll(),
-        ]);
-    }
+    
     #[Route('/partie/{id}', name: 'app_partie_en_cours', methods: ['POST'])]
     public function partieEnCours(Partie $partie, Request $request, EntityManagerInterface $entityManager, PersonnageRepository $personnageRep): Response
     {
@@ -42,18 +36,18 @@ class PartieController extends AbstractController
             'partie' => $partie,
         ]);
     }
-
-    #[Route('/new', name: 'app_partie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PartieRepository $partieRepository , EntityManagerInterface $entityManager): Response
+   
+    #[Route('/new/{id_partie?null}', name: 'app_partie_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, PartieRepository $partieRepository ,$id_partie, EntityManagerInterface $entityManager): Response
     {
+        dump($id_partie);
         $user = $this->getUser();
         $user->setRoles(['GAME_MASTER']);
 
         $entityManager->persist($user);
         $entityManager->flush();
 
-
-        $partie = new Partie();
+        $id_partie != 'null'? $partie=$partieRepository->find($id_partie):$partie = new Partie();
         $form = $this->createForm(PartieType::class, $partie);
         $form->handleRequest($request);
 
@@ -62,22 +56,26 @@ class PartieController extends AbstractController
             $partieRepository->add($partie);
             $entityManager->flush();
     
-            return $this->redirectToRoute('app_partie_show', ["id"=>$partie->getId()], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_partie_new', ["id_partie"=>$partie->getId()], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->renderForm('partie/new.html.twig', [
-            'partie' => $partie,
-            'form' => $form,
-        ]);
+     
+            return $this->renderForm('partie/new.html.twig', [
+                'partie' => $partie,
+                'form' => $form,
+                'id_partie'=>$id_partie
+                ]);
+        
+        
+        
     }
 
-    #[Route('/{id}', name: 'app_partie_show', methods: ['GET'])]
-    public function show(Partie $partie): Response
-    {
-        return $this->render('partie/show.html.twig', [
-            'partie' => $partie,
-        ]);
-    }
+    
+    // public function show(Partie $partie): Response
+    // {
+    //     return $this->render('partie/show.html.twig', [
+    //         'partie' => $partie,
+    //     ]);
+    // }
 
     #[Route('/{id}/edit', name: 'app_partie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Partie $partie, PartieRepository $partieRepository): Response
@@ -87,7 +85,7 @@ class PartieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $partieRepository->add($partie);
-            return $this->redirectToRoute('app_partie_show', ["id"=>$partie->getId()], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_partie_new', ["id"=>$partie->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('partie/edit.html.twig', [

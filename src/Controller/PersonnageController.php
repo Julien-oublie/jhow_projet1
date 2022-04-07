@@ -75,7 +75,7 @@ class PersonnageController extends AbstractController
 
 
             if ($id!= 'null') {
-                return $this->redirectToRoute('app_partie_show', ['id'=>$partie_id], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('app_partie_new', ['id_partie'=>$partie_id], Response::HTTP_SEE_OTHER);
             }else{
                 return $this->redirectToRoute('personnage_show', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
             }
