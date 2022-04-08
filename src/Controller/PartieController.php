@@ -40,6 +40,7 @@ class PartieController extends AbstractController
     #[Route('/new/{id_partie?null}', name: 'app_partie_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PartieRepository $partieRepository ,$id_partie, EntityManagerInterface $entityManager): Response
     {
+       
         $user = $this->getUser();
         $user->setRoles(['GAME_MASTER']);
 
