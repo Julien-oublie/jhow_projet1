@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Personnage;
 use App\Entity\Armes;
+use App\Entity\Vertus;
+use App\Entity\Recompence;
 use App\Entity\AttributAmeliores;
 use App\Form\PersonnageType;
 use App\Repository\PartieRepository;
@@ -46,6 +48,20 @@ class PersonnageController extends AbstractController
             $attibutCoeur = $attibut[0];
             $Principale = explode(":", $form->get('valeurPrincipale')->getData());
             $valeurPrincipale = $Principale[0];
+            /****************VERTUS *******************/
+            if ($form->get('valeurPrinciapelHidden')->getData()=='vertus') {
+                $Vertu = new Vertus();
+                $Vertu->setNom($form->get('vertus')->getData());
+                $Vertu->setPersonnage($personnage);
+                $entityManager->persist($Vertu);
+            }
+            else{
+                $Recompence = new Recompence();
+                $Recompence->setNom($form->get('recompence')->getData());
+                $Recompence->setPersonnage($personnage);
+                $entityManager->persist($Recompence);
+            }
+            /***********************VERTUS ***********/
            
             /*********ARMES********* */
             $tabArmes = $form->get('armes')->getData();

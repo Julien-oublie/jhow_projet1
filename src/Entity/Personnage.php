@@ -237,6 +237,16 @@ class Personnage
      */
     private $sagesse;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Vertus::class, mappedBy="personnage")
+     */
+    private $vertus;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Recompence::class, mappedBy="personnage")
+     */
+    private $recompences;
+
    
 
     /****************************** PARTIE VOCATION ******************************/
@@ -249,6 +259,7 @@ class Personnage
         $this->recompenses = new ArrayCollection();
         $this->arme = new ArrayCollection();
         $this->partie = new ArrayCollection();
+        $this->recompences = new ArrayCollection();
         
        
     }
@@ -800,6 +811,66 @@ class Personnage
     public function setSagesse(int $sagesse): self
     {
         $this->sagesse = $sagesse;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vertus>
+     */
+    public function getVertus(): Collection
+    {
+        return $this->vertus;
+    }
+
+    public function addVertu(Vertus $vertu): self
+    {
+        if (!$this->vertus->contains($vertu)) {
+            $this->vertus[] = $vertu;
+            $vertu->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVertu(Vertus $vertu): self
+    {
+        if ($this->vertus->removeElement($vertu)) {
+            // set the owning side to null (unless already changed)
+            if ($vertu->getPersonnage() === $this) {
+                $vertu->setPersonnage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recompence>
+     */
+    public function getRecompences(): Collection
+    {
+        return $this->recompences;
+    }
+
+    public function addRecompence(Recompence $recompence): self
+    {
+        if (!$this->recompences->contains($recompence)) {
+            $this->recompences[] = $recompence;
+            $recompence->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecompence(Recompence $recompence): self
+    {
+        if ($this->recompences->removeElement($recompence)) {
+            // set the owning side to null (unless already changed)
+            if ($recompence->getPersonnage() === $this) {
+                $recompence->setPersonnage(null);
+            }
+        }
 
         return $this;
     }

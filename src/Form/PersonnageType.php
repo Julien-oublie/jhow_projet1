@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class PersonnageType extends AbstractType
 {
@@ -439,6 +440,7 @@ class PersonnageType extends AbstractType
         if($value[0] != ''){
             $valeurPrincipaleData = $value[0];
             $classeData = $value[1];
+            $valeurPrincipale = '';
             $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
             foreach ($Classe["Classe"] as $classe){
                 // compare le perso selectionné au JSON 
@@ -455,6 +457,7 @@ class PersonnageType extends AbstractType
                             'auto_initialize' => false, 
                             'label' => ' Choississez une vertus :'
                         ]);
+                        $valeurPrincipale = 'vertus';
                     }
                     else{
                         foreach ($classe['Recompence'] as $recompence){
@@ -466,7 +469,12 @@ class PersonnageType extends AbstractType
                             'auto_initialize' => false, 
                             'label' => ' Choississez une recompence :'
                         ]);
+                        $valeurPrincipale = 'recompence';
                     }
+                    $form->add('valeurPrinciapelHidden', HiddenType::class, [
+                        'attr' => ['value' => $valeurPrincipale],
+                        'mapped'=>false,
+                    ]);
                     
                 }
             }
