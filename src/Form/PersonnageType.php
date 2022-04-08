@@ -447,7 +447,7 @@ class PersonnageType extends AbstractType
                     //si la valeur principal est la sagesse alors on lui propose une vertus
                     if($valeurPrincipaleData=='Sagesse'){
                         foreach ($classe['Vertus'] as $vertus){
-                            $tabVertus[$vertus]=[$vertus];
+                            $tabVertus[$vertus]=$vertus;
                         }
                         $form->add('vertus', ChoiceType::class, [
                             'choices'  =>  $tabVertus,
@@ -458,7 +458,7 @@ class PersonnageType extends AbstractType
                     }
                     else{
                         foreach ($classe['Recompence'] as $recompence){
-                            $tabRecompense[$recompence]=[$recompence];
+                            $tabRecompense[$recompence]=$recompence;
                         }
                         $form->add('recompence', ChoiceType::class, [
                             'choices'  =>  $tabRecompense,
