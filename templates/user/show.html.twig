@@ -16,6 +16,7 @@
     {% endfor %}
     nombre de parties jouées: {{app.user.parties|length}}
     <button><a href="{{ path('personnage_new') }}">Créer un nuveau personnage</a></button>
+    <button><a href="{{ path('app_partie_new') }}">Créer une nouvelle partie</a></button>
     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
