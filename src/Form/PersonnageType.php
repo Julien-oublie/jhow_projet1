@@ -433,7 +433,6 @@ class PersonnageType extends AbstractType
     private function addVertusOrRecompense(FormInterface $form, $data)
     { 
         $value = explode(":", $data);
-        dump($value);
         $tabVertus=[];
         $tabRecompense=[];
         if($value[0] != ''){
@@ -443,7 +442,6 @@ class PersonnageType extends AbstractType
             foreach ($Classe["Classe"] as $classe){
                 // compare le perso selectionné au JSON 
                 if ($classe["nom"] == $classeData ) {
-                    dump($tabVertus);
                     //si la valeur principal est la sagesse alors on lui propose une vertus
                     if($valeurPrincipaleData=='Sagesse'){
                         foreach ($classe['Vertus'] as $vertus){

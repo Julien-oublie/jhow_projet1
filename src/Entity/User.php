@@ -54,11 +54,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $pseudo;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Amitie::class, mappedBy="Ami1")
+     */
+    private $amities;
+
+
+
     public function __construct()
     {
         $this->parties = new ArrayCollection();
         $this->personnages = new ArrayCollection();
+        $this->amities = new ArrayCollection();
     }
+
 
 
     public function getId(): ?int
@@ -254,5 +263,52 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @return Collection<int, Amitie>
+     */
+    public function getAmities(): Collection
+    {
+        return $this->amities;
+    }
+
+    public function addAmity1(Amitie $amity): self
+    {
+        if (!$this->amities->contains($amity)) {
+            $this->amities[] = $amity;
+            $amity->setAmi1($this);
+        }
+        return $this;
+    }
+    public function addAmity2(Amitie $amity): self
+    {
+        if (!$this->amities->contains($amity)) {
+            $this->amities[] = $amity;
+            $amity->setAmi2($this);
+        }
+        return $this;
+    }
+
+    public function removeAmity1(Amitie $amity): self
+    {
+        if ($this->amities->removeElement($amity)) {
+            // set the owning side to null (unless already changed)
+            if ($amity->getAmi1() === $this) {
+                $amity->setAmi1(null);
+            }
+        }
+
+        return $this;
+    }
+    public function removeAmity2(Amitie $amity): self
+    {
+        if ($this->amities->removeElement($amity)) {
+            // set the owning side to null (unless already changed)
+            if ($amity->getAmi1() === $this) {
+                $amity->setAmi1(null);
+            }
+        }
+
+        return $this;
+    }
 
 }

@@ -40,7 +40,6 @@ class PartieController extends AbstractController
     #[Route('/new/{id_partie?null}', name: 'app_partie_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PartieRepository $partieRepository ,$id_partie, EntityManagerInterface $entityManager): Response
     {
-        dump($id_partie);
         $user = $this->getUser();
         $user->setRoles(['GAME_MASTER']);
 
@@ -48,7 +47,7 @@ class PartieController extends AbstractController
         $entityManager->flush();
 
         $id_partie != 'null'? $partie=$partieRepository->find($id_partie):$partie = new Partie();
-        $form = $this->createForm(PartieType::class, $partie);
+        $form = $this->createForm(PartieType::class, $partie,['user'=>$this->getUser()] );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -80,7 +79,7 @@ class PartieController extends AbstractController
     #[Route('/{id}/edit', name: 'app_partie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Partie $partie, PartieRepository $partieRepository): Response
     {
-        $form = $this->createForm(PartieType::class, $partie);
+        $form = $this->createForm(PartieType::class, $partie, ['user'=>$this->getUser()]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

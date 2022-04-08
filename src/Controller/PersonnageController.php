@@ -66,7 +66,7 @@ class PersonnageController extends AbstractController
                               ->setPersonnage($personnage);
             $entityManager->persist($attributAmeliores);
             /*********valeur principale**********/
-            dump($form->get('valeurPrincipale')->getData());
+        
 
             $valeurPrincipale == 'Sagesse' ? $personnage->setSagesse(2) ->setVaillance(1) :$personnage->setSagesse(1) ->setVaillance(2);
             /*********valeur principale**********/
