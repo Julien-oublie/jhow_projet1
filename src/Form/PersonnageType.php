@@ -240,8 +240,26 @@ class PersonnageType extends AbstractType
                     }
                   );  
                 $form->add($builder->getForm());
-               
-               
+
+                /*******Vertus ou recompenses**********/
+                $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
+                    'valeurPrincipale', ChoiceType::class, null, [
+                    'label'    => 'Valeur princiapel',
+                    'choices'  =>  ['Sagesse' =>'Sagesse:'.$formData,
+                                    'Vaillance' => 'Vaillance:'.$formData
+                                ],
+                    'mapped' => false,
+                    'auto_initialize' => false,
+                ]);
+                //On parametre le listener avec la fonction de ce qu'il doit faire
+                $builder->addEventListener(
+                    FormEvents::POST_SUBMIT,
+                        function (FormEvent $event) {
+                            $form = $event->getForm();
+                            $this->addVertusOrRecompense($form->getParent(), $form->getData());
+                        }
+                    );
+                $form->add($builder->getForm()); 
 
             }
             
@@ -290,15 +308,7 @@ class PersonnageType extends AbstractType
                         'label'    => 'Endurance',
                         'attr' => ['value' =>  $endurance],
                     ]);
-
-                    $form->add('valeurPrincipale', ChoiceType::class, [
-                        'label'    => 'Valeur princiapel',
-                        'choices'  =>  ['Sagesse' =>'Sagesse',
-                                        'Vaillance' => 'Vaillance'
-                                    ],
-                        'mapped' => false,
-                    ]);
-
+                   
                 }
             } 
            
@@ -420,7 +430,50 @@ class PersonnageType extends AbstractType
             }
         }
     }
-
+    private function addVertusOrRecompense(FormInterface $form, $data)
+    { 
+        $value = explode(":", $data);
+        dump($value);
+        $tabVertus=[];
+        $tabRecompense=[];
+        if($value[0] != ''){
+            $valeurPrincipaleData = $value[0];
+            $classeData = $value[1];
+            $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
+            foreach ($Classe["Classe"] as $classe){
+                // compare le perso selectionné au JSON 
+                if ($classe["nom"] == $classeData ) {
+                    dump($tabVertus);
+                    //si la valeur principal est la sagesse alors on lui propose une vertus
+                    if($valeurPrincipaleData=='Sagesse'){
+                        foreach ($classe['Vertus'] as $vertus){
+                            $tabVertus[$vertus]=[$vertus];
+                        }
+                        $form->add('vertus', ChoiceType::class, [
+                            'choices'  =>  $tabVertus,
+                            'mapped'=>false,
+                            'auto_initialize' => false, 
+                            'label' => ' Choississez une vertus :'
+                        ]);
+                    }
+                    else{
+                        foreach ($classe['Recompence'] as $recompence){
+                            $tabRecompense[$recompence]=[$recompence];
+                        }
+                        $form->add('recompence', ChoiceType::class, [
+                            'choices'  =>  $tabRecompense,
+                            'mapped'=>false,
+                            'auto_initialize' => false, 
+                            'label' => ' Choississez une recompence :'
+                        ]);
+                    }
+                    
+                }
+            }
+            
+        }
+        
+    }
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
