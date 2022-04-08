@@ -8,14 +8,22 @@
     <h2>Game Master :{{app.user.pseudo}}</h2>
     <table class="table">
         <tbody>
-            <tr>
+                {# A voir quoi mettre comme infos sur cette page pour les joueurs #}
                 <h2>Joueurs</h2>
                 {% for personnages in partie.personnages %}
-                <pre>
-                  {{ dump(personnages) }}
-                </pre>
+                    <tr>
+                      <th>
+                      {{personnages.joueur.pseudo}}
+                      </th>
+                  </tr>
+                  <td>
+                  {{personnages.nom}}
+                  </td>
+                  <td>
+                   {{personnages.classe}}
+                  </td>   
                 {% endfor %}
-            </tr>
+            
         </tbody>
         
     </table>
@@ -41,6 +49,9 @@
 <div class="result">
   <div id="display"></div>
 </div>
+{# Acceder au formulaire de modification de chaque joueur -AUCUNE IDEE DE COMMENT FAIRE CA ENCORE #}
+{# A ne pas oublier - vider le role game master  #}
+<button>Partie terminée</button>
 
     
 {% endblock %}

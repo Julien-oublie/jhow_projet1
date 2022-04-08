@@ -35,9 +35,7 @@ class PersonnageController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
         // Si il y a un ID la création vient d'un GM, sinon c'est le joueur qui cree sa fiche
-        $id != 'null' ? $joueur =$userRep->find($id):$joueur = $this->getUser();    
-        //On recup la partie pour l'ajouter au personnage si j'ajout vient du GM
-        $partie_id != 'null' ? $partie =$partieRep->find($partie_id): $partie= null;
+        $id != 'null'?$joueur =$userRep->find($id):$joueur= $this->getUser();
         
         $personnage = new Personnage();
         $form = $this->createForm(PersonnageType::class, $personnage);
@@ -84,7 +82,7 @@ class PersonnageController extends AbstractController
                               ->setPersonnage($personnage);
             $entityManager->persist($attributAmeliores);
             /*********valeur principale**********/
-            dump($form->get('valeurPrincipale')->getData());
+        
 
             $valeurPrincipale == 'Sagesse' ? $personnage->setSagesse(2) ->setVaillance(1) :$personnage->setSagesse(1) ->setVaillance(2);
             /*********valeur principale**********/
@@ -94,25 +92,19 @@ class PersonnageController extends AbstractController
             $entityManager->persist($personnage);
             $entityManager->flush();
 
-            if ($id != 'null'  ) {
-                return $this->redirectToRoute('app_partie_show', ['id'=>$partie_id], Response::HTTP_SEE_OTHER);
+
+            if ($id!= 'null') {
+                return $this->redirectToRoute('app_partie_new', ['id_partie'=>$partie_id], Response::HTTP_SEE_OTHER);
             }else{
-                return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('personnage_show', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
             }
         }
-        if ($id != 'null' ) {
+   
             return $this->renderForm('personnage/new.html.twig', [
                 'personnage' => $personnage,
                 'form' => $form,
                 'user'=>$joueur
-            ]);
-        }else{
-            return $this->renderForm('personnage/new.html.twig', [
-            'personnage' => $personnage,
-            'form' => $form,
-        ]);
-        }
-        
+            ]);    
     }
 
     #[Route('/{id}', name: 'personnage_show', methods: ['GET'])]

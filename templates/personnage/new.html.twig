@@ -5,8 +5,8 @@
 {% block body %}
 
     <div class="col" >
-        {% if app.user %}
-            <h1>Créer un personnage pour {{app.user.pseudo}}</h1>
+        {% if user %}
+            <h1>{{user.pseudo}} - Créer un personnage </h1>
         {% else %}    
             <h1>Créer votre Personnage</h1>
         {% endif %}
