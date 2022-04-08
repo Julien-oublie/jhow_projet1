@@ -339,6 +339,12 @@ class PersonnageController extends AbstractController
             $pdf->Ln(29);
             $pdf->Cell(18,10,$personnage->getSagesse(),'');
 
+            /****Vertus */
+            $x +=77;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(83.5);
+            $pdf->Cell(18,10,$personnage->getEndurance(),'');
+
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
             $pdf->Output( $pdfFilepath ,'I');
