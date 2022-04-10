@@ -96,7 +96,7 @@ class PersonnageController extends AbstractController
             if ($id!= 'null') {
                 return $this->redirectToRoute('app_partie_new', ['id_partie'=>$partie_id], Response::HTTP_SEE_OTHER);
             }else{
-                return $this->redirectToRoute('personnage_show', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
             }
         }
    
@@ -178,7 +178,7 @@ class PersonnageController extends AbstractController
 
         $pdf = new \FPDF();
             //$pdf->AddPage();
-            //  $y = $pdf->getY();
+            $y = $pdf->getY();
             
             $x = $pdf->getX();
             $x +=10;
@@ -304,10 +304,12 @@ class PersonnageController extends AbstractController
 
             $x -=108;
             $pdf->SetLeftMargin($x);
-            $pdf->Ln(16);
+            $pdf->Ln(16.5);
+            
             foreach ($personnage->getArme() as $key => $arme) {
+                $pdf->SetFont('Times','',9);
                 $pdf->Cell(16,10,utf8_decode($arme->getArme()),'');
-                
+                $pdf->SetFont('Times','',12);
                 $pdf->Cell(30,11, str_repeat('X ',$arme->getCompetence()) ,'');
                 $x +=45;
                 $pdf->SetLeftMargin($x);
@@ -317,6 +319,8 @@ class PersonnageController extends AbstractController
                     $pdf->Ln(6);
                 }
             }
+            $pdf->Ln(-0.5);
+            
             $x +=77;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(83.5);
@@ -331,11 +335,27 @@ class PersonnageController extends AbstractController
             $pdf->Ln(29);
             $pdf->Cell(18,10,$personnage->getSagesse(),'');
 
+            
             /****Vertus */
-            $x +=77;
+            $x -=84;
             $pdf->SetLeftMargin($x);
-            $pdf->Ln(83.5);
-            $pdf->Cell(18,10,$personnage->getEndurance(),'');
+            $pdf->Ln(91);
+            
+            foreach($personnage->getVertus() as $vertu){
+                $pdf->Cell(18,10,utf8_decode($vertu->getNom()),'');
+                $pdf->Ln(6.1);
+            }
+            /****Recompence */
+            $x -=70;
+            $pdf->SetLeftMargin($x);
+            $pdf->Ln(-10);
+            $pdf->SetY(185);
+    
+             foreach($personnage->getRecompences() as $recompence){
+                $pdf->Cell(18,10,utf8_decode($recompence->getNom()),'');
+                $pdf->Ln(6.1);
+            }
+            
 
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';

@@ -6,15 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FicheController extends AbstractController
+class InscriptionController extends AbstractController
 {
-    /**
-     * @Route("/fiche", name="fiche")
-     */
+    #[Route('/inscription', name: 'inscription')]
     public function index(): Response
     {
-        return $this->render('fiche/index.html.twig', [
-            'controller_name' => 'FicheController',
+        return $this->render('inscription/index.html.twig', [
+            'controller_name' => 'InscriptionController',
         ]);
     }
 }
