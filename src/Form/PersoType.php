@@ -28,11 +28,81 @@ class PersoType extends AbstractType
     {
         $builder
             ->add('nom',TextType::class, [
-                    'attr' => ['placeholder' => 'Votre Nom'],
-                    'label' => false
-                    ])
+                'attr' => ['placeholder' => 'Votre Nom'],
+                'label' => false
+            ])
+            // ************Attribut de basse***********
             ->add('coeur', IntegerType::class, [
-                    'attr' => ['class' => 'form-control-sm col-2'],
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('corps', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('esprit', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            //************************************ */
+            //*****************************Competence***************** */
+            ->add('Admiration', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Athletisme', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Conscience', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Exploration', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Chant', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Inspiration', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Voyage', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Perspicacite', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Guerison', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Courtoisie', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Combat', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Furtivite', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Fouille', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Chasse', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Enigmes', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('Conaissances', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            //************************************************* */
+            ->add('espoir', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('endurance', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('vaillance', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
+            ])
+            ->add('sagesse', IntegerType::class, [
+                'attr' => ['class' => 'form-control-sm col-2'],
             ])
             ;
     }

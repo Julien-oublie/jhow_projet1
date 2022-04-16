@@ -17,7 +17,7 @@ class EditPersonnageType extends AbstractType
     {
         $builder
             ->add('personnage', PersoType::class)
-           // ->add('attribut_ameliores', AttributAmelioresType::class)
+           ->add('attribut_ameliores', AttributAmelioresType::class)
             ;
     }
     public function configureOptions(OptionsResolver $resolver): void

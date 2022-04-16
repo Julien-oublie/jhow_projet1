@@ -15,7 +15,7 @@ class AttributAmelioresType extends AbstractType
             ->add('corps')
             ->add('coeur')
             ->add('esprit')
-            ->add('personnage')
+            //->add('personnage')
         ;
     }
 

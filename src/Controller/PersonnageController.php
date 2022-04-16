@@ -123,7 +123,7 @@ class PersonnageController extends AbstractController
     public function edit(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
         
-        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage]);
+        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores()]);
         dump($form);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
