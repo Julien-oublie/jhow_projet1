@@ -7,7 +7,11 @@ use App\Entity\Armes;
 use App\Entity\Vertus;
 use App\Entity\Recompence;
 use App\Entity\AttributAmeliores;
+use App\Form\AttributAmelioresType;
+use App\Repository\AttributAmelioresRepository;
 use App\Form\PersonnageType;
+use App\Form\EditPersonnageType;
+use App\Form\PersoType;
 use App\Repository\PartieRepository;
 use App\Repository\PersonnageRepository;
 use App\Repository\UserRepository;
@@ -18,7 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Fpdf\Fpdf;
-
+use Symfony\Component\Form\FormTypeInterface;
 #[Route('/personnage')]
 class PersonnageController extends AbstractController
 {
@@ -118,10 +122,12 @@ class PersonnageController extends AbstractController
     #[Route('/{id}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(PersonnageType::class, $personnage);
+        
+        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage]);
+        dump($form);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);

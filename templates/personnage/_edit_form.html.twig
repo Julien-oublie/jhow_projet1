@@ -1,0 +1,4 @@
+{{ form_start(form, { 'attr' : {'id': 'personnageForm'}}) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-outline-dark justify-content-center" type="submit" name="_valid" value="1" >{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
