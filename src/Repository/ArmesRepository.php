@@ -44,7 +44,16 @@ class ArmesRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+    //SELECT COUNT(*) FROM `armes` WHERE personnage_id = $id; 
+    public function countArmes($id)
+    {
+        return $this->createQueryBuilder('armes')
+            ->andWhere('armes.personnage = :id')
+            ->setParameter(':id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Armes[] Returns an array of Armes objects
     //  */

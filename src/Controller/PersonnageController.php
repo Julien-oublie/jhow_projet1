@@ -123,7 +123,7 @@ class PersonnageController extends AbstractController
     public function edit(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
         
-        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores()]);
+        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'armes'=>$personnage->getArme()]);
         dump($form);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
@@ -132,7 +132,7 @@ class PersonnageController extends AbstractController
 
             return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        
         return $this->renderForm('personnage/edit.html.twig', [
             'personnage' => $personnage,
             'form' => $form,
