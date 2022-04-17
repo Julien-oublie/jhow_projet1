@@ -31,7 +31,9 @@ class PersonnageController extends AbstractController
         ]);
     }
 
-   
+    /**
+     * @Route("/personnage/{id?null}/{partie_id?null}", name="personnage_new")
+     */
     #[Route('/new/{id?null}/{partie_id?null}', name: 'personnage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
