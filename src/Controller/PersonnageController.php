@@ -124,15 +124,35 @@ class PersonnageController extends AbstractController
     {
         
         $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'armes'=>$personnage->getArme()]);
-        dump($form);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
-            
+            for ($i=1; $i < $form->get('numberArmes')->getData()+1 ; $i++) { 
+                $arme = new Armes();
+                $armeRequest = $form->get('armes'.$i)->getData();
+                $arme->setArme($armeRequest['arme']);
+                $arme->setCompetence($armeRequest['competence']);
+                $arme->setPersonnage($personnage);
+                $entityManager->persist($arme);
+            }
+            for ($i=1; $i < $form->get('numberVertus')->getData()+1 ; $i++) { 
+                $vertu = new Vertus();
+                $vertuRequest = $form->get('vertus'.$i)->getData();
+                $vertu->setNom($vertuRequest['nom']);
+                $vertu->setPersonnage($personnage);
+                $entityManager->persist($vertu);
+            }
+            for ($i=1; $i < $form->get('numberRecompences')->getData()+1 ; $i++) { 
+                $recompence = new Recompence();
+                $recompenceRequest = $form->get('recompence'.$i)->getData();
+                $recompence->setNom($recompenceRequest['nom']);
+                $recompence->setPersonnage($personnage);
+                $entityManager->persist($recompence);
+            }
             $entityManager->flush();
 
-            return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+           // return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
-        
+        //dump($form->get('armes1')->getData());
         return $this->renderForm('personnage/edit.html.twig', [
             'personnage' => $personnage,
             'form' => $form,
@@ -181,11 +201,8 @@ class PersonnageController extends AbstractController
         $artisanat = str_repeat('X ',$personnage->getArtisanat());
         $combat = str_repeat('X ',$personnage->getCombat());
         $conaissances = str_repeat('X ',$personnage->getConaissances());
-
         $pdf = new \FPDF();
-            //$pdf->AddPage();
             $y = $pdf->getY();
-            
             $x = $pdf->getX();
             $x +=10;
             $pdf->AliasNbPages();
@@ -326,7 +343,6 @@ class PersonnageController extends AbstractController
                 }
             }
             $pdf->Ln(-0.5);
-            
             $x +=77;
             $pdf->SetLeftMargin($x);
             $pdf->Ln(83.5);
@@ -340,8 +356,6 @@ class PersonnageController extends AbstractController
             $pdf->Cell(18,10,$personnage->getVaillance(),'');
             $pdf->Ln(29);
             $pdf->Cell(18,10,$personnage->getSagesse(),'');
-
-            
             /****Vertus */
             $x -=84;
             $pdf->SetLeftMargin($x);
@@ -356,13 +370,11 @@ class PersonnageController extends AbstractController
             $pdf->SetLeftMargin($x);
             $pdf->Ln(-10);
             $pdf->SetY(185);
-    
              foreach($personnage->getRecompences() as $recompence){
                 $pdf->Cell(18,10,utf8_decode($recompence->getNom()),'');
                 $pdf->Ln(6.1);
             }
             
-
             //créer le pdf
             $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
             $pdf->Output( $pdfFilepath ,'I');
