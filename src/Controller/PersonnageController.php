@@ -158,7 +158,6 @@ class PersonnageController extends AbstractController
         dump($personnageRepository->CountArmesOfThePerso($personnage));
         return $this->renderForm('personnage/edit.html.twig', [
             'personnage' => $personnage,
-            'nbrArmes'=>$nbrArmes,
             'form' => $form,
         ]);
     }
