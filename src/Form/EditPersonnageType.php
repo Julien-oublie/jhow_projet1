@@ -15,24 +15,39 @@ use App\Form\ArmesType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EditPersonnageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-       
+        $armesNbr = [];
+        $vertusNbr = [];
+        $recompensesNbr = [];
+        for ($i=0; $i < 7-$options['data']['nbrArmes']; $i++) { 
+            $armesNbr[$i] = $i;
+        }
+        for ($i=0; $i < 6-$options['data']['nbrVertus']; $i++) { 
+            $vertusNbr[$i] = $i;
+        }
+        for ($i=0; $i < 6-$options['data']['nbrRecompenses']; $i++) { 
+            $recompensesNbr[$i] = $i;
+        }
         $builder
             ->add('personnage', PersoType::class)
             ->add('attribut_ameliores', AttributAmelioresType::class)
-            ->add('numberArmes', IntegerType::class,[
+            ->add('numberArmes', ChoiceType::class,[
+                'choices'  =>  $armesNbr,
                 'label'=>'Nombre d\'armes gagné',
                 'mapped'=>'false' 
             ])
-            ->add('numberVertus', IntegerType::class,[
+            ->add('numberVertus',  ChoiceType::class,[
+                'choices'  =>  $vertusNbr,
                 'label'=>'Nombre de vertus gagné',
                 'mapped'=>'false' 
             ])
-            ->add('numberRecompences', IntegerType::class,[
+            ->add('numberRecompences',  ChoiceType::class,[
+                'choices'  =>  $recompensesNbr,
                 'label'=>'Nombre de recompences gagné',
                 'mapped'=>'false' 
             ]);

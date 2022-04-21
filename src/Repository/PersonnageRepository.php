@@ -18,7 +18,40 @@ class PersonnageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Personnage::class);
     }
-
+    //SELECT COUNT(*) FROM `Armes` JOIN `personnage` ON recompence.`personnage_id` = personnage.id WHERE personnage_id = $perso_id; 
+     public function CountArmesOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('personnage')
+            ->Join('personnage.arme', 'arme')
+            ->select('personnage, count(personnage)')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function CountVertusOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('personnage')
+            ->Join('personnage.vertus', 'vertus')
+            ->select('personnage, count(personnage)')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function CountRecompensesOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('personnage')
+            ->Join('personnage.recompences', 'recompences')
+            ->select('personnage, count(personnage)')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Personnage[] Returns an array of Personnage objects
     //  */

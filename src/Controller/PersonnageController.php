@@ -120,10 +120,12 @@ class PersonnageController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Personnage $personnage, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request,PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
-        
-        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'armes'=>$personnage->getArme()]);
+        $nbrArmes = $personnageRepository->CountArmesOfThePerso($personnage)[0][1];
+        $nbrVertus = $personnageRepository->CountVertusOfThePerso($personnage)[0][1];
+        $nbrRecompenses = $personnageRepository->CountRecompensesOfThePerso($personnage)[0][1];
+        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'nbrArmes'=>$nbrArmes,'nbrVertus'=>$nbrVertus,'nbrRecompenses'=>$nbrRecompenses]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
             for ($i=1; $i < $form->get('numberArmes')->getData()+1 ; $i++) { 
@@ -150,11 +152,13 @@ class PersonnageController extends AbstractController
             }
             $entityManager->flush();
 
-           // return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+           return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
         }
         //dump($form->get('armes1')->getData());
+        dump($personnageRepository->CountArmesOfThePerso($personnage));
         return $this->renderForm('personnage/edit.html.twig', [
             'personnage' => $personnage,
+            'nbrArmes'=>$nbrArmes,
             'form' => $form,
         ]);
     }
