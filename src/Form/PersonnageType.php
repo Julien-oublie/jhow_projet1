@@ -171,6 +171,7 @@ class PersonnageType extends AbstractType
                 foreach ($tabCompetences["competence"] as $key => $value) {
                     $form->add( $key, IntegerType::class, [
                         'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2'],
+                        'disabled'=>true,
                     ]);
                 }
                  //************On ajoute les champs relatifs à la classe************
@@ -283,8 +284,14 @@ class PersonnageType extends AbstractType
                         $tabParticularite[$dataOrigine] = $dataOrigine;
                     }
                     $form->add('endurance', IntegerType::class, [
-                        'label'    => 'Endurance',
+                        'label'=> 'Endurance',
                         'attr' => ['value' =>  $endurance],
+                    ]);
+                    $form->add('Particularite', ChoiceType::class, [
+                        'label'    => 'Particularités',
+                        'choices'  =>  $tabParticularite,
+                        'mapped'=>false
+                        //'expanded'=>true
                     ]);
 
                     //On ajoute les champs relatifs aux origines
@@ -294,6 +301,7 @@ class PersonnageType extends AbstractType
                     foreach ($origine["Attribut de base"] as $key => $value) {
                         $form->add( $key, IntegerType::class, [
                             'attr' => ['value' =>  $value],
+                            'disabled'=>true,
                         ]);
                     }
 

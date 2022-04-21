@@ -1,9 +1,9 @@
 
-
-*, *::after, *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: white;
@@ -42,3 +42,4 @@ body {
 
 //style twig
 @import "/assets/styles/twig/login.scss";
+@import "/assets/styles/twig/formPerso.scss";
