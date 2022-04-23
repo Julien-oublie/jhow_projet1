@@ -14,6 +14,7 @@ use App\Form\EditPersonnageType;
 use App\Form\PersoType;
 use App\Repository\PartieRepository;
 use App\Repository\PersonnageRepository;
+use App\Repository\ArmesRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -120,12 +121,12 @@ class PersonnageController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request,PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request,ArmesRepository $armesRepository, PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
         $nbrArmes = $personnageRepository->CountArmesOfThePerso($personnage)[0][1];
         $nbrVertus = $personnageRepository->CountVertusOfThePerso($personnage)[0][1];
         $nbrRecompenses = $personnageRepository->CountRecompensesOfThePerso($personnage)[0][1];
-        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'nbrArmes'=>$nbrArmes,'nbrVertus'=>$nbrVertus,'nbrRecompenses'=>$nbrRecompenses]);
+        $form = $this->createForm(EditPersonnageType::class,['personnage' => $personnage, 'attribut_ameliores'=> $personnage->getAttributAmeliores(), 'nbrArmes'=>$nbrArmes,'nbrVertus'=>$nbrVertus,'nbrRecompenses'=>$nbrRecompenses, 'armes'=> $armesRepository->findArmesOfThePerso($personnage) ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
             for ($i=1; $i < $form->get('numberArmes')->getData()+1 ; $i++) { 

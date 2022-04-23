@@ -52,6 +52,7 @@ class PersonnageRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    
     // /**
     //  * @return Personnage[] Returns an array of Personnage objects
     //  */

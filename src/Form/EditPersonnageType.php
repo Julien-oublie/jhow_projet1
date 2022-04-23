@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 class EditPersonnageType extends AbstractType
 {
@@ -24,6 +25,8 @@ class EditPersonnageType extends AbstractType
         $armesNbr = [];
         $vertusNbr = [];
         $recompensesNbr = [];
+       
+        
         for ($i=0; $i < 7-$options['data']['nbrArmes']; $i++) { 
             $armesNbr[$i] = $i;
         }
@@ -51,6 +54,26 @@ class EditPersonnageType extends AbstractType
                 'label'=>'Nombre de recompences gagné',
                 'mapped'=>'false' 
             ]);
+            //For delete armes of player
+            foreach ($options['data']['armes'] as $arme) {
+                dump($arme->getArme());
+                $builder
+                    ->add('input'.$arme->getId(),TextType::class,[
+                            'attr' => ['placeholder' => $arme->getArme(),'disabled' =>'disabled'],
+                            'required' => false,
+                            'label' => ' '
+                    ]);
+                $builder
+                    ->add(
+                        'delete'.$arme->getId(),ButtonType::class,[
+                            'attr' => [
+                                'placeholder' => $arme->getArme()
+                            ],
+                            'label' =>'Supprimer'
+                        ]
+                    );
+            }
+            //For add arme, recompences or vertus
             $builder->get('numberArmes')->addEventListener(
                 FormEvents::POST_SUBMIT,
                 function (FormEvent $event) {   
@@ -75,6 +98,8 @@ class EditPersonnageType extends AbstractType
                     $this->addRecompences($form->getParent(), $form->getData());
                 } 
             );
+           
+            
             
     }
     public function addArmes(FormInterface $form, $datas){

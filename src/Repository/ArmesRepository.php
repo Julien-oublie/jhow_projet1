@@ -54,6 +54,17 @@ class ArmesRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+    //SELECT * FROM `armes` JOIN personnage ON personnage.id = armes.`personnage_id`
+    public function findArmesOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('arme')
+            ->Join('arme.personnage', 'personnage')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Armes[] Returns an array of Armes objects
     //  */
