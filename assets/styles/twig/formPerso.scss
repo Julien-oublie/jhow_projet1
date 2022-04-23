@@ -1,0 +1,289 @@
+.col {
+  color: #dfab2a;
+  font-family: "caudex-regular";
+  h1 {
+    margin-left: 42%;
+  }
+}
+
+.content-form {
+  //height: 160vh;
+  display: flex;
+  justify-content: center;
+  .persoForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .end {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      .validation {
+        width: 150px;
+        border: 1px solid #dfab2a;
+        color: #dfab2a;
+        font-family: "caudex-regular";
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    .start {
+      align-items: center;
+      text-align: center;
+      & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        & > select {
+          width: 70%;
+          padding: 0.3rem;
+          border: 1px solid #dfab2a;
+          color: #dfab2a;
+          font-family: "caudex-regular";
+          border-radius: 4px;
+          font-size: 14px;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+    .main-content {
+      display: flex;
+      width: 100%;
+      margin-block-start: 40px;
+      justify-content: space-evenly;
+      .left {
+        display: flex;
+        border: solid;
+        padding: 20px;
+        border-radius: 10px;
+        .left-content {
+          display: flex;
+          flex-direction: column;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+        .right-content {
+          display: flex;
+          flex-direction: column;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+      }
+      .midle {
+        display: flex;
+        justify-content: center;
+        .right-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+        .left-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+      }
+      .right {
+        display: flex;
+        .left-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+        .right-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            & > select {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            & > input {
+              width: 70%;
+              padding: 0.3rem;
+              border: 1px solid #dfab2a;
+              color: #dfab2a;
+              font-family: "caudex-regular";
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+      }
+    }
+    .mb-3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      select {
+        width: 70%;
+        padding: 0.3rem;
+        border: 1px solid #dfab2a;
+        color: #dfab2a;
+        font-family: "caudex-regular";
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      input {
+        width: 70%;
+        padding: 0.3rem;
+        border: 1px solid #dfab2a;
+        color: #dfab2a;
+        font-family: "caudex-regular";
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

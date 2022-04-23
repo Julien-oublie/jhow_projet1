@@ -28,6 +28,9 @@ use Symfony\Component\Form\FormTypeInterface;
 class PersonnageController extends AbstractController
 {
     #[Route('/', name: 'personnage_index', methods: ['GET'])]
+    /**
+     * @Route("/personnage", name="personnage_index")
+     */
     public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage/index.html.twig', [
@@ -35,7 +38,9 @@ class PersonnageController extends AbstractController
         ]);
     }
 
-   
+    /**
+     * @Route("/personnage/{id?null}/{partie_id?null}", name="personnage_new")
+     */
     #[Route('/new/{id?null}/{partie_id?null}', name: 'personnage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
