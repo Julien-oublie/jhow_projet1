@@ -6,7 +6,9 @@ use App\Entity\Amitie;
 use App\Entity\User;
 use App\Form\RechercheAmisType;
 use App\Form\UserType;
+use App\Repository\AmitieRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +48,43 @@ class UserController extends AbstractController
     }
 
 
+
+    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('user/edit.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Gère la recherche d'amis + l'ajout d'amis********************************************************
     #[Route('/{id}/{joueur_ami?null}', name: 'app_user_show', methods: ['GET', 'POST'])]
     public function show(User $user, Request $request,EntityManagerInterface $entityManager, $joueur_ami,UserRepository $userRepo): Response
@@ -55,9 +94,7 @@ class UserController extends AbstractController
         $joueur_recherche='null';
         $form = $this->createForm(RechercheAmisType::class);
         $form->handleRequest($request);
-        dump($form);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump( $form->isValid());
             //Je vient chercher la value du form et fait un querybuilder pour voir si le pseudo existe
             $joueur_recherche = $userRepo->findPseudo($form["pseudo"]->getData());  
         }
@@ -87,32 +124,24 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    
+    #[Route('/ami/delete/{amitie_id}', name: 'delet_friend', methods: ['GET', 'POST'])]
+    public function deleteFriend(Request $request, $amitie_id, AmitieRepository $amitieRep, EntityManagerInterface $entityManager): Response
+    {   
+        $user = $this->getUser();
 
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
-        }
+        $amitie = $amitieRep->find($amitie_id);
 
-        return $this->renderForm('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form,
-        ]);
+        $entityManager->remove($amitie);
+        $entityManager->flush();
+      
+        return $this->redirectToRoute('app_user_show', ['id'=>$user->getId()], Response::HTTP_SEE_OTHER);
     }
+  
 
-    #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
+  
 
-        return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
-    }
+
+  
 }

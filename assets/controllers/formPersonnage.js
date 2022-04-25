@@ -6,27 +6,82 @@ $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_nu
     form.submit();
 })
 
+
+//AJAX de l'ajout d'amis
+$(document).on('click', '#ajaxAddFriend', function(e){
+  e.preventDefault()
+  ajax_simple(this.value)
+})
+
+$(document).on('click', '.deletFriend', function(e){
+  e.preventDefault()
+  ajax_simple(this.value)
+})
+
+$(document).on('click', '#ajaxCreatePartie', function(e){
+  e.preventDefault()
+
+  ajax_form(this.value ,$('[name=partie]') )
+})
+
+
 //AJAX pour la recherche d'amis
 $(document).on('click', '#submit_friend', function(e){
   e.preventDefault()
   let form = $('[name=recherche_amis]')
   let path_friend = $('#path_friend').val();
+  ajax_form(path_friend ,form )
+     
+
+})
+
+function ajax_form(url, form){
+  console.log(url, form);
+  $.ajax({
+    method: 'POST',
+    url: url,
+    data: form.serialize(),
+    dataType: "HTML",
+}).done( function(response) {
+  console.log(response);
+  let splitResponse1 = response.split('</barre-navigation>')[1];
+  let splitResponse = splitResponse1.split('<script>')[0]
+
+   $(".replaceAjaxContent").html(splitResponse);
+}).fail(function(jxh,textmsg,errorThrown){
+    console.log(textmsg);
+    console.log(errorThrown);
+});
+
+
+
+}
+
+
+function ajax_simple(url){
 
       $.ajax({
-        type: 'POST',
-        url: path_friend,
-        data: form.serialize(),
+        method: 'POST',
+        url: url,
         dataType: "HTML",
     }).done( function(response) {
-        console.log(response.trim());
-        var htmlToDisplay = response.trim();
-        $("html").html(response);
+      let splitResponse1 = response.split('</barre-navigation>')[1];
+      let splitResponse = splitResponse1.split('<script>')[0]
+
+       $(".replaceAjaxContent").html(splitResponse);
     }).fail(function(jxh,textmsg,errorThrown){
         console.log(textmsg);
         console.log(errorThrown);
     });
 
-})
+
+}
+
+
+
+
+
+
 
 
 
