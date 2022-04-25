@@ -33,13 +33,16 @@ body {
 }
 //style composant
 @import "/assets/styles/components/Navbar.scss";
-@import "./components/Register";
+
 @import "./components/Inscription";
 @import "./fonts/fonts";
 @import "/assets/styles/components/Fond-Ecran.scss";
 @import "/assets/styles/components/Regles.scss";
 @import "./components/Personnages";
+@import "./components/Footer";
+@import "./components/Mentions.scss";
 
 //style twig
 @import "/assets/styles/twig/login.scss";
+@import "/assets/styles/twig/Register";
 @import "/assets/styles/twig/formPerso.scss";

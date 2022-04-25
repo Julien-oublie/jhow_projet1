@@ -1,0 +1,66 @@
+.base-footer{
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #eadca7;
+    font-family: "caudex-regular";
+    color: #372D05;
+    padding: 20px 0px;
+}
+
+.jhow-presentation{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    text-align: center;
+    p{
+        font-size: 12px;
+        color: #4A2E06;
+        margin: 5px 0px;
+    }
+    span{
+        font-size: 10px;
+        margin: 3px;
+    }
+}
+
+.div-informations{
+    width: 25%;
+    text-align: center;
+    p{
+        font-size: 12px;
+        color: #4A2E06;
+        margin: 5px 0px;
+    }
+}
+
+.informations-content{
+    display: flex;
+    flex-direction: column;
+    span{
+        font-size: 10px;
+    }
+    a{
+        text-decoration: none;
+        cursor: pointer;
+        color: #4A2E06;
+    }
+}
+
+.city-project-div{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    p{
+        font-size: 12px;
+        color: #4A2E06;
+        margin: 5px 0px;
+    }
+    span{
+        font-size: 10px;
+    }
+
+}

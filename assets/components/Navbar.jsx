@@ -36,10 +36,10 @@ function MenuNavigation(){
         ref.current.classList.add('link-active')
     }
     
-    return <div className='navbar'>
-        <div className='logo'>
-
+    return <div className='navbar-essai'>
+        <div className='logo-navbar'>
         </div>
+
         <div className='items-navbar'>
           <ul>
             <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="http://localhost:8000/regles">Règles</a> </li>
@@ -49,8 +49,8 @@ function MenuNavigation(){
         </div>
         
         <div className='user'>
-            <a href="http://localhost:8000/register"> connexion </a>
-            <img src="{{ asset('build/img/circle.png') }}" />
+            <a href="http://localhost:8000/login"> Connexion </a>
+            <a href="http://localhost:8000/register"> Inscription </a>
         </div>      
     </div>
 }
