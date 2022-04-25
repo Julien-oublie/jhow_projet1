@@ -72,6 +72,15 @@ class EditPersonnageType extends AbstractType
                             'label' =>'Supprimer'
                         ]
                     );
+                $builder->get('delete'.$arme->getId())->addEventListener(
+                        FormEvents::POST_SUBMIT,
+                        function (FormEvent $event) {   
+                            //récupère le formulaire
+                            $form = $event->getForm();
+                            dump($form->getData());
+                            //$this->addArmes($form->getParent(), $form->getData());
+                        } 
+                    );
             }
             //For add arme, recompences or vertus
             $builder->get('numberArmes')->addEventListener(

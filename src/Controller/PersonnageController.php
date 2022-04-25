@@ -27,20 +27,14 @@ use Symfony\Component\Form\FormTypeInterface;
 #[Route('/personnage')]
 class PersonnageController extends AbstractController
 {
-    #[Route('/', name: 'personnage_index', methods: ['GET'])]
-    /**
-     * @Route("/personnage", name="personnage_index")
-     */
+    #[Route('/', name: 'personnage_index', methods: ['GET', 'POST'])]
     public function index(PersonnageRepository $personnageRepository): Response
     {
         return $this->render('personnage/index.html.twig', [
             'personnages' => $personnageRepository->findAll(),
         ]);
     }
-
-    /**
-     * @Route("/personnage/{id?null}/{partie_id?null}", name="personnage_new")
-     */
+    
     #[Route('/new/{id?null}/{partie_id?null}', name: 'personnage_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager,$id,$partie_id,UserRepository $userRep, PartieRepository $partieRep): Response
     {
@@ -52,6 +46,7 @@ class PersonnageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
+            dump($form);
             $attibut = explode(":", $form->get('attributCoeur')->getData());
             $attibutCoeur = $attibut[0];
             $Principale = explode(":", $form->get('valeurPrincipale')->getData());

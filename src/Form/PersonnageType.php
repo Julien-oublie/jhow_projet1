@@ -32,6 +32,7 @@ class PersonnageType extends AbstractType
         }
         
         $builder
+        
                 ->add('nom',TextType::class, [
                     'attr' => ['placeholder' => 'Votre Nom'],
                     'label' => false
@@ -88,7 +89,8 @@ class PersonnageType extends AbstractType
         );
         
     }
- 
+    
+  
         
     // Ajoute La classe, les compétences, standard de vie, avantage culturel + select origine
     private function addClassAtribut(FormInterface $form, $formData, $allClasses)
@@ -171,8 +173,7 @@ class PersonnageType extends AbstractType
                 //add un champ form pour chaque champ de compétence
                 foreach ($tabCompetences["competence"] as $key => $value) {
                     $form->add( $key, IntegerType::class, [
-                        'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2'],
-                        'disabled'=>true,
+                        'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2']
                     ]);
                 }
                  //************On ajoute les champs relatifs à la classe************
@@ -301,8 +302,7 @@ class PersonnageType extends AbstractType
                     ]);
                     foreach ($origine["Attribut de base"] as $key => $value) {
                         $form->add( $key, IntegerType::class, [
-                            'attr' => ['value' =>  $value],
-                            'disabled'=>true,
+                            'attr' => ['value' =>  $value]
                         ]);
                     }
 
