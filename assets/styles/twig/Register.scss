@@ -20,9 +20,11 @@ form{
 }
 
 .inscription-label{
+  margin-top: 4rem;
   grid-column: 1/ span 12;
   text-align: center;
   color: #dfab2a;
+  font-size: 24px;
 }
 
 .rotate-circle {
@@ -60,7 +62,7 @@ form{
     color: #dfab2a;
     font-family: "caudex-regular";
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgba(255, 255, 255, 0.1);
   }
   input::placeholder {
@@ -131,5 +133,6 @@ form{
     margin-bottom: 3rem;
     cursor: pointer;
     padding: 0.2rem;
+    font-size: 18px;
   }
 }

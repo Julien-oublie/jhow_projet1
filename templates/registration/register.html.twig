@@ -4,9 +4,12 @@
 <!-- <register-page></register-page> -->
 <div class="main-body-register">
     {{ form_start(registrationForm) }}
-    <div class="rotate-circle"></div>
     <div class="main-div-register">
-      <span class="inscription-label">INSCRIPTION</span>
+    <span class="inscription-label">INSCRIPTION</span>
+    </div>
+    <div class="rotate-circle"></div>
+    
+    <div class="main-div-register">
       <div class="email-register-div">
         {{ form_row(registrationForm.email,  {'attr': {'class': 'input-email'}}) }}
         {{ form_row(registrationForm.pseudo,  {'attr': {'class': 'input-pseudo'}}) }}
