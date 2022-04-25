@@ -118,7 +118,6 @@ form{
 }
 .submit-register-div {
   grid-column: 5 / span 4;
-  width: 30%;
   margin-left: auto;
   margin-right: auto;
   button {
@@ -127,9 +126,9 @@ form{
     color: white;
     border: 1px solid #dfab2a;
     border-radius: 4px;
-    width: 100%;
     margin-left: auto;
     margin-top: 10px;
+    margin-bottom: 3rem;
     cursor: pointer;
     padding: 0.2rem;
   }
