@@ -19,6 +19,12 @@ form{
     grid-column: 5/ span 4;
 }
 
+.inscription-label{
+  grid-column: 1/ span 12;
+  text-align: center;
+  color: #dfab2a;
+}
+
 .rotate-circle {
     z-index: -1;
     top: 0;
@@ -42,8 +48,7 @@ form{
   }
 }
 .email-register-div {
-  grid-column: 5 / span 4;
-  margin-top: 25vh;
+  grid-column: 1 / span 12;
   color: #dfab2a;
   input {
     width: 70%;
@@ -75,7 +80,7 @@ form{
 }
 
 .password-register-div {
-  grid-column: 5 / span 4;
+  grid-column: 1 / span 12;
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: #dfab2a;
