@@ -67,10 +67,11 @@ class RecompenceController extends AbstractController
     #[Route('/{id}', name: 'app_recompence_delete', methods: ['POST'])]
     public function delete(Request $request, Recompence $recompence, RecompenceRepository $recompenceRepository): Response
     {
+        $personnage = $recompence->getPersonnage();
+
         if ($this->isCsrfTokenValid('delete'.$recompence->getId(), $request->request->get('_token'))) {
             $recompenceRepository->remove($recompence);
         }
-
-        return $this->redirectToRoute('app_recompence_index', [], Response::HTTP_SEE_OTHER);
+ return $this->redirectToRoute('personnage_edit', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
     }
 }
