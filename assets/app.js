@@ -9,14 +9,16 @@
 
 import './styles/app.scss';
 
+//import components React
 import './components/Navbar.jsx';
 import './components/Register.jsx';
 import './components/Inscrition';
 import './components/fondEcran.jsx'
 import './components/Regles.jsx'
-//import components React
 import './components/Connexion.jsx';
 import './components/PersonnagesPage';
+import './components/Footer.jsx';
+import './components/MentionsPage';
 
 // start the Stimulus application
 import './bootstrap';
