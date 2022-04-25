@@ -12,6 +12,7 @@ use App\Form\AttributAmelioresType;
 use App\Form\PersoType;
 use App\Form\RecompenceType;
 use App\Form\ArmesType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -54,24 +55,6 @@ class EditPersonnageType extends AbstractType
                 'label'=>'Nombre de recompences gagné',
                 'mapped'=>'false' 
             ]);
-            //For delete armes of player
-            foreach ($options['data']['armes'] as $arme) {
-                dump($arme->getArme());
-                $builder
-                    ->add('input'.$arme->getId(),TextType::class,[
-                            'attr' => ['placeholder' => $arme->getArme(),'disabled' =>'disabled'],
-                            'required' => false,
-                            'label' => ' '
-                    ])
-                    ->add(
-                        'delete'.$arme->getId(),ButtonType::class,[
-                            'attr' => [
-                                'placeholder' => $arme->getArme()
-                            ],
-                            'label' =>'Supprimer'
-                        ]
-                    );
-            }
             //For add arme, recompences or vertus
             $builder->get('numberArmes')->addEventListener(
                 FormEvents::POST_SUBMIT,

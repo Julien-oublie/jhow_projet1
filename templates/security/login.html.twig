@@ -15,8 +15,11 @@
             </div>
         {% endif %}
 
-        <h1> Connexion </h1>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email" class="input-login" autocomplete="email" required autofocus>
+        <div class="rotate-circle"></div>
+        <span class="login-label"> CONNEXION </span>
+        <label>Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email" class="input-login" autocomplete="email"  required autofocus>
+        <label>Mot de passe</label>
         <input type="password" name="password" id="inputPassword" class="input-login" placeholder="Mot de passe" autocomplete="current-password" required>
 
         <input type="hidden" name="_csrf_token"
@@ -32,11 +35,15 @@
                 </label>
             </div>
         #}
-
+        <div class="submit-login-div">
         <button  type="submit">
-            Sign in
+            Se connecter
         </button>
+        </div>
     </form>
+
+
+    
 </div>
 
 {% endblock %}
