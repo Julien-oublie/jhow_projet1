@@ -62,8 +62,7 @@ class EditPersonnageType extends AbstractType
                             'attr' => ['placeholder' => $arme->getArme(),'disabled' =>'disabled'],
                             'required' => false,
                             'label' => ' '
-                    ]);
-                $builder
+                    ])
                     ->add(
                         'delete'.$arme->getId(),ButtonType::class,[
                             'attr' => [

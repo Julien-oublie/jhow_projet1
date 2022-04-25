@@ -6,6 +6,35 @@ $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_nu
     form.submit();
 })
 
+//AJAX pour la recherche d'amis
+$(document).on('click', '#submit_friend', function(e){
+  e.preventDefault()
+  let form = $('[name=recherche_amis]')
+  let path_friend = $('#path_friend').val();
+
+      $.ajax({
+        type: 'POST',
+        url: path_friend,
+        data: form.serialize(),
+        dataType: "HTML",
+    }).done( function(response) {
+        console.log(response.trim());
+        var htmlToDisplay = response.trim();
+        $("html").html(response);
+    }).fail(function(jxh,textmsg,errorThrown){
+        console.log(textmsg);
+        console.log(errorThrown);
+    });
+
+})
+
+
+
+
+
+
+
+
 
 //Générateur de dés
 function randomNumber(range) {

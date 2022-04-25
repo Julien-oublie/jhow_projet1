@@ -55,7 +55,9 @@ class UserController extends AbstractController
         $joueur_recherche='null';
         $form = $this->createForm(RechercheAmisType::class);
         $form->handleRequest($request);
+        dump($form);
         if ($form->isSubmitted() && $form->isValid()) {
+            dump( $form->isValid());
             //Je vient chercher la value du form et fait un querybuilder pour voir si le pseudo existe
             $joueur_recherche = $userRepo->findPseudo($form["pseudo"]->getData());  
         }
@@ -71,6 +73,7 @@ class UserController extends AbstractController
                     ->setAmi2($nouvel_ami);
             $entityManager->persist($amitie);
             $entityManager->flush();
+            return $this->redirectToRoute('app_user_show', ['id'=>$user->getId()], Response::HTTP_SEE_OTHER);
         }
 
 
