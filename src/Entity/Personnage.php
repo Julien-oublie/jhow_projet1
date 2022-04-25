@@ -200,16 +200,54 @@ class Personnage
      * @ORM\OneToMany(targetEntity=Armes::class, mappedBy="personnage")
      */
     private $arme;
-    /**
-     * @ORM\ManyToMany(targetEntity=Partie::class, mappedBy="personnage")
-     */
-    private $parties;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="personnages")
      * @ORM\JoinColumn(nullable=false)
      */
     private $joueur;
+
+    /**
+     * @ORM\OneToOne(targetEntity=AttributAmeliores::class, mappedBy="personnage", cascade={"persist", "remove"})
+     */
+    
+    private $attributAmeliores;
+    /**
+     * @ORM\ManyToMany(targetEntity=Partie::class, inversedBy="personnages")
+     */
+    private $partie;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $espoir;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $endurance;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $vaillance;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $sagesse;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Vertus::class, mappedBy="personnage")
+     */
+    private $vertus;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Recompence::class, mappedBy="personnage")
+     */
+    private $recompences;
+
+   
 
     /****************************** PARTIE VOCATION ******************************/
 
@@ -220,8 +258,9 @@ class Personnage
         $this->vertus = new ArrayCollection();
         $this->recompenses = new ArrayCollection();
         $this->arme = new ArrayCollection();
-        $this->parties = new ArrayCollection();
         $this->partie = new ArrayCollection();
+        $this->recompences = new ArrayCollection();
+        
        
     }
 
@@ -352,7 +391,7 @@ class Personnage
         return $this;
     }
 
-    public function getAdmiration(): ?string
+    public function getAdmiration(): ?int
     {
         return $this->Admiration;
     }
@@ -376,7 +415,7 @@ class Personnage
         return $this;
     }
 
-    public function getConscience(): ?string
+    public function getConscience(): ?int
     {
         return $this->Conscience;
     }
@@ -388,7 +427,7 @@ class Personnage
         return $this;
     }
 
-    public function getExploration(): ?string
+    public function getExploration(): ?int
     {
         return $this->Exploration;
     }
@@ -400,7 +439,7 @@ class Personnage
         return $this;
     }
 
-    public function getChant(): ?string
+    public function getChant(): ?int
     {
         return $this->Chant;
     }
@@ -424,7 +463,7 @@ class Personnage
         return $this;
     }
 
-    public function getInspiration(): ?string
+    public function getInspiration(): ?int
     {
         return $this->Inspiration;
     }
@@ -436,7 +475,7 @@ class Personnage
         return $this;
     }
 
-    public function getVoyage(): ?string
+    public function getVoyage(): ?int
     {
         return $this->Voyage;
     }
@@ -448,7 +487,7 @@ class Personnage
         return $this;
     }
 
-    public function getPerspicacite(): ?string
+    public function getPerspicacite(): ?int
     {
         return $this->Perspicacite;
     }
@@ -460,7 +499,7 @@ class Personnage
         return $this;
     }
 
-    public function getGuerison(): ?string
+    public function getGuerison(): ?int
     {
         return $this->Guerison;
     }
@@ -496,7 +535,7 @@ class Personnage
         return $this;
     }
 
-    public function getPersuasion(): ?string
+    public function getPersuasion(): ?int
     {
         return $this->Persuasion;
     }
@@ -508,7 +547,7 @@ class Personnage
         return $this;
     }
 
-    public function getFurtivite(): ?string
+    public function getFurtivite(): ?int
     {
         return $this->Furtivite;
     }
@@ -520,7 +559,7 @@ class Personnage
         return $this;
     }
 
-    public function getFouille(): ?string
+    public function getFouille(): ?int
     {
         return $this->Fouille;
     }
@@ -532,7 +571,7 @@ class Personnage
         return $this;
     }
 
-    public function getChasse(): ?string
+    public function getChasse(): ?int
     {
         return $this->Chasse;
     }
@@ -544,7 +583,7 @@ class Personnage
         return $this;
     }
 
-    public function getEnigmes(): ?string
+    public function getEnigmes(): ?int
     {
         return $this->Enigmes;
     }
@@ -556,7 +595,7 @@ class Personnage
         return $this;
     }
 
-    public function getConaissances(): ?string
+    public function getConaissances(): ?int
     {
         return $this->Conaissances;
     }
@@ -658,33 +697,6 @@ class Personnage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Partie>
-     */
-    public function getParties(): Collection
-    {
-        return $this->parties;
-    }
-
-    public function addParty(Partie $party): self
-    {
-        if (!$this->parties->contains($party)) {
-            $this->parties[] = $party;
-            $party->addPersonnage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParty(Partie $party): self
-    {
-        if ($this->parties->removeElement($party)) {
-            $party->removePersonnage($this);
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -705,6 +717,160 @@ class Personnage
     public function setJoueur(?User $joueur): self
     {
         $this->joueur = $joueur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partie>
+     */
+    public function getPartie(): Collection
+    {
+        return $this->partie;
+    }
+
+    public function addPartie(Partie $partie): self
+    {
+        if (!$this->partie->contains($partie)) {
+            $this->partie[] = $partie;
+        }
+
+        return $this;
+    }
+
+    public function removePartie(Partie $partie): self
+    {
+        $this->partie->removeElement($partie);
+
+        return $this;
+    }
+
+    public function getAttributAmeliores(): ?AttributAmeliores
+    {
+        return $this->attributAmeliores;
+    }
+
+    public function setAttributAmeliores(?AttributAmeliores $attributAmeliores): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($attributAmeliores === null && $this->attributAmeliores !== null) {
+            $this->attributAmeliores->setPersonnage(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($attributAmeliores !== null && $attributAmeliores->getPersonnage() !== $this) {
+            $attributAmeliores->setPersonnage($this);
+        }
+
+        $this->attributAmeliores = $attributAmeliores;
+
+        return $this;
+    }
+
+    public function getEspoir(): ?int
+    {
+        return $this->espoir;
+    }
+
+    public function setEspoir(int $espoir): self
+    {
+        $this->espoir = $espoir;
+
+        return $this;
+    }
+
+    public function getEndurance(): ?int
+    {
+        return $this->endurance;
+    }
+
+    public function setEndurance(int $endurance): self
+    {
+        $this->endurance = $endurance;
+
+        return $this;
+    }
+
+    public function getVaillance(): ?int
+    {
+        return $this->vaillance;
+    }
+
+    public function setVaillance(int $vaillance): self
+    {
+        $this->vaillance = $vaillance;
+
+        return $this;
+    }
+
+    public function getSagesse(): ?int
+    {
+        return $this->sagesse;
+    }
+
+    public function setSagesse(int $sagesse): self
+    {
+        $this->sagesse = $sagesse;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vertus>
+     */
+    public function getVertus(): Collection
+    {
+        return $this->vertus;
+    }
+
+    public function addVertu(Vertus $vertu): self
+    {
+        if (!$this->vertus->contains($vertu)) {
+            $this->vertus[] = $vertu;
+            $vertu->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVertu(Vertus $vertu): self
+    {
+        if ($this->vertus->removeElement($vertu)) {
+            // set the owning side to null (unless already changed)
+            if ($vertu->getPersonnage() === $this) {
+                $vertu->setPersonnage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recompence>
+     */
+    public function getRecompences(): Collection
+    {
+        return $this->recompences;
+    }
+
+    public function addRecompence(Recompence $recompence): self
+    {
+        if (!$this->recompences->contains($recompence)) {
+            $this->recompences[] = $recompence;
+            $recompence->setPersonnage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecompence(Recompence $recompence): self
+    {
+        if ($this->recompences->removeElement($recompence)) {
+            // set the owning side to null (unless already changed)
+            if ($recompence->getPersonnage() === $this) {
+                $recompence->setPersonnage(null);
+            }
+        }
 
         return $this;
     }

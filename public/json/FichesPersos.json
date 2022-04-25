@@ -10,17 +10,22 @@
             "nom":"Bardides",
             "standard de vie": "Prospère",
             "Avantage culturel":"Intrépide",
+            "Endurance" : 22,
+            "Espoir" : 8,
             "Vertus":{
                 "1": "Épouvantables visions",
                 "2": "Héritage",
                 "3": "Homme du Roi",
-                "4": "Épouvantables",
-                "5": "Épouvantables",
-                "6": "Épouvantables",
-                "7": "Épouvantables",
-                "8": "Épouvantables",
-                "9": "Épouvantables",
-                "10": "Épouvantables"
+                "4": "Maître d’armes",
+                "5": "Défense féroce",
+                "6": "D’une seule voix",
+                "7": "Prévoyance"
+            },
+            "Recompence":{
+                "1": "Arc long de Dale (Grand arc)",
+                "2": "Lance du Roi Bladorthin (Lance)",
+                "3": "Grand pavois (Grand bouclier)",
+                "4": "Épée du Roi Bard"
             },
             "competence":{
                 "Admiration":1,
@@ -165,13 +170,28 @@
                     }
                 }
             }
-            
-        }
-        ,
+        },
         "2":{
                 "nom":"Beornides",
                 "standard de vie": "Martial",
                 "Avantage culturel":"Forcené",
+                "Endurance" : 24,
+                "Espoir" : 8,
+                "Vertus":{
+                    "1": "Biscuits au miel",
+                    "2": "Force considérable",
+                    "3": "Frère des Ours",
+                    "4": "Peau épaisse",
+                    "5": "Vagabond nocturne",
+                    "6": "Rédemption par le sang",
+                    "7": "Manteau de peaux",
+                    "8": "Ami des animaux"
+                },
+                "Recompence":{
+                    "1": "Lance tueuse de Géants (Grande lance)",
+                    "2": "Armure noble (Armure de cuir)",
+                    "3": "Hache d’écartèlement (Hache ou Grande Hache)"
+                },
                 "competence":{
                         "Admiration":3,
                         "Athletisme":2,
@@ -326,6 +346,26 @@
                 "nom":"Nains du Mont Solitaire",
                 "standard de vie": "Riche",
                 "Avantage culturel":"Redoubtable",
+                "Endurance" : 28,
+                "Espoir" : 6,
+                "Vertus":{
+                    "1": "Haine ancestrale",
+                    "2": "Nuque roide des Nains",
+                    "3": "Les Corbeaux de la Montagne",
+                    "4": "Sorts brisés",
+                    "5": "Voie de Durin",
+                    "6": "Seconde peau",
+                    "7": "Science des Pierres",
+                    "8": "Ingénieur Nain"
+                },
+                "Recompence":{
+                    "1": "Hache de l’Azalnubizar (Grande hache)",
+                    "2": "Haubert des Nains (Armure de mailles)",
+                    "3": "Heaume d’Effroi (Heaume)",
+                    "4": "Toujours plus profond...",
+                    "5": "Forge naine",
+                    "6": "Brasserie naine"
+                },
                 "competence":{
                     "Admiration":0,
                     "Athletisme":0,
@@ -480,6 +520,24 @@
             "nom" : "Elfes de la Forêt Noire",
             "standard de vie": "Martial",
             "Avantage culturel":"Peuple du Crépuscule",
+            "Endurance" : 22,
+            "Espoir" : 8,
+            "Vertus":{
+                "1": "Fléau de l’Ombre",
+                "2": "Les Hérauts",
+                "3": "Magie des Elfes Sylvains",
+                "4": "Archerie mortelle",
+                "5": "Rêves Elfiques",
+                "6": "Archer mortel",
+                "7": "Terrible à contempler",
+                "8": "Chansons"
+            },
+            "Recompence":{
+                "1": "Lance amère (Lance)",
+                "2": "Bouclier du lancier (Rondache)",
+                "3": "Arc sylvain (Arc)",
+                "4": "Joaillerie ou Tannerie"
+            },
             "competence":{
                 "Admiration":2,
                 "Athletisme":3,
@@ -634,6 +692,20 @@
             "nom": "Hobbits de la Comté",
             "standard de vie": "Prospère",
             "Avantage culturel": "Sens du Hobbit",
+            "Endurance" : 16,
+            "Espoir" : 12,
+            "Vertus":{
+                "1": "Art de la disparition",
+                "2": "Aussi dur que la pierre",
+                "3": "Courageux si besoin",
+                "4": "Droit au but",
+                "5": "Petit peuple"
+            },
+            "Recompence":{
+                "1": "Arc des Hauts du Nord (Arc)",
+                "2": "Lame de Roi (Épée courte)",
+                "3": "Armure de Chance (Armure)"
+            },
             "competence":{
                 "Admiration":0,
                 "Athletisme":0,
@@ -789,6 +861,21 @@
             "nom" : "Hommes des Bois des Terres Sauvages",
             "standard de vie": "Modeste",
             "Avantage culturel": "Menuiserie",
+            "Endurance" : 20,
+            "Espoir" : 10,
+            "Vertus":{
+                "1": "Chanson de dévouement",
+                "2": "Chiens de la Forêt Noire",
+                "3": "Herbes médicinales",
+                "4": "La volonté du chasseur",
+                "5": "Vigilance naturelle",
+                "6": "Inatteignable par l’Ombre"
+            },
+            "Recompence":{
+                "1": "Hache barbue (Hache à long manche)",
+                "2": "Armure de plumes (Armure)",
+                "3": "Arc du Berger (Arc ou Arc long)"
+            },
             "competence":{
                 "Admiration":0,
                 "Athletisme":2,
@@ -941,4 +1028,3 @@
         }
     }
 }
-

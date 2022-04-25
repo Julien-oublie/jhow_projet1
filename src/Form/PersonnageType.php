@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class PersonnageType extends AbstractType
 {
@@ -171,6 +172,7 @@ class PersonnageType extends AbstractType
                 foreach ($tabCompetences["competence"] as $key => $value) {
                     $form->add( $key, IntegerType::class, [
                         'attr' => ['value' =>  $value, 'class' => 'form-control-sm col-2'],
+                        'disabled'=>true,
                     ]);
                 }
                  //************On ajoute les champs relatifs à la classe************
@@ -240,8 +242,26 @@ class PersonnageType extends AbstractType
                     }
                   );  
                 $form->add($builder->getForm());
-               
-               
+
+                /*******Vertus ou recompenses**********/
+                $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
+                    'valeurPrincipale', ChoiceType::class, null, [
+                    'label'    => 'Valeur princiapel',
+                    'choices'  =>  ['Sagesse' =>'Sagesse:'.$formData,
+                                    'Vaillance' => 'Vaillance:'.$formData
+                                ],
+                    'mapped' => false,
+                    'auto_initialize' => false,
+                ]);
+                //On parametre le listener avec la fonction de ce qu'il doit faire
+                $builder->addEventListener(
+                    FormEvents::POST_SUBMIT,
+                        function (FormEvent $event) {
+                            $form = $event->getForm();
+                            $this->addVertusOrRecompense($form->getParent(), $form->getData());
+                        }
+                    );
+                $form->add($builder->getForm()); 
 
             }
             
@@ -254,7 +274,8 @@ class PersonnageType extends AbstractType
         $tabParticularite = [];
 
         foreach ($Classe["Classe"] as $value){
-    
+            $espoir = $value['Espoir'];
+            $endurance =  $value['Endurance'];
             foreach ($value["Origine"] as $origine){
                 if ($origine["nom"] == $data ) {
 
@@ -263,11 +284,15 @@ class PersonnageType extends AbstractType
                     foreach ($origine["Particularite"] as $dataOrigine) {
                         $tabParticularite[$dataOrigine] = $dataOrigine;
                     }
+                    $form->add('endurance', IntegerType::class, [
+                        'label'=> 'Endurance',
+                        'attr' => ['value' =>  $endurance],
+                    ]);
                     $form->add('Particularite', ChoiceType::class, [
                         'label'    => 'Particularités',
                         'choices'  =>  $tabParticularite,
-                        'multiple'=> true,
-                        'expanded'=>true
+                        'mapped'=>false
+                        //'expanded'=>true
                     ]);
 
                     //On ajoute les champs relatifs aux origines
@@ -277,8 +302,22 @@ class PersonnageType extends AbstractType
                     foreach ($origine["Attribut de base"] as $key => $value) {
                         $form->add( $key, IntegerType::class, [
                             'attr' => ['value' =>  $value],
+                            'disabled'=>true,
                         ]);
                     }
+
+                    $espoir +=  $origine["Attribut de base"]['coeur'];
+                    $endurance +=  $origine["Attribut de base"]['coeur'];
+                    $form->add('espoir', IntegerType::class, [
+                        'label'    => 'Espoir',
+                        'attr' => ['value' =>  $espoir ],
+                    ]);
+
+                    $form->add('endurance', IntegerType::class, [
+                        'label'    => 'Endurance',
+                        'attr' => ['value' =>  $endurance],
+                    ]);
+                   
                 }
             } 
            
@@ -394,14 +433,61 @@ class PersonnageType extends AbstractType
                         'choices'  =>  $tabAttributEsprit,
                         'mapped'=>false,
                         'auto_initialize' => false, 
-                        'label' => ' Esprit :',
-                        'disabled' => true
+                        'label' => ' Esprit :'
                     ]);
                 }
             }
         }
     }
-
+    private function addVertusOrRecompense(FormInterface $form, $data)
+    { 
+        $value = explode(":", $data);
+        $tabVertus=[];
+        $tabRecompense=[];
+        if($value[0] != ''){
+            $valeurPrincipaleData = $value[0];
+            $classeData = $value[1];
+            $valeurPrincipale = '';
+            $Classe = json_decode(file_get_contents('../public/json/FichesPersos.json'),true);
+            foreach ($Classe["Classe"] as $classe){
+                // compare le perso selectionné au JSON 
+                if ($classe["nom"] == $classeData ) {
+                    //si la valeur principal est la sagesse alors on lui propose une vertus
+                    if($valeurPrincipaleData=='Sagesse'){
+                        foreach ($classe['Vertus'] as $vertus){
+                            $tabVertus[$vertus]=$vertus;
+                        }
+                        $form->add('vertus', ChoiceType::class, [
+                            'choices'  =>  $tabVertus,
+                            'mapped'=>false,
+                            'auto_initialize' => false, 
+                            'label' => ' Choississez une vertus :'
+                        ]);
+                        $valeurPrincipale = 'vertus';
+                    }
+                    else{
+                        foreach ($classe['Recompence'] as $recompence){
+                            $tabRecompense[$recompence]=$recompence;
+                        }
+                        $form->add('recompence', ChoiceType::class, [
+                            'choices'  =>  $tabRecompense,
+                            'mapped'=>false,
+                            'auto_initialize' => false, 
+                            'label' => ' Choississez une recompence :'
+                        ]);
+                        $valeurPrincipale = 'recompence';
+                    }
+                    $form->add('valeurPrinciapelHidden', HiddenType::class, [
+                        'attr' => ['value' => $valeurPrincipale],
+                        'mapped'=>false,
+                    ]);
+                    
+                }
+            }
+            
+        }
+        
+    }
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Amitie;
 use App\Entity\User;
+use App\Form\RechercheAmisType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +23,7 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -41,11 +45,42 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
-    public function show(User $user): Response
+
+    //Gère la recherche d'amis + l'ajout d'amis********************************************************
+    #[Route('/{id}/{joueur_ami?null}', name: 'app_user_show', methods: ['GET', 'POST'])]
+    public function show(User $user, Request $request,EntityManagerInterface $entityManager, $joueur_ami,UserRepository $userRepo): Response
     {
-        return $this->render('user/show.html.twig', [
+        $amis_du_joueur = null;
+        //Partie recherche de joueurs//////////////////////
+        $joueur_recherche='null';
+        $form = $this->createForm(RechercheAmisType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //Je vient chercher la value du form et fait un querybuilder pour voir si le pseudo existe
+            $joueur_recherche = $userRepo->findPseudo($form["pseudo"]->getData());  
+        }
+        //Partie recherche de joueurs//////////////////////
+
+
+        //Partie ajout d'amis//////////////////////
+        if ($joueur_ami != 'null') {
+            //$amis_du_joueur = $userRepo->find($joueur_ami)->getAmities();
+            $nouvel_ami = $userRepo->find($joueur_ami);
+            $amitie = new Amitie();
+            $amitie->setAmi1($user)
+                    ->setAmi2($nouvel_ami);
+            $entityManager->persist($amitie);
+            $entityManager->flush();
+        }
+
+
+
+        
+        return $this->renderForm('user/show.html.twig', [
             'user' => $user,
+            'form' => $form,
+            'joueur_recherche'=>$joueur_recherche,
+            'amis_du_joueur'=> $amis_du_joueur
         ]);
     }
 

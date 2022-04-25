@@ -53,15 +53,31 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?User
+    public function findPseudo($value): ?User
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+            ->andWhere('u.pseudo = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+    public function findFriends($user)
+    {
+        
+        $q=$this->createQueryBuilder('user')
+               ->where('user.roles  NOT LIKE \'%GAME_MASTER%\'')
+               ->join('user.amities', 'amitie')
+               ->addSelect('amitie')
+               ->where('amitie.Ami2 = :id')
+               ->setParameter('id', $user);
+             
+               
+        
+        return $q;
+    }
+
+    
+
+
 }

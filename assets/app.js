@@ -6,7 +6,8 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-
+//import 'regenerator-runtime/runtime';
+//import axios from 'axios';
 import './styles/app.scss';
 
 //import components React
@@ -21,8 +22,7 @@ import './components/Footer.jsx';
 import './components/MentionsPage';
 
 // start the Stimulus application
-import './bootstrap';
 import './controllers/formPersonnage.js' ;
 
-
-
+//import function js
+import './js/dynaForm';

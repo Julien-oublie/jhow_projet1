@@ -25,25 +25,20 @@ class Partie
     private $joueurs;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Personnage::class, inversedBy="parties")
+     * @ORM\Column(type="string", length=255)
      */
-    private $personnage;
+    private $nom;
 
     /**
      * @ORM\ManyToMany(targetEntity=Personnage::class, mappedBy="partie")
      */
     private $personnages;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom;
-
     public function __construct()
     {
         $this->joueurs = new ArrayCollection();
-        $this->personnage = new ArrayCollection();
         $this->personnages = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -74,27 +69,14 @@ class Partie
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Personnage>
-     */
-    public function getPersonnage(): Collection
+    public function getNom(): ?string
     {
-        return $this->personnage;
+        return $this->nom;
     }
 
-    public function addPersonnage(Personnage $personnage): self
+    public function setNom(string $nom): self
     {
-        if (!$this->personnage->contains($personnage)) {
-            $this->personnage[] = $personnage;
-        }
-
-        return $this;
-    }
-
-    public function removePersonnage(Personnage $personnage): self
-    {
-        $this->personnage->removeElement($personnage);
+        $this->nom = $nom;
 
         return $this;
     }
@@ -107,14 +89,21 @@ class Partie
         return $this->personnages;
     }
 
-    public function getNom(): ?string
+    public function addPersonnage(Personnage $personnage): self
     {
-        return $this->nom;
+        if (!$this->personnages->contains($personnage)) {
+            $this->personnages[] = $personnage;
+            $personnage->addPartie($this);
+        }
+
+        return $this;
     }
 
-    public function setNom(string $nom): self
+    public function removePersonnage(Personnage $personnage): self
     {
-        $this->nom = $nom;
+        if ($this->personnages->removeElement($personnage)) {
+            $personnage->removePartie($this);
+        }
 
         return $this;
     }

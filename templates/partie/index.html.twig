@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ partie.id }}</td>
                 <td>
-                    <a href="{{ path('app_partie_show', {'id': partie.id}) }}">show</a>
+                    <a href="{{ path('app_partie_new', {'partie': partie.id}) }}">show</a>
                     <a href="{{ path('app_partie_edit', {'id': partie.id}) }}">edit</a>
                 </td>
             </tr>
