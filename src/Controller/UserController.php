@@ -66,25 +66,6 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Gère la recherche d'amis + l'ajout d'amis********************************************************
     #[Route('/{id}/{joueur_ami?null}', name: 'app_user_show', methods: ['GET', 'POST'])]
     public function show(User $user, Request $request,EntityManagerInterface $entityManager, $joueur_ami,UserRepository $userRepo): Response

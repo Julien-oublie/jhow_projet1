@@ -8,6 +8,15 @@
     background-repeat: repeat;
 }
 
+.background-personnages{
+    grid-column: 1/ span 12;
+    background-image: url('../../img/background_personnages.png') ;
+    background-position: center;
+    background-size: cover;
+    height: 60vh;
+    width: 100%;
+}
+
 .swipe-main-div{
     @include grid;
     display: grid;
