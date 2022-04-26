@@ -70,15 +70,19 @@ function PersonnagesPage(){
 
         <div className='swipe-main-div'>
         <div className='div-navigation-slide-left'></div>
-       <span className="swipe-div">Swipe de classes</span>
+       <span className="swipe-div">Les classes</span>
        <div className='div-navigation-slide-right'></div>
         </div>
        
         {data.map((perso) => (
           <div className='card'>
-              <img src={perso.img} />
+
+              <img className="img-personnages" src={perso.img} />
+
+              <div className='main-div-informations-personnages'>
               <h1 className='title-card'>{perso.class}</h1>
               <p className='paraph-card'>{perso.description}</p>
+
               <div className='carac-main-div'>
                   <div className='carac-div'>
                   <span className='span-carac title-carac'>{perso.caractéristiques_1_title}</span>
@@ -93,9 +97,8 @@ function PersonnagesPage(){
                   <div className='carac-div'>
                   <span className='span-carac title-carac'>{perso.caractéristiques_3_title}</span>
                   <span className='span-carac'>{perso.caractéristiques_3_content}</span>
-                  </div>
-                  
-                  
+                  </div>          
+              </div>
               </div>
           </div>
         ))}
