@@ -40,6 +40,14 @@ $(document).on('click', '#endPartieCancel', function(e){
 
 
 
+
+if ($('#is_modif').val() == 1) {
+  $('#endPartie').hide()
+  $('#endPartieCancel').show()
+  $('#generate_de').hide()
+  $('.showModifPerso').show()
+}
+
 //AJAX pour la recherche d'amis
 $(document).on('click', '#submit_friend', function(e){
   e.preventDefault()

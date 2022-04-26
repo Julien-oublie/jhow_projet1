@@ -8,6 +8,8 @@
     <h2>Game Master :{{app.user.pseudo}}</h2>
     <table class="table">
         <tbody>
+
+                <input type="hidden" id="is_modif" value="{{is_modified|default('null')}}"> 
                 {# A voir quoi mettre comme infos sur cette page pour les joueurs #}
                 <h2>Joueurs</h2>
                 {% for personnages in partie.personnages %}
@@ -20,9 +22,9 @@
                   {{personnages.nom}}
                   </td>
                   <td>
-                   {{personnages.classe}}{{personnages.id}}
+                   {{personnages.classe}}
                   </td>  
-                  <td><a href="{{ path('personnage_edit', {'id': personnages.id}) }}"><button class="showModifPerso" style="display:none">Modifier</button></a></td> 
+                  <td><a href="{{ path('personnage_edit', {'id': personnages.id, 'partie':partie.id}) }}"><button class="showModifPerso" style="display:none">Modifier</button></a></td> 
                 {% endfor %}
             
         </tbody>
