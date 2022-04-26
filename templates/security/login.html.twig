@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
 <div class="form-content">
     <form class="form-login" method="post">
+        <span class="login-label"> CONNEXION </span>
+        <div class="rotate-circle"></div>
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -14,9 +16,6 @@
                 Déjà connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
             </div>
         {% endif %}
-
-        <div class="rotate-circle"></div>
-        <span class="login-label"> CONNEXION </span>
         <label>Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email" class="input-login" autocomplete="email"  required autofocus>
         <label>Mot de passe</label>
