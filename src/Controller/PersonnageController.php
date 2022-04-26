@@ -15,7 +15,9 @@ use App\Form\PersoType;
 use App\Repository\PartieRepository;
 use App\Repository\PersonnageRepository;
 use App\Repository\ArmesRepository;
+use App\Repository\RecompenceRepository;
 use App\Repository\UserRepository;
+use App\Repository\VertusRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -121,7 +123,7 @@ class PersonnageController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request,RecompensesRepository $recompencesRepository, VertusRepository $vertusRepository,ArmesRepository $armesRepository, PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, RecompenceRepository $recompencesRepository, VertusRepository $vertusRepository,ArmesRepository $armesRepository, PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
         $nbrArmes = $personnageRepository->CountArmesOfThePerso($personnage)[0][1];
         $nbrVertus = $personnageRepository->CountVertusOfThePerso($personnage)[0][1];

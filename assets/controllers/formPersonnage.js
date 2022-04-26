@@ -23,8 +23,21 @@ $(document).on('change', 'input[type=checkbox]', function(e){
   e.preventDefault()
   // Si j'ai un id de partie je redirige vers la modification de partie sinon creation
   $('#partieNumber').val() ?ajax_form($('#ajaxCreatePartie').val()+'/'+$('#partieNumber').val(),$('[name=partie]')):ajax_form($('#ajaxCreatePartie').val() ,$('[name=partie]') )
-
 })
+
+$(document).on('click', '#endPartie', function(e){
+  $('#endPartie').hide()
+  $('#endPartieCancel').show()
+  $('#generate_de').hide()
+  $('.showModifPerso').show()
+})
+$(document).on('click', '#endPartieCancel', function(e){
+  $('#endPartie').show()
+  $('#endPartieCancel').hide()
+  $('#generate_de').show()
+  $('.showModifPerso').hide()
+})
+
 
 
 //AJAX pour la recherche d'amis
@@ -33,8 +46,6 @@ $(document).on('click', '#submit_friend', function(e){
   let form = $('[name=recherche_amis]')
   let path_friend = $('#path_friend').val();
   ajax_form(path_friend ,form )
-     
-
 })
 
 function ajax_form(url, form){
@@ -45,6 +56,7 @@ function ajax_form(url, form){
     data: form.serialize(),
     dataType: "HTML",
 }).done( function(response) {
+  // Je split pour récupérer et changer que le body
   let splitResponse1 = response.split('</barre-navigation>')[1];
   let splitResponse = splitResponse1.split('<script>')[0]
 
@@ -53,9 +65,6 @@ function ajax_form(url, form){
     console.log(textmsg);
     console.log(errorThrown);
 });
-
-
-
 }
 
 
@@ -74,8 +83,6 @@ function ajax_simple(url){
         console.log(textmsg);
         console.log(errorThrown);
     });
-
-
 }
 
 
