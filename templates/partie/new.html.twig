@@ -12,6 +12,7 @@
       </div>
     
     {% if id_partie != 'null'  %}
+    <input type="hidden" id="partieNumber" value="{{id_partie}}"> 
     <h1>{{ partie.nom}}</h1>
 
     <form method="post"   action="{{path('app_partie_en_cours', {'id': partie.id})}}">

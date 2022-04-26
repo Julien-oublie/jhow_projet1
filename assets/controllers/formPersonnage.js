@@ -18,10 +18,12 @@ $(document).on('click', '.deletFriend', function(e){
   ajax_simple(this.value)
 })
 
-$(document).on('click', '#ajaxCreatePartie', function(e){
-  e.preventDefault()
 
-  ajax_form(this.value ,$('[name=partie]') )
+$(document).on('change', 'input[type=checkbox]', function(e){
+  e.preventDefault()
+  // Si j'ai un id de partie je redirige vers la modification de partie sinon creation
+  $('#partieNumber').val() ?ajax_form($('#ajaxCreatePartie').val()+'/'+$('#partieNumber').val(),$('[name=partie]')):ajax_form($('#ajaxCreatePartie').val() ,$('[name=partie]') )
+
 })
 
 
@@ -36,14 +38,13 @@ $(document).on('click', '#submit_friend', function(e){
 })
 
 function ajax_form(url, form){
-  console.log(url, form);
+
   $.ajax({
     method: 'POST',
     url: url,
     data: form.serialize(),
     dataType: "HTML",
 }).done( function(response) {
-  console.log(response);
   let splitResponse1 = response.split('</barre-navigation>')[1];
   let splitResponse = splitResponse1.split('<script>')[0]
 
