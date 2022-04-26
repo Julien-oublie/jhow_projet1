@@ -4,9 +4,9 @@
 
 {% block body %}
 <div class="replaceAjaxContent">
-    <h1>Nouvelle partie</h1>
+    <h1 class="title-party">Nouvelle partie</h1>
 
-    <h2>Game master:{{app.user.pseudo}}</h2> 
+    <h2 class="name-game-master">Game master: {{app.user.pseudo}}</h2> 
       <div class="d-flex justify-content-center">
         {{ include('partie/_form.html.twig') }}
       </div>
