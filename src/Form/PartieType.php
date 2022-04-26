@@ -18,7 +18,6 @@ class PartieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $tabJoueurs = [2=>2,3=>3,4=>4,5=>5,6=>6];
         $user = $options['user'];
         $builder
             ->add('nom', TextType::class,[
@@ -28,17 +27,14 @@ class PartieType extends AbstractType
             ->add('joueurs', EntityType::class, [
                 'class' => User::class,
                 'query_builder' => function (EntityRepository $er) use($user) {
-                    dump($er->findFriends($user));
                     return $er->findFriends($user);
                 },
                 'choice_label' => 'pseudo',
                 'choice_value'=>'pseudo',
-                'placeholder' => 'Choisir un joueur',
                 'multiple'=>true,
                 'expanded'=>true,
                 'attr'=>['class'=>'chxck'],
                 'label'=>false
-
             ]);
             
     }
