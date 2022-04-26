@@ -42,15 +42,15 @@ function MenuNavigation(){
 
         <div className='items-navbar'>
           <ul>
-            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="http://localhost:8000/regles">Règles</a> </li>
-            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="http://localhost:8000/personnages">Personnages</a> </li>
+            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net/">Règles</a> </li>
+            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://jeuderole.alwaysdata.net/personnages">Personnages</a> </li>
             <li onClick={() => changeEtat(fichesRef)} ref={fichesRef}>   Fiche </li>
         </ul>  
         </div>
         
         <div className='user'>
-            <a href="http://localhost:8000/login"> Connexion </a>
-            <a href="http://localhost:8000/register"> Inscription </a>
+            <a href="https://jeuderole.alwaysdata.net/login"> Connexion </a>
+            <a href="https://jeuderole.alwaysdata.net/register"> Inscription </a>
         </div>      
     </div>
 }
