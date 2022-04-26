@@ -74,9 +74,8 @@ function PersonnagesPage(){
        <div className='div-navigation-slide-right'></div>
         </div>
        
-        {data.map((perso) => (
-          <div className='card'>
-
+        {data.map((perso, index) => (
+          <div key={index} className='card'>
               <img className="img-personnages" src={perso.img} />
 
               <div className='main-div-informations-personnages'>

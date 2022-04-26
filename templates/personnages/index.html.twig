@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% if app.user %}
-    <a  type="button"  href="{{ path('app_user_show', {'id': app.user.id}) }}">Mon compte</i></a>
-    <a  type="button"  href="{{ path('app_partie_new') }}">Creer une partie</i></a>
-    {% endif %}
+
     <personnages-page></personnages-page>
     
 
