@@ -5,8 +5,8 @@ var form = document.querySelector("#personnageForm")
 $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_numberVertus,#edit_personnage_numberArmes,#personnage_valeurPrincipale,#personnage_attributCoeur,#personnage_attributCorps, #personnage_classe, #personnage_origine, #personnage_vocation', function(){
     form.submit();
 })
-console.log('admiration')
-/******Disabled champs ********* */
+$('.loader').hide(1000)
+/******Disabled champs & loader ********* */
 document.getElementById('personnage_Admiration').disabled = true;
 document.getElementById('personnage_Athletisme').disabled = true;
 document.getElementById('personnage_Conscience').disabled = true;
@@ -39,6 +39,7 @@ document.getElementById('personnage_esprit').disabled = true;
 
 document.getElementById('personnage_coeur').disabled = true;
 document.getElementById('personnage_endurance').disabled = true;
+//$('.loader').hide()
 form.addEventListener("submit", function(e){
   document.getElementById('personnage_Admiration').disabled = false;
   document.getElementById('personnage_Admiration').disabled = false;
@@ -70,6 +71,8 @@ form.addEventListener("submit", function(e){
   document.getElementById('personnage_esprit').disabled = false;
   document.getElementById('personnage_coeur').disabled = false;
   document.getElementById('personnage_endurance').disabled = false;
+  $('#personnageForm').hide(1000)
+  $('.loader').show(1000);
   });
 
 //AJAX de l'ajout d'amis
