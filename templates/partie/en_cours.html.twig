@@ -54,7 +54,7 @@
 {# Acceder au formulaire de modification de chaque joueur -AUCUNE IDEE DE COMMENT FAIRE CA ENCORE #}
 {# A ne pas oublier - vider le role game master  #}
 <button id="endPartie">Partie terminée</button>
-<a href="{{ path('app_user_show', {'id': app.user.id}) }}"><button>Modifications terminées </button></a>
+<a id="endModif" style="display:none" href="{{ path('app_user_show', {'id': app.user.id}) }}"><button>Modifications terminées </button></a>
 <button id="endPartieCancel"  style="display:none">Annuler</button>
     
 {% endblock %}
