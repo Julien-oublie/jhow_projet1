@@ -48,6 +48,8 @@ function MenuNavigation(props){
             <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="http://localhost:8000/personnages">Personnages</a> </li>
             {isConnected  && <li><a href="http://localhost:8000/partie/new"> Créer une partie  </a></li> }
           
+            
+           
            
            
         </ul>  
@@ -60,10 +62,12 @@ function MenuNavigation(props){
         </div>}
         {!isConnected  && 
         <div className='user'>
-            <a href="http://localhost:8000/login"> Connexion </a>
-            <a href="http://localhost:8000/register"> Inscription </a>
-        </div>      
-    </div>
+            
+            <a href="http://localhost:8000/login"> Se connecter </a>
+            <a href="http://localhost:8000/register"> S'inscrire  </a>
+        </div>}    
+        
+    </div>)
 }
 
 class Navbar extends HTMLElement {
