@@ -25,7 +25,7 @@
         color:#DFAB2A;
         font-family: "caudex-regular";
         border-radius: 4px;
-        font-size: 14px;
+        font-size: 16px;
         background-color: rgba(255, 255, 255, 0.1);
     }
     .input-login::placeholder {
@@ -43,15 +43,16 @@
 
 .login-label{
   grid-column: 5/ span 4;
+  margin-top: 4rem;
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 16px;
+  font-size: 24px;
   color:#DFAB2A;
 }
 
 .submit-login-div{
   grid-column: 1 / span 12;
-  width: 30%;
+  width: 35%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 3rem;
@@ -66,5 +67,10 @@
           margin-top: 10px;
           cursor: pointer;
           padding: 0.2rem;
+          font-size: 18px;
   }
+}
+.alert-danger{
+  color: red;
+  padding-bottom: 15px;
 }

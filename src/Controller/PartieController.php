@@ -16,13 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class PartieController extends AbstractController
 {
     
-    #[Route('/partie/{id}', name: 'app_partie_en_cours', methods: ['POST'])]
-    public function partieEnCours(Partie $partie, Request $request, EntityManagerInterface $entityManager, PersonnageRepository $personnageRep): Response
+    #[Route('/partie/{id}/{is_modified?null}', name: 'app_partie_en_cours', methods: ['POST', 'GET'])]
+    public function partieEnCours($is_modified, Partie $partie, Request $request, EntityManagerInterface $entityManager, PersonnageRepository $personnageRep): Response
     {
         //On vide les persos a chaque entrée si jamais il revient en arrière pour pas cumuler les joueurs
-        foreach ($partie->getPersonnages() as $key) {
-            $partie->removePersonnage($key);
-        }
+        // foreach ($partie->getPersonnages() as $key) {
+        //     $partie->removePersonnage($key);
+        // }
         
         $quest = $request->request->all();
         foreach ($quest as $key => $value) {
@@ -34,6 +34,7 @@ class PartieController extends AbstractController
         
         return $this->render('partie/en_cours.html.twig', [
             'partie' => $partie,
+            'is_modified'=>$is_modified
         ]);
     }
    
@@ -70,12 +71,7 @@ class PartieController extends AbstractController
     }
 
     
-    // public function show(Partie $partie): Response
-    // {
-    //     return $this->render('partie/show.html.twig', [
-    //         'partie' => $partie,
-    //     ]);
-    // }
+    
 
     #[Route('/{id}/edit', name: 'app_partie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Partie $partie, PartieRepository $partieRepository): Response

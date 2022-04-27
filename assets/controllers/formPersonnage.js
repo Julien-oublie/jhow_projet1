@@ -7,6 +7,106 @@ $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_nu
 })
 
 
+//AJAX de l'ajout d'amis
+$(document).on('click', '#ajaxAddFriend', function(e){
+  e.preventDefault()
+  ajax_simple(this.value)
+})
+
+$(document).on('click', '.deletFriend', function(e){
+  e.preventDefault()
+  ajax_simple(this.value)
+})
+
+
+$(document).on('change', 'input[type=checkbox]', function(e){
+  e.preventDefault()
+  // Si j'ai un id de partie je redirige vers la modification de partie sinon creation
+  $('#partieNumber').val() ?ajax_form($('#ajaxCreatePartie').val()+'/'+$('#partieNumber').val(),$('[name=partie]')):ajax_form($('#ajaxCreatePartie').val() ,$('[name=partie]') )
+})
+
+$(document).on('click', '#endPartie', function(e){
+  $('#endPartie').hide()
+  $('#endPartieCancel').show()
+  $('#generate_de').hide()
+  $('.showModifPerso').show()
+})
+$(document).on('click', '#endPartieCancel', function(e){
+  $('#endPartie').show()
+  $('#endPartieCancel').hide()
+  $('#generate_de').show()
+  $('.showModifPerso').hide()
+})
+
+
+
+
+if ($('#is_modif').val() == 1) {
+  $('#endPartie').hide()
+  $('#endPartieCancel').show()
+  $('#generate_de').hide()
+  $('.showModifPerso').show()
+}
+
+//AJAX pour la recherche d'amis
+$(document).on('click', '#submit_friend', function(e){
+  e.preventDefault()
+  let form = $('[name=recherche_amis]')
+  let path_friend = $('#path_friend').val();
+  ajax_form(path_friend ,form )
+})
+
+function ajax_form(url, form){
+
+  $.ajax({
+    method: 'POST',
+    url: url,
+    data: form.serialize(),
+    dataType: "HTML",
+}).done( function(response) {
+  // Je split pour récupérer et changer que le body
+  let splitResponse1 = response.split('</barre-navigation>')[1];
+  let splitResponse = splitResponse1.split('<script>')[0]
+
+   $(".replaceAjaxContent").html(splitResponse);
+}).fail(function(jxh,textmsg,errorThrown){
+    console.log(textmsg);
+    console.log(errorThrown);
+});
+}
+
+
+function ajax_simple(url){
+
+      $.ajax({
+        method: 'POST',
+        url: url,
+        dataType: "HTML",
+    }).done( function(response) {
+      let splitResponse1 = response.split('</barre-navigation>')[1];
+      let splitResponse = splitResponse1.split('<script>')[0]
+
+       $(".replaceAjaxContent").html(splitResponse);
+    }).fail(function(jxh,textmsg,errorThrown){
+        console.log(textmsg);
+        console.log(errorThrown);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Générateur de dés
 function randomNumber(range) {
     return Math.round( Math.random() * range );

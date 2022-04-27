@@ -44,6 +44,16 @@ class RecompenceRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    public function findRecompencesOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('vertus')
+            ->Join('vertus.personnage', 'personnage')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return Recompence[] Returns an array of Recompence objects

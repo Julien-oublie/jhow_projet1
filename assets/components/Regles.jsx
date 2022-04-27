@@ -11,14 +11,25 @@ function Regles(){
 
             <div className='history-container'>
                 <div className='container-header'>
-                    <h2> l'histoire commence ici.... </h2>
-                    <p>C’est ici que tout commence (récap de l’histoire et de l’environnement) </p>
+                    <h2> L'histoire commence ici.... </h2>
                     <br />
                     <br />
                     <div className='history-resume'>
-                        <p>  Lorem, ipsum dolor sit amet consectetur adipisicing elit. In optio qui vero mollitia aliquam quaerat accusamus tempore doloribus iusto reprehenderit iste saepe fugit amet laboriosam, repellat molestias. Labore maiores aperiam eos quasi eligendi exercitationem maxime, dignissimos ex enim consectetur nobis 
-                            quia consequuntur debitis qui, alias dolorum tempore. Cum minus repudiandae mollitia aliquam magni ab magnam numquam minima veritatis inventore dignissimos sunt earum hic, eum doloremque. Exercitationem quo quaerat amet dicta. 
-                            Illo, ea autem, iste soluta adipisci at tempore itaque optio tempora iure rem qui. Velit aliquam optio voluptate necessitatibus illum. 
+                        <p> Nous sommes en l'an 2946 du Troisième Âge, et les terres à l'est des Monts Brumeux s'agitent. Des sommets couverts de nuages
+                        au-dessus du High Pass vers l'obscurité infestée d'araignées de la forêt de Mirkwood, des sentiers longtemps déserts sont à nouveau parcourus.
+                        Les marchands occupés transportent leurs marchandises vers de nouveaux marchés, les messagers apportent des nouvelles des royaumes étrangers et les rois envoient
+                        des hommes armés pour étendre leur influence et l'état de droit. Certains disent qu'une nouvelle ère de liberté a commencé, un temps pour
+                        aventure et de grandes actions pour reconquérir les gloires perdues au cours de longs siècles d'oppression et de déclin.
+                        Mais les aventures ne sont pas vraiment des choses que les gens recherchent. Ils sont dangereux et finissent rarement bien. Alors qu'il
+                        est vrai qu'une poignée d'individus vaillants se sont lancés dans le monde, pour d'autres il semble que l'aventure
+                        les choisit, comme si c'était le chemin qu'ils devaient suivre. Ce sont des guerriers agités, des érudits curieux et des vagabonds,
+                        toujours désireux de chercher ce qui a été perdu ou d'explorer ce qui a été oublié. Les gens ordinaires les appellent des aventuriers, et quand
+                        ils reviennent avec succès, ils les appellent des héros. Mais s'ils échouent, personne ne se souviendra même de leurs noms...
+                        Dans The One Ring Roleplaying Game, vous incarnez les héros de la Terre du Milieu. Vous parcourrez le pays, découvrirez ses
+                        secrets, participez à son histoire et rencontrez ses habitants et ses légendes. Alors que l'Ombre revient à travers
+                        les terres des Peuples Libres, vous découvrirez des indices de ce qui se passe et aurez la chance de jouer un rôle dans le
+                        lutte contre l'Enem
+
                         </p>
                     </div>
 
@@ -30,11 +41,23 @@ function Regles(){
                             </div>
                         </div>
                         <div className='right'>
-                            <h2> Environnement Lieu </h2>
+                            <h2> One Ring ?</h2>
                             <br />
                             <br />
                             <br />
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste excepturi eius quos illum nisi nihil sequi illo dignissimos possimus? Nobis ex placeat minima est. Voluptatum esse voluptate eligendi maiores nesciunt.</p>
+                            <p> One Ring est un jeu de rôle basé sur le
+                                Hobbit et Le Seigneur des Anneaux, deux extraordinaires
+                                œuvres de fiction de l'auteur bien-aimé et respecté
+                                universitaire, John Ronald Reuel Tolkien. Avec ces livres,
+                                Tolkien a présenté aux lecteurs sa propre plus grande création,
+                                le monde de la Terre du Milieu. Une terre mythique vue de loin
+                                passé, sa riche histoire et sa géographie détaillée ont été créées
+                                au cours de nombreuses années.
+                                Avec The One Ring, la Terre du Milieu est à vous d'explorer. Cette
+                                guide vous fournit les règles du jeu et riche
+                                des informations sur les personnes, les lieux et les adversaires que vous
+                                pourriez rencontrer au cours de vos aventures
+                            </p>
                         </div>
                     </div>
                 </div>

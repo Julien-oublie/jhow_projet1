@@ -15,7 +15,9 @@ use App\Form\PersoType;
 use App\Repository\PartieRepository;
 use App\Repository\PersonnageRepository;
 use App\Repository\ArmesRepository;
+use App\Repository\RecompenceRepository;
 use App\Repository\UserRepository;
+use App\Repository\VertusRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +26,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Fpdf\Fpdf;
 use Symfony\Component\Form\FormTypeInterface;
+
 #[Route('/personnage')]
 class PersonnageController extends AbstractController
 {
@@ -120,8 +123,8 @@ class PersonnageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request,RecompensesRepository $recompencesRepository, VertusRepository $vertusRepository,ArmesRepository $armesRepository, PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
+    #[Route('/{id}/{partie}/edit', name: 'personnage_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request,RecompenceRepository $recompencesRepository,$partie, VertusRepository $vertusRepository,ArmesRepository $armesRepository, PersonnageRepository $personnageRepository, Personnage $personnage, EntityManagerInterface $entityManager): Response
     {
         $nbrArmes = $personnageRepository->CountArmesOfThePerso($personnage)[0][1];
         $nbrVertus = $personnageRepository->CountVertusOfThePerso($personnage)[0][1];
@@ -154,14 +157,15 @@ class PersonnageController extends AbstractController
             }
             $entityManager->flush();
 
-          // return $this->redirectToRoute('personnage_index', [], Response::HTTP_SEE_OTHER);
+          return $this->redirectToRoute('app_partie_en_cours', ['id'=>$partie,'is_modified'=>true], Response::HTTP_SEE_OTHER);
         }
         return $this->renderForm('personnage/edit.html.twig', [
             'personnage' => $personnage,
             'form' => $form,
             'armes' => $armesRepository->findArmesOfThePerso($personnage),
             'vertus' => $vertusRepository->findVertusOfThePerso($personnage),
-            'recompences' => $recompencesRepository->findRecompencesOfThePerso($personnage)
+            'recompences' => $recompencesRepository->findRecompencesOfThePerso($personnage),
+            
         ]);
     }
 

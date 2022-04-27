@@ -44,7 +44,16 @@ class VertusRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+    public function findVertusOfThePerso($personnage)
+    {
+        return $this->createQueryBuilder('vertus')
+            ->Join('vertus.personnage', 'personnage')
+            ->Where("personnage.id = :personnage")
+            ->setParameter(':personnage', $personnage)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Vertus[] Returns an array of Vertus objects
     //  */
