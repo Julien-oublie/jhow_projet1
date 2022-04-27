@@ -23,7 +23,6 @@ import './components/MentionsPage';
 
 // start the Stimulus application
 import './controllers/formPersonnage.js' ;
-import './controllers/pdfPersonnage.js' ;
 
 //import function js
 import './js/dynaForm';
