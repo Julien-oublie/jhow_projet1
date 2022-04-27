@@ -20,6 +20,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PersonnageType extends AbstractType
 {
@@ -342,7 +343,6 @@ class PersonnageType extends AbstractType
                         'label'    => 'Competences vocation',
                         'choices'  =>  $tabVocations,
                         'empty_data' => 1
-                    
                     ]);
                     
                     
