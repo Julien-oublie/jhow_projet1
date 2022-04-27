@@ -62,15 +62,12 @@ form.addEventListener("submit", function(e){
   document.getElementById('personnage_part_ombre').disabled = false;
   document.getElementById('personnage_traits').disabled = false;
   document.getElementById('personnage_Athletisme').disabled = false;
-
   document.getElementById('personnage_standard_de_vie').disabled = false;
   document.getElementById('personnage_avantage_culturel').disabled = false;
   document.getElementById('personnage_competence_favorite').disabled = false;
-
   document.getElementById('personnage_espoir').disabled = false;
   document.getElementById('personnage_corps').disabled = false;
   document.getElementById('personnage_esprit').disabled = false;
-
   document.getElementById('personnage_coeur').disabled = false;
   document.getElementById('personnage_endurance').disabled = false;
   });
