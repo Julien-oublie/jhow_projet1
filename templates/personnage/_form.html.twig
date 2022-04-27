@@ -70,7 +70,8 @@
         </div>
     </div>
     <div class="end">
-        <button class="validation" type="submit" name="_valid" value="1" >{{ button_label|default('Enregistrer') }}</button>
+    <input type="hidden" name="_personnage_id" id="perso_id" value="{{personnage.id }}">
+        <button class="validation" id="generate" type="submit" name="_valid" value="1">{{ button_label|default('Enregistrer') }}</button>
 
     </div>
 {{ form_end(form) }}
