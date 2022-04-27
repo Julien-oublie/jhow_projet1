@@ -31,11 +31,19 @@ $(document).on('click', '#endPartie', function(e){
   $('#generate_de').hide()
   $('.showModifPerso').show()
 })
+
+
 $(document).on('click', '#endPartieCancel', function(e){
   $('#endPartie').show()
   $('#endPartieCancel').hide()
   $('#generate_de').show()
   $('.showModifPerso').hide()
+})
+
+$(document).on('click', '#partieShow', function(e){
+  $('#partie').show()
+  $('#personnage').hide()
+  
 })
 
 
