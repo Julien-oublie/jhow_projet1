@@ -6,16 +6,23 @@
 {% block body %}
 <div class="bigContent">
   <div class="side">
-      <ul>
-        <li> partie</li>
-      </ul>
+    
+      <button id="perso" class="btn personnage">Personnages</button>
+ 
+      <button id="amie" class="btn amie">Amie</button>
+      
+      <button id="partieShow" class="btn partie">Partie</button>
+    
   </div>
-  <div class="contentPseudo">
+
+
+  <div  class="contentPseudo">
     <h1>{{ app.user.pseudo }}</h1>
 
-   <h3>Personnages </h3> 
-      <br>
-    <div class="contentPerso">
+   
+    <div id="personnage" class="contentPerso">
+      <h3>Personnages </h3> 
+        <br>
       {% for personnages in app.user.personnages %}
       
         <div class="Perso">
@@ -28,16 +35,20 @@
     </div>
     <button class="newPerso"><a href="{{ path('personnage_new') }}">Créer un nouveau personnage</a></button>
   </div>
-</div>
-{#     <hr>
-    <br>
-    nombre de parties jouées: {{app.user.parties|length}}
+  <div id="partie" class="contentPartie">
+      nombre de parties jouées: {{app.user.parties|length}}
     
     <button><a href="{{ path('app_partie_new') }}">Créer une nouvelle partie</a></button>
     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
     {{ include('user/_delete_form.html.twig') }}
       <br>
-    <hr> #}
+    <hr> 
+    
+    </div>
+</div>
+     
+    
+    
    
 
     {#   <h3>Ajouter un ami:</h3>  

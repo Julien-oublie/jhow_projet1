@@ -49,7 +49,7 @@ class PersonnageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid() && $request->request->get('_valid')) {
-            dump($form);
+            //dump($form);
             $attibut = explode(":", $form->get('attributCoeur')->getData());
             $attibutCoeur = $attibut[0];
             $Principale = explode(":", $form->get('valeurPrincipale')->getData());
@@ -99,15 +99,13 @@ class PersonnageController extends AbstractController
                        ->setJoueur($joueur);
             $entityManager->persist($personnage);
             $entityManager->flush();
-
-
             if ($id!= 'null') {
                 return $this->redirectToRoute('app_partie_new', ['id_partie'=>$partie_id], Response::HTTP_SEE_OTHER);
             }else{
-                return $this->redirectToRoute('personnage_generate_fiche', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('personnage_show', ['id'=>$personnage->getId()], Response::HTTP_SEE_OTHER);
             }
         }
-   
+        dump($personnage);
             return $this->renderForm('personnage/new.html.twig', [
                 'personnage' => $personnage,
                 'form' => $form,
@@ -386,7 +384,7 @@ class PersonnageController extends AbstractController
             }
             
             //créer le pdf
-            $pdfFilepath = '../public/fichesPersoVierge/recto1'/*.date('Y-m-d-H-i-s')*/.'.pdf';
+            $pdfFilepath = '../public/fichesPersoVierge/'.$personnage->getNom()/*.date('Y-m-d-H-i-s')*/.'.pdf';
             $pdf->Output( $pdfFilepath ,'I');
     }
 }

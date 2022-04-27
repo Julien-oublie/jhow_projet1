@@ -32,12 +32,20 @@ $(document).on('click', '#endPartie', function(e){
   $('.showModifPerso').show()
   $('#endModif').show()
 })
+
+
 $(document).on('click', '#endPartieCancel', function(e){
   $('#endPartie').show()
   $('#endPartieCancel').hide()
   $('#generate_de').show()
   $('.showModifPerso').hide()
   $('#endModif').hide()
+})
+
+$(document).on('click', '#partieShow', function(e){
+  $('#partie').show()
+  $('#personnage').hide()
+  
 })
 
 

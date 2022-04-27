@@ -1,12 +1,25 @@
 
 {{ form_start(form, { 'attr' : {'id': 'personnageForm' , 'class' : 'persoForm'}}) }}
-    <div class="start">
 
-        {{ form_row(form.nom)}}
-        {{ form_row(form.classe)}}
-        {{ form_row(form.origine)}}
-        {{ form_row(form.vocation)}}
+    <div class="classeBanniere">
+
     </div>
+
+    <div class="start">
+        <div class="classe-input">
+            {{ form_row(form.nom)}}
+            {{ form_row(form.classe)}}
+            {{ form_row(form.origine)}}
+            {{ form_row(form.vocation)}}
+        </div>
+        <div class="classe-img">
+           <img src="https://cdn.discordapp.com/attachments/968448853160386591/968892416985825320/bardClasse.jpg"></img>
+        </div>
+    </div>
+
+
+    
+
     <div class="main-content">
 
     
@@ -45,7 +58,7 @@
         
             {% if form.armes is defined %}
             <div class="midle">
-                <h1> Spécialité </h1>
+                <h1> SPECIALITES </h1>
                 <div class="content">
                     <div class="right-content">
                         {{ form_row(form.armes)}}
@@ -53,22 +66,27 @@
                         {{ form_row(form.specialites2)}}
                         {% if form.Particularite is defined %}
                             {{ form_row(form.Particularite)}}
+                        {% endif %}
+                        {{ form_row(form.attributCorps)}}
+                        {% if form.attributEsprit is defined  %}        
+                            {{ form_row(form.attributEsprit)}} 
+                        {% endif %}   
+                        {% if form.attributCoeur is defined %}
                             {{ form_row(form.attributCoeur)}}
-                            {{ form_row(form.coeur)}} 
                         {% endif %}
                         {% if form.vertus is defined%}
                             {{ form_row(form.vertus)}}
                         {% endif %}  
 
                         {% if form.competences_favorites_vocation is defined %}
-                            {{ form_row(form.competences_favorites_vocation)}}   
+                            {{ form_row(form.competences_favorites_vocation)}}  
                         {% endif %}  
 
                         {% if form.recompence is defined %}
                            {{ form_row(form.recompence)}}
                         {% endif %}
 
-                        {{ form_row(form.attributCorps)}}
+                        
                         {{ form_row(form.valeurPrincipale)}} 
                     </div>
                     <div class="left-content">
@@ -76,19 +94,19 @@
                         {{ form_row(form.avantage_culturel)}}
                         {% if form.competence_favorite is defined %}
                             {{ form_row(form.competence_favorite)}}
-                            {{ form_row(form.corps)}}
                             {{ form_row(form.endurance)}}
-                            {{ form_row(form.esprit)}} 
                             {{ form_row(form.espoir)}}
+                            {{ form_row(form.corps)}}
+                            {{ form_row(form.esprit)}} 
+                        {% endif %}
+                        {% if form.Particularite is defined %}
+                            {{ form_row(form.coeur)}} 
                         {% endif %}
                         {% if form.traits is defined %}
                             {{ form_row(form.part_ombre)}}
                             {{ form_row(form.traits)}}
                             
                         {% endif %} 
-                        {% if form.attributEsprit is defined  %}        
-                            {{ form_row(form.attributEsprit)}} 
-                        {% endif %}                  
                     </div>
                 </div>
             </div>
