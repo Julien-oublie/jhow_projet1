@@ -34,6 +34,13 @@ $(document).on('click', '#endPartie', function(e){
 })
 
 
+$(document).ready( function(e){
+$("label[for='personnage_classe']").hide()
+$("label[for='personnage_origine']").hide()
+$("label[for='personnage_vocation']").hide()
+})
+
+
 $(document).on('click', '#endPartieCancel', function(e){
   $('#endPartie').show()
   $('#endPartieCancel').hide()

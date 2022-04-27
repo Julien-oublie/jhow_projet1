@@ -7,8 +7,12 @@
     width: 100%;
     height: 4rem;
     padding: 0.75rem 0rem;
-    background-color: #eadca7;
+    background-color: #050505;
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.649) 0 100%), url('https://media.discordapp.net/attachments/968448853160386591/968923531259822120/Sans_titre-3.png');
     text-align: center;
+    background-repeat: round;
+    background-size: contain;
+      
    
     .user{
       grid-column: 10/ span 3;
@@ -16,7 +20,8 @@
       font-family: "caudex-regular";
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-around;    
+
     }
 
     .items-navbar{
@@ -35,12 +40,12 @@
       }
     } 
     a {
-        color: black;
+        color: #DFAB2A;
         text-decoration: none;
         transition: 0.3s;
       }
       a:hover {
-        color: #DFAB2A;
+        color: #806218;
       }
   }
  .logo-navbar{
