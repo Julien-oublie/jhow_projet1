@@ -15,6 +15,7 @@
     
     </head>
     <body> 
+
     <barre-navigation></barre-navigation> 
      
         {% block body %} {% endblock %}
@@ -24,6 +25,10 @@
         {% block javascripts %}
               {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <script>
+            const isConnected = {{app.user.id ?? false | json_encode | raw}} 
+        </script>
     </body>
     <footer-navigation></footer-navigation>
+
 </html>

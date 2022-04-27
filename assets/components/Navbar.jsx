@@ -2,11 +2,10 @@ import React, { useRef, useState } from 'react';
 import {render} from 'react-dom';
 import { useEffect } from 'react/cjs/react.development';
 
-function MenuNavigation(){
+function MenuNavigation(props){
     const [component, setComponent] = useState(null)
     const rulesRef = useRef()
     const charactersRef = useRef()
-    const fichesRef = useRef()
 
     const addElement = () => {
         setComponent(
@@ -31,26 +30,38 @@ function MenuNavigation(){
     const changeEtat  = (ref) =>{
         rulesRef.current.classList.remove('link-active')
         charactersRef.current.classList.remove('link-active')
-        fichesRef.current.classList.remove('link-active')
 
         ref.current.classList.add('link-active')
     }
-    
-    return <div className='navbar-essai'>
+
+    let url_profil = `http://localhost:8000/user/${isConnected}`
+
+
+    return( 
+    <div className='navbar-essai'>
         <div className='logo-navbar'>
         </div>
 
         <div className='items-navbar'>
           <ul>
-            <li onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net/">Règles</a> </li>
-            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://jeuderole.alwaysdata.net/personnages">Personnages</a> </li>
-            <li onClick={() => changeEtat(fichesRef)} ref={fichesRef}>   Fiche </li>
+            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="http://localhost:8000/regles">Règles</a> </li>
+            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="http://localhost:8000/personnages">Personnages</a> </li>
+            {isConnected  && <li><a href="http://localhost:8000/partie/new"> Créer une partie  </a></li> }
+          
+           
+           
         </ul>  
         </div>
-        
+           
+        {isConnected  && 
         <div className='user'>
-            <a href="https://jeuderole.alwaysdata.net/login"> Connexion </a>
-            <a href="https://jeuderole.alwaysdata.net/register"> Inscription </a>
+            <a href={url_profil}> Mon profil </a>
+            <a href="http://localhost:8000/logout"> Logout </a>
+        </div>}
+        {!isConnected  && 
+        <div className='user'>
+            <a href="http://localhost:8000/login"> Connexion </a>
+            <a href="http://localhost:8000/register"> Inscription </a>
         </div>      
     </div>
 }
