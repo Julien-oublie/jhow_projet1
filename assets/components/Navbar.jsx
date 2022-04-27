@@ -51,7 +51,7 @@ function MenuNavigation(){
         <div className='user'>
             <a href="https://jeuderole.alwaysdata.net/login"> Connexion </a>
             <a href="https://jeuderole.alwaysdata.net/register"> Inscription </a>
-        </div>      s
+        </div>      
     </div>
 }
 
