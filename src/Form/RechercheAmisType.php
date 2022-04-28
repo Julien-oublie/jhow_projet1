@@ -13,8 +13,11 @@ class RechercheAmisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo',TextType::class,[
-                'mapped'  => false
+          
+            ->add('pseudo', TextType::class,[
+                'mapped'  => false,
+                'attr'=>['placeholder' => 'Ajouter un ami'],
+                'label'=>false
             ]);
     } 
 }
