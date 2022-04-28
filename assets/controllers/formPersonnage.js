@@ -72,7 +72,7 @@ form.addEventListener("submit", function(e){
   document.getElementById('personnage_coeur').disabled = false;
   document.getElementById('personnage_endurance').disabled = false;
   $('#personnageForm').hide(1000)
-  $('.loader').show(1000);
+  $('.loader').show(1000); 
   });
 
 //AJAX de l'ajout d'amis
