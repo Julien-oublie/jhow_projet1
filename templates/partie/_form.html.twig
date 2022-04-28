@@ -1,14 +1,18 @@
 
-{{ form_start(form) }}
+{{ form_start(form, { 'attr' : {'id': 'partyForm' , 'class' : 'partyForm'}}) }}
+
+<div class="namePartyForm">
     {{ form_row(form.nom) }}
-    <br>
-    <h5>Joueurs disponibles</h5>
-    {{ form_row(form.joueurs) }}
-    <br>
+</div>
+    
+    <h5 class="players-open">Joueurs disponibles</h5>
+    <div class="toto">
+    {{ form_row(form.joueurs, { 'attr' : {'id': 'playersForm' , 'class' : 'playersForm'}}) }}
+    </div>
     {# A faire: mettre un id optionnel au path si la partie existe deja pour eviter qu'elle s'enregistre x2 #}
     <button hidden id="ajaxCreatePartie" value="{{path('app_partie_new')}}">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
  <br>
-<hr>
+
 
 

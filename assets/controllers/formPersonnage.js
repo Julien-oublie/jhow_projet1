@@ -5,7 +5,75 @@ var form = document.querySelector("#personnageForm")
 $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_numberVertus,#edit_personnage_numberArmes,#personnage_valeurPrincipale,#personnage_attributCoeur,#personnage_attributCorps, #personnage_classe, #personnage_origine, #personnage_vocation', function(){
     form.submit();
 })
+$('.loader').hide(1000)
+/******Disabled champs & loader ********* */
+document.getElementById('personnage_Admiration').disabled = true;
+document.getElementById('personnage_Athletisme').disabled = true;
+document.getElementById('personnage_Conscience').disabled = true;
+document.getElementById('personnage_Exploration').disabled = true;
+document.getElementById('personnage_Chant').disabled = true;
+document.getElementById('personnage_Artisanat').disabled = true;
+document.getElementById('personnage_Inspiration').disabled = true;
+document.getElementById('personnage_Voyage').disabled = true;
+document.getElementById('personnage_Perspicacite').disabled = true;
+document.getElementById('personnage_Guerison').disabled = true;
+document.getElementById('personnage_Courtoisie').disabled = true;
+document.getElementById('personnage_Combat').disabled = true;
+document.getElementById('personnage_Persuasion').disabled = true;
+document.getElementById('personnage_Furtivite').disabled = true;
+document.getElementById('personnage_Fouille').disabled = true;
+document.getElementById('personnage_Chasse').disabled = true;
+document.getElementById('personnage_Enigmes').disabled = true;
+document.getElementById('personnage_Conaissances').disabled = true;
+document.getElementById('personnage_part_ombre').disabled = true;
+document.getElementById('personnage_traits').disabled = true;
+document.getElementById('personnage_Athletisme').disabled = true;
 
+document.getElementById('personnage_standard_de_vie').disabled = true;
+document.getElementById('personnage_avantage_culturel').disabled = true;
+document.getElementById('personnage_competence_favorite').disabled = true;
+
+document.getElementById('personnage_espoir').disabled = true;
+document.getElementById('personnage_corps').disabled = true;
+document.getElementById('personnage_esprit').disabled = true;
+
+document.getElementById('personnage_coeur').disabled = true;
+document.getElementById('personnage_endurance').disabled = true;
+//$('.loader').hide()
+form.addEventListener("submit", function(e){
+  document.getElementById('personnage_Admiration').disabled = false;
+  document.getElementById('personnage_Admiration').disabled = false;
+  document.getElementById('personnage_Athletisme').disabled = false;
+  document.getElementById('personnage_Conscience').disabled = false;
+  document.getElementById('personnage_Exploration').disabled = false;
+  document.getElementById('personnage_Chant').disabled = false;
+  document.getElementById('personnage_Artisanat').disabled = false;
+  document.getElementById('personnage_Inspiration').disabled = false;
+  document.getElementById('personnage_Voyage').disabled = false;
+  document.getElementById('personnage_Perspicacite').disabled = false;
+  document.getElementById('personnage_Guerison').disabled = false;
+  document.getElementById('personnage_Courtoisie').disabled = false;
+  document.getElementById('personnage_Combat').disabled = false;
+  document.getElementById('personnage_Persuasion').disabled = false;
+  document.getElementById('personnage_Furtivite').disabled = false;
+  document.getElementById('personnage_Fouille').disabled = false;
+  document.getElementById('personnage_Chasse').disabled = false;
+  document.getElementById('personnage_Enigmes').disabled = false;
+  document.getElementById('personnage_Conaissances').disabled = false;
+  document.getElementById('personnage_part_ombre').disabled = false;
+  document.getElementById('personnage_traits').disabled = false;
+  document.getElementById('personnage_Athletisme').disabled = false;
+  document.getElementById('personnage_standard_de_vie').disabled = false;
+  document.getElementById('personnage_avantage_culturel').disabled = false;
+  document.getElementById('personnage_competence_favorite').disabled = false;
+  document.getElementById('personnage_espoir').disabled = false;
+  document.getElementById('personnage_corps').disabled = false;
+  document.getElementById('personnage_esprit').disabled = false;
+  document.getElementById('personnage_coeur').disabled = false;
+  document.getElementById('personnage_endurance').disabled = false;
+  $('#personnageForm').hide(1000)
+  $('.loader').show(1000); 
+  });
 
 //AJAX de l'ajout d'amis
 $(document).on('click', '#ajaxAddFriend', function(e){
@@ -30,6 +98,14 @@ $(document).on('click', '#endPartie', function(e){
   $('#endPartieCancel').show()
   $('#generate_de').hide()
   $('.showModifPerso').show()
+  $('#endModif').show()
+})
+
+
+$(document).ready( function(e){
+$("label[for='personnage_classe']").hide()
+$("label[for='personnage_origine']").hide()
+$("label[for='personnage_vocation']").hide()
 })
 
 
@@ -38,6 +114,7 @@ $(document).on('click', '#endPartieCancel', function(e){
   $('#endPartieCancel').hide()
   $('#generate_de').show()
   $('.showModifPerso').hide()
+  $('#endModif').hide()
 })
 
 $(document).on('click', '#partieShow', function(e){
