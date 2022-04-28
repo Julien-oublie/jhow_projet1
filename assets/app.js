@@ -27,3 +27,4 @@ import './controllers/profil.js' ;
 
 //import function js
 import './js/dynaForm';
+import './js/user.js';
