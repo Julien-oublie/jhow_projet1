@@ -2,8 +2,202 @@
 .title-party{
     font-family: "caudex-regular";
     text-align: center;
+    margin:0;
+    margin-top: 10px;
 }
-
+/*
+.replaceAjaxContent{
+    background-image: url('../../img/sepia-plasterboard-texture.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+}*/
 .name-game-master{
     font-family: "caudex-regular";
+}
+
+.partyForm{
+    @include grid;
+    display: grid;
+}
+
+.namePartyForm{
+    grid-column: 1 / span 12;
+    margin-right: auto;
+    margin-left: auto;
+    input{
+        color: #DFAB2A;
+        font-family: "caudex-regular";
+        background-color: #FFF8DD;
+        border: 1px solid #DFAB2A;
+        border-radius: 4px;
+        padding: 5px 10px;
+        outline: none;
+        text-align: center;
+    }
+}
+
+.players-open{
+    font-family: "caudex-regular";
+    grid-column: 1/ span 12;
+    margin-left: auto;
+    margin-right: auto;
+    color: #372D05;
+}
+
+.playersForm{
+    font-family: "caudex-regular";
+    display: flex;
+    grid-column: 1/span 12;
+    div {
+        grid-column: 1 / span 12;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+      }
+}
+
+.name-game-title{
+    font-family: "caudex-regular";
+    text-align: center;
+}
+
+.players-choice{
+    font-family: "caudex-regular";
+    text-align: center;
+}
+
+.players-game-choice{
+    font-family: "caudex-regular";
+    color: #372D05;
+    padding: 20px 40px;
+    margin: 20px;
+    border-radius: 4px;
+    text-align: center;
+    background-image: url("../../img/account-svg.svg");
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: 10px;
+}
+
+.button-new-perso{
+    font-family: "caudex-regular";
+    color:#DFAB2A;
+    background-color:#FFF8DD;
+    border: 1px solid #DFAB2A;
+    padding: 5px 10px;
+    border-radius: 4px;
+    a{
+        text-decoration: none;
+        color: #DFAB2A;
+    }
+}
+
+.input-perso-name{
+    font-family: "caudex-regular";
+    color:#DFAB2A;
+}
+
+.toto{
+    grid-column: 1 / span 12;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    div{    
+        @include grid;
+        display: grid;
+        label{
+        grid-column: span 4;
+        border: 1px solid #372D05;
+        background-color: rgba(#372D05, 0.3);
+        color: #372D05;
+        padding: 20px 40px;
+        margin: 20px;
+        border-radius: 4px;
+        text-align: center;
+        background-image: url("../../img/account-svg.svg");
+        background-repeat: no-repeat;
+        background-size: 20%;
+        background-position: 10px;
+        }   
+        input[type=checkbox]{
+            display:none;
+        }   
+        input[type=checkbox]:checked + label {
+            border: 2px solid #DFAB2A;
+            background-color: rgba(#DFAB2A, 0.3);
+            padding: 20px 40px;
+        }
+    }
+}
+
+.table{
+    width: 100%;
+    tbody{
+        @include grid;
+        display: grid;
+        tr{
+            grid-column: span 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 20px;
+            td{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                span{
+                    margin: 10px 0px;
+                    font-family: "caudex-regular";
+                    font-style: italic;
+                }
+                input[type=radio]{
+                    display:none;
+                }   
+                input[type=radio]:checked + label {
+                    border: 2px solid #DFAB2A;
+                    background-color: rgba(#DFAB2A, 0.3);
+                    padding: 20px 40px;
+                    border-radius: 4px;
+                }
+                label{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-family: "caudex-regular";
+                    padding: 20px 40px;
+                    cursor: pointer;
+                    border: 1px solid #DFAB2A;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.test-back{
+    background-image: url("../../img/book.png");
+}
+
+.img-perso-party{
+    margin-top: 5px;
+    width: 30%;
+    border: 2px solid #372D05;
+    border-radius: 50%;
+}
+
+.form-new-party{
+    display: flex;
+    flex-direction: column;
+    .button-validate-party{
+        background-color: #DFAB2A;
+        border: none;
+        color: white;
+        font-family: "caudex-regular";
+        padding: 5px 10px;
+        border-radius: 4px;
+        width: 15%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
 }

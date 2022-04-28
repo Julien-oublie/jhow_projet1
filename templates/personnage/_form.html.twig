@@ -2,8 +2,8 @@
 {{ form_start(form, { 'attr' : {'id': 'personnageForm' , 'class' : 'persoForm'}}) }}
 
     <div class="classeBanniere">
-
-    </div>
+    <h1>Créer votre Personnage</h1>
+    
 
     <div class="start">
         <div class="classe-input">
@@ -13,10 +13,11 @@
             {{ form_row(form.vocation)}}
         </div>
         <div class="classe-img">
-           <img src="https://cdn.discordapp.com/attachments/968448853160386591/968892416985825320/bardClasse.jpg"></img>
-        </div>
+           <img src="https://media.discordapp.net/attachments/968448853160386591/968932547419598878/bardie.png" width="40%"></img>
+        </div>        
     </div>
-
+</div>
+<div class="barre"><br><br></div>
 
     
 
@@ -26,7 +27,7 @@
       
             {% if form.Admiration is defined %}
                 <div class="left">
-                    <h1>PARTICULARITES</h1>
+                    <h2>PARTICULARITES</h2>
                     <div class="content">
                         <div class="left-content">
                             {{ form_row(form.Admiration ,{ 'attr': {'class': 'mb-3'}})}}
@@ -58,7 +59,7 @@
         
             {% if form.armes is defined %}
             <div class="midle">
-                <h1> SPECIALITES </h1>
+                <h2> SPECIALITES </h2>
                 <div class="content">
                     <div class="right-content">
                         {{ form_row(form.armes)}}
@@ -68,12 +69,12 @@
                             {{ form_row(form.Particularite)}}
                         {% endif %}
                         {{ form_row(form.attributCorps)}}
-                        {% if form.attributEsprit is defined  %}        
-                            {{ form_row(form.attributEsprit)}} 
-                        {% endif %}   
                         {% if form.attributCoeur is defined %}
                             {{ form_row(form.attributCoeur)}}
                         {% endif %}
+                        {% if form.attributEsprit is defined  %}        
+                            {{ form_row(form.attributEsprit)}} 
+                        {% endif %}   
                         {% if form.vertus is defined%}
                             {{ form_row(form.vertus)}}
                         {% endif %}  

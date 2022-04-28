@@ -44,7 +44,7 @@ function MenuNavigation(props){
 
         <div className='items-navbar'>
           <ul>
-            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net/regles">Règles</a> </li>
+            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net">Règles</a> </li>
             <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://jeuderole.alwaysdata.net/personnages">Personnages</a> </li>
             {isConnected  && <li><a href="https://jeuderole.alwaysdata.net/partie/new"> Créer une partie  </a></li> }
           
