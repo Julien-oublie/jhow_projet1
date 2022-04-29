@@ -14,31 +14,33 @@
             <button type="submit" id="submit_friend">Rechercher</button>
             {{ form_end(form) }}
             {% set deja_ami = null %}
-
             {% if joueur_recherche != 'null'%} {# Si il y a une recherche de pseudo #}  
-                {% if joueur_recherche and joueur_recherche.pseudo != app.user.pseudo  %} {# Si le pseudo existe et est différent de celui du user #}
-                    <b>{{joueur_recherche.pseudo}}</b>
-                    {% for amis in app.user.amities %}
-                        {% if amis.Ami2.id == joueur_recherche.id %}
-                          {% set deja_ami = true %}
-                        {% endif %} 
-                    {% endfor %}
+              <div class="ResultFriend">
+                  {% if joueur_recherche and joueur_recherche.pseudo != app.user.pseudo  %} {# Si le pseudo existe et est différent de celui du user #}
+                      <b>{{joueur_recherche.pseudo}}</b>
+                      {% for amis in app.user.amities %}
+                          {% if amis.Ami2.id == joueur_recherche.id %}
+                            {% set deja_ami = true %}
+                          {% endif %} 
+                      {% endfor %}
+                      
+                      {% if deja_ami %}
+                        <span class="resultJoueur">Vous etes déjà amis !</span>
+                      {% else %}
                     
-                    {% if deja_ami %}
-                      <span class="resultJoueur">Vous etes déjà amis !</span>
-                    {% else %}
-                    <span class="resultJoueur">
-                      <button id="ajaxAddFriend" value="{{ path('view_friend', {'id': user.id, 'joueur_ami':joueur_recherche.id}) }}">
-                          Ajouter
-                      </button>
-                    </span>
-                    {% endif %}
-
-                  
-              {% else %}
-                <span class="resultJoueur">Pas de joueur trouvé</span>
-              {% endif %}
+                        <span class="resultJoueur">
+                          <button id="ajaxAddFriend" class="btnAddFriend" value="{{ path('view_friend', {'id': user.id, 'joueur_ami':joueur_recherche.id}) }}">
+                             <img src="{{ asset('https://cdn.discordapp.com/attachments/968448853160386591/969733698750677012/icons8-ajouter-un-groupe-dutilisateurs-homme-homme-50.png')}}" width="20px" />
+                          </button>
+                        </span>
+                    
+                      {% endif %}
+                {% else %}
+                  <span class="resultJoueur">Pas de joueur trouvé</span>
+                {% endif %}
+              </div>
             {% endif %}
+            
             </span>
         </div>
         <div class="barre"><br><br></div>

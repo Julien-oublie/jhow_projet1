@@ -24,7 +24,6 @@ import './components/MentionsPage';
 // start the Stimulus application
 import './controllers/formPersonnage.js' ;
 import './controllers/profil.js' ;
-
 //import function js
 import './js/dynaForm';
 import './js/user.js';
