@@ -21,11 +21,12 @@
         {% block body %} {% endblock %}
         
         
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         {% block javascripts %}
               {{ encore_entry_script_tags('app') }}
         {% endblock %}
         <script>
+            const linkCreatePartie = {{ path('app_partie_new') | json_encode | raw}}
             const isConnected = {{app.user.id ?? false | json_encode | raw}} 
         </script>
     </body>
