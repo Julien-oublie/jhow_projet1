@@ -1,0 +1,85 @@
+
+.editStart{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-block:30px;
+}
+.recompenseForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .contentFormEdit{
+        display: flex;
+        justify-content: space-evenly;
+        width: 30%;
+        border: solid 2px;
+        border-radius: 7px;
+        .right-content
+        {
+            & > div{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                & > input {
+                    width: 70%;
+                    padding: 0.3rem;
+                    text-align: center;
+                    border: 1px solid #1e150e;
+                    color: #1e150e;
+                    font-family: "caudex-regular";
+                    border-radius: 4px;
+                    font-size: 14px;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                & > select {
+                width: 70%;
+                padding: 0.3rem;
+                text-align: center;
+                border: 1px solid #1e150e;
+                color: #1e150e;
+                font-family: "caudex-regular";
+                border-radius: 4px;
+                font-size: 14px;
+                background-color: rgba(255, 255, 255, 0.1);
+                }
+                    
+            }
+        }
+        .left-content{
+            & > div{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                & > input {
+                    width: 70%;
+                    padding: 0.3rem;
+                    text-align: center;
+                    border: 1px solid #1e150e;
+                    color: #1e150e;
+                    font-family: "caudex-regular";
+                    border-radius: 4px;
+                    font-size: 14px;
+                    background-color: rgba(255, 255, 255, 0.1);
+                  }
+                  & > select {
+                    width: 70%;
+                    padding: 0.3rem;
+                    text-align: center;
+                    border: 1px solid #1e150e;
+                    color: #1e150e;
+                    font-family: "caudex-regular";
+                    border-radius: 4px;
+                    font-size: 14px;
+                    background-color: rgba(255, 255, 255, 0.1);
+                  }
+            }
+        }
+        
+    }
+}

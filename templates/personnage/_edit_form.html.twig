@@ -1,18 +1,68 @@
-<h4>Armes</h4>
-{% for arme in armes %}
-    {{ include('armes/_delete_form.html.twig') }}
-{% endfor %}
-<h4>Vertus</h4>
-{% for vertu in vertus %}
-    {{ include('vertus/_delete_form.html.twig') }}
-{% endfor %}
-<h4>Recompences</h4>
-    {% for recompence in recompences %}
-        {{ include('recompence/_delete_form.html.twig') }}
-    {% endfor %}
 
-{{ form_start(form, { 'attr' : {'id': 'personnageForm'}}) }}
-    {{ form_widget(form) }}
+<div class="editStart">
+    <div>
+    
+        
+        <h4>Armes</h4>
+        {% for arme in armes %}
+            {{ include('armes/_delete_form.html.twig') }}
+        {% endfor %}
+    </div>
+    <div>
+    
+        <h4>Vertus</h4>
+        {% for vertu in vertus %}
+            {{ include('vertus/_delete_form.html.twig') }}
+        {% endfor %}
+    </div>
+    <div>
+        <h4>Recompences</h4>
+            {% for recompence in recompences %}
+                {{ include('recompence/_delete_form.html.twig') }}
+            {% endfor %}
+    </div>
+    </div>
+
+{{ form_start(form, { 'attr' : {'id': 'personnageForm','class':'recompenseForm'}}) }}
+    {# {{ form_widget(form.personnage_nom) }} #}
+    <div class="contentFormEdit">
+    
+        <div class="right-content">
+        {{ form_row(form.personnage.nom)}}
+        {{ form_row(form.personnage.Furtivite)}}
+        {{ form_row(form.personnage.coeur)}}
+        {{ form_row(form.personnage.corps)}}
+        {{ form_row(form.personnage.esprit)}}
+        {{ form_row(form.personnage.Admiration)}}
+        {{ form_row(form.personnage.Athletisme)}}
+        {{ form_row(form.personnage.Conscience)}}
+        {{ form_row(form.personnage.Exploration)}}
+        {{ form_row(form.personnage.Chant)}}
+        {{ form_row(form.personnage.Inspiration)}}
+        {{ form_row(form.personnage.Voyage)}}
+        {{ form_row(form.personnage.Perspicacite)}}
+        {{ form_row(form.personnage.vaillance)}}
+        {{ form_row(form.personnage.sagesse)}}
+        </div>
+        <div class="left-content">
+        {{ form_row(form.attribut_ameliores.corps)}}
+        {{ form_row(form.attribut_ameliores.coeur)}}
+        {{ form_row(form.attribut_ameliores.esprit)}}
+        {{ form_row(form.numberArmes)}}
+        {{ form_row(form.numberVertus)}}
+        {{ form_row(form.numberRecompences)}}
+        {{ form_row(form.personnage.Guerison)}}
+        {{ form_row(form.personnage.Courtoisie)}}
+        {{ form_row(form.personnage.Combat)}}
+        {{ form_row(form.personnage.Fouille)}}
+        {{ form_row(form.personnage.Chasse)}}
+        {{ form_row(form.personnage.Enigmes)}}
+        {{ form_row(form.personnage.Conaissances)}}
+        {{ form_row(form.personnage.espoir)}}
+        {{ form_row(form.personnage.endurance)}}
+        
+        </div>
+    </div>
     
     
     <button class="btn btn-outline-dark justify-content-center" type="submit" name="_valid" value="1" >{{ button_label|default('Enregistrer') }}</button>
