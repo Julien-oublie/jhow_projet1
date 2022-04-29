@@ -141,7 +141,7 @@
                     .Perso{
                         display: flex;
                         width: 20%;
-                        height: 90px;
+                        //height: 90px;
                         margin-block-end: 15px;
                         flex-direction: column;
                         border: 1px solid #dfab2a;
@@ -151,6 +151,11 @@
                         font-size: 18px;
                         justify-content: center;
                         align-items:center;
+                        .content-img{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
                     }
 
                 }

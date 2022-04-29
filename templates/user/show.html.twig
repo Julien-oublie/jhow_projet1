@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="bigContent">
-  <div class="side">
+ {#  <div class="side">
     
       <button id="persoShow" class="btn personnage">Personnages</button>
  
@@ -13,11 +13,14 @@
       
       <button id="partieShow" class="btn partie">Partie</button>
     
-  </div>
+  </div> #}
 
   <div class="content">
     <div  class="contentPseudo">
       <h1>{{ app.user.pseudo }}</h1>
+      <div>
+          nombre de parties jouées au total: {{app.user.parties|length}}
+      </div>
 
     
       <div id="personnage" class="contentPerso">
@@ -29,6 +32,19 @@
           
             <div class="Perso">
                 {#  <a href="{{ path('personnage_show', {'id': personnages.id} ) }}">Voir la fiche complète du personnage</a> #}
+                 {% if (personnages.classe == "Elfes de la Forêt Noire")%}
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259731266973786/image_49_3.png"></div>
+                 {% elseif (personnages.classe == "Bardides") %}
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259986502950943/image_49_5.png"></div>
+                 {% elseif (personnages.classe == "Beornides") %}
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259323454803988/image_49_1.png"></div>
+                 {% elseif (personnages.classe == "Nains du Mont Solitaire") %}
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259869385424966/image_49_4.png"></div>
+                 {% elseif (personnages.classe == "Hobbits de la Comté") %}  
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969251742472601700/image_49.png"></div>
+                 {% elseif (personnages.classe == "Hommes des Bois des Terres Sauvages") %}
+                    <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259529319616542/image_49_2.png"></div>
+                 {% endif %}
                 <div>nom personnage : {{personnages.nom }}</div>
                 <div>class : {{personnages.classe }}</div> 
                 <div>Parties jouées: {{personnages.partie|length}}</div>
@@ -42,7 +58,7 @@
       </div>
      
     </div>
-    <div id="partie" class="contentPartie">
+   {#  <div id="partie" class="contentPartie">
         <div>
           nombre de parties jouées au total: {{app.user.parties|length}}
         </div>
@@ -63,8 +79,8 @@
           {% set deja_ami = null %} 
 
         {% if joueur_recherche != 'null'%} {#  Si il y a une recherche de pseudo #}   
-              {% if joueur_recherche and joueur_recherche.pseudo != app.user.pseudo  %}  {# Si le pseudo existe et est différent de celui du user #}
-                <b>{{joueur_recherche.pseudo}}</b>
+              {# {% if joueur_recherche and joueur_recherche.pseudo != app.user.pseudo  %}  {# Si le pseudo existe et est différent de celui du user #}
+                {# <b>{{joueur_recherche.pseudo}}</b>
                 {% for amis in app.user.amities %}
                     {% if amis.Ami2.id == joueur_recherche.id %}
                       {% set deja_ami = true %}
@@ -83,11 +99,11 @@
               {% else %}
                 Pas de joueur trouvé
               {% endif %}
-        {% endif %}
-    </div>
+        {% endif %} #}
+    {# </div> #} 
 
 
-     <div class="contentFriends"> 
+     {# <div class="contentFriends"> 
         <h3>Mes amis:</h3>
         <div class="contentFriend">
 
@@ -99,7 +115,7 @@
           {% endfor %}
           </ul>
         </div> 
-      </div>
+      </div> #}
     </div>
   </div>
 </div>
