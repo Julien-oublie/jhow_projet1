@@ -28,4 +28,4 @@ Ce site fonctionne grâce au langage suivant :
   
   React JS
   
- Ce Site héberger sur : https://jeuderole.alwaysdata.net/
+ Ce Site est héberger sur : https://jeuderole.alwaysdata.net/
