@@ -141,6 +141,7 @@ $(document).on('click', '#submit_friend', function(e){
   e.preventDefault()
   let form = $('[name=recherche_amis]')
   let path_friend = $('#path_friend').val();
+  console.log($('#path_friend').val());
   ajax_form(path_friend ,form )
 })
 
@@ -173,7 +174,7 @@ function ajax_simple(url){
     }).done( function(response) {
       let splitResponse1 = response.split('</barre-navigation>')[1];
       let splitResponse = splitResponse1.split('<script>')[0]
-
+      console.log(response);
        $(".replaceAjaxContent").html(splitResponse);
     }).fail(function(jxh,textmsg,errorThrown){
         console.log(textmsg);

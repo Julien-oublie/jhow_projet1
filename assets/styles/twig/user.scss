@@ -120,12 +120,19 @@
                 border-radius: 4px;
                 font-size: 14px;
                 background-color: rgba(255, 255, 255, 0.1);
-                pointer-events: stroke;
+                cursor: pointer;
+
                 a{
                    text-decoration: none;
                    color: black;
                    font-family: "caudex-regular";
                 }
+            }
+            .newPerso:hover{
+                border: 1px solid #dfab2a;
+                color: #ffc83d;
+                background-color: #917121;
+                cursor: pointer;
             }
             .contentPerso{
                 display: flex;

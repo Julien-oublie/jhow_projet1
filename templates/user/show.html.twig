@@ -48,6 +48,7 @@
                 <div>nom personnage : {{personnages.nom }}</div>
                 <div>class : {{personnages.classe }}</div> 
                 <div>Parties jouées: {{personnages.partie|length}}</div>
+                <div> <button class="newPerso"><a href="{{ path('personnage_generate_fiche', {'id': personnages.id} ) }}">Voir la fiche complète du personnage</a></button></div>
             </div>
           
         {% endfor %}
@@ -116,12 +117,6 @@
           </ul>
         </div> 
       </div> #}
-    </div>
+     </div> 
   </div>
-</div>
-
-
-   
-    
-
 {% endblock %}
