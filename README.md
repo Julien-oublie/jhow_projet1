@@ -6,4 +6,4 @@ Une terre mythique vue de loin passé, sa riche histoire et sa géographie déta
 Avec The One Ring, la Terre du Milieu est à vous d'explorer. 
 Cette guide vous fournit les règles du jeu et riche des informations sur les personnes, les lieux et les adversaires que vous pourriez rencontrer au cours de vos aventures.
 
-Site heberger sur : https://jeuderole.alwaysdata.net/
+Site héberger sur : https://jeuderole.alwaysdata.net/
