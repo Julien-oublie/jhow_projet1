@@ -1,0 +1,72 @@
+.banniereAmis{
+    background-image: url('https://www.gamersdecide.com/sites/default/files/authors/u151777/aime_4.jpg');
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    button {
+        background-color: #281a00bf;
+        font-family: "caudex-regular";
+        color: white;
+        border: 1px solid #dfab2a;
+        border-radius: 4px;
+        margin-left: auto;
+        margin-top: 10px;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        padding: 0.2rem;
+        font-size: 18px;
+      }
+}
+.barre{
+    background-image: url('https://media.discordapp.net/attachments/968448853160386591/968923531259822120/Sans_titre-3.png');
+    background-size: contain;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 25px;
+    color: #281a00bf;
+    font-size: 5vh;
+    margin: 0;
+
+}
+.form_style{
+    text-align: center;
+    b{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 3vh;
+        color: #281a00bf;
+    }
+}
+#recherche_amis_pseudo{
+    width: 25%;
+    padding: 0.3rem;
+    border: 1px solid #060606;
+    color: #060606;
+    font-family: "caudex-regular";
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: rgb(255, 255, 255);
+    
+}
+.friend-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.resultJoueur{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
