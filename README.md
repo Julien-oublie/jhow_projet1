@@ -8,17 +8,32 @@ Cette guide vous fournit les règles du jeu et riche des informations sur les pe
 
 Equipe 
 
-Alexandra : Développeuse Back & Chef de projet
-Ohpélie : Développeuse Front
-Julien : Développeur Front
-Hophélie : Développeuse Back 
+Alexandra :
+
+Développeuse Back & Chef de projet
+
+Ohpélie :
+
+Développeuse Front
+
+Julien : 
+
+Développeur Front
+
+Hophélie : 
+
+Développeuse Back 
 
 Comment sa marche?
 
 Ce site fonctionne grâce au langage suivant : 
+
   Symfony
+  
   Twig
+  
   Scss
+  
   React JS
   
  Ce Site héberger sur : https://jeuderole.alwaysdata.net/
