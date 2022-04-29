@@ -120,12 +120,19 @@
                 border-radius: 4px;
                 font-size: 14px;
                 background-color: rgba(255, 255, 255, 0.1);
-                pointer-events: stroke;
+                cursor: pointer;
+
                 a{
                    text-decoration: none;
                    color: black;
                    font-family: "caudex-regular";
                 }
+            }
+            .newPerso:hover{
+                border: 1px solid #dfab2a;
+                color: #ffc83d;
+                background-color: #917121;
+                cursor: pointer;
             }
             .contentPerso{
                 display: flex;
@@ -141,7 +148,7 @@
                     .Perso{
                         display: flex;
                         width: 20%;
-                        height: 90px;
+                        //height: 90px;
                         margin-block-end: 15px;
                         flex-direction: column;
                         border: 1px solid #dfab2a;
@@ -151,6 +158,11 @@
                         font-size: 18px;
                         justify-content: center;
                         align-items:center;
+                        .content-img{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
                     }
 
                 }

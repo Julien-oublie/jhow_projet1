@@ -15,6 +15,8 @@ btnPersonnage.addEventListener('click',function(){
     divPartie.style.display = 'none'
     divAmie.style.display = 'none'
 
+    console.log('heooo')
+
 })
 
 btnPartie.addEventListener('click',function(){
