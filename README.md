@@ -8,21 +8,13 @@ Cette guide vous fournit les règles du jeu et riche des informations sur les pe
 
 Equipe 
 
-Alexandra :
+Alexandra : Développeuse Back & Chef de projet
 
-Développeuse Back & Chef de projet
+Ohpélie : Développeuse Front
 
-Ohpélie :
+Julien :  Développeur Front
 
-Développeuse Front
-
-Julien : 
-
-Développeur Front
-
-Hophélie : 
-
-Développeuse Back 
+Hophélie :  Développeuse Back 
 
 Comment sa marche?
 
