@@ -132,7 +132,11 @@
                 border: 1px solid #dfab2a;
                 color: #ffc83d;
                 background-color: #917121;
+                transition: 1s ease-out ;
                 cursor: pointer;
+                a{
+                    color: white;
+                }
             }
             .contentPerso{
                 display: flex;
