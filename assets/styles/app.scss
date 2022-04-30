@@ -33,7 +33,6 @@ body {
 }
 //style composant
 @import "/assets/styles/components/Navbar.scss";
-@import "/assets/styles/components/Friends.scss";
 
 @import "./components/Inscription";
 @import "./fonts/fonts";
@@ -48,7 +47,7 @@ body {
 @import "/assets/styles/twig/Register";
 @import "/assets/styles/twig/formPerso.scss";
 @import "/assets/styles/twig/user.scss";
-@import "/assets/styles/twig/friend.scss";
+@import "/assets/styles/twig/friends.scss";
 @import "/assets/styles/twig/newParty";
 @import "/assets/styles/twig/formFinPartie.scss";
 

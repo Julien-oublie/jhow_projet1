@@ -46,15 +46,14 @@
         <div class="barre"><br><br></div>
 
       <div class="friend-content">
-        <h3>Mes amis:</h3>
-        <ul>
         
         {% for amis in app.user.amities %}
-          <li>{{ amis.ami2.pseudo }}
-               <button  value="{{ path('delet_friend', {'amitie_id': amis.id}) }}" class="deletFriend">x</button>
-          </li>
+          <div class="ResultAllFriend">
+             <b>{{ amis.ami2.pseudo }}</b> 
+            <button  value="{{ path('delet_friend', {'amitie_id': amis.id}) }}" class="deletFriend">X</button>
+          </div>
         {% endfor %}
-        </ul>
+        
       </div>
   </div>
 <script>

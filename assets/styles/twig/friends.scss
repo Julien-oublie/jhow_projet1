@@ -24,7 +24,39 @@
     background-image: url('https://media.discordapp.net/attachments/968448853160386591/968923531259822120/Sans_titre-3.png');
     background-size: contain;
 }
-
+.ResultFriend{
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
+    //margin: 3rem 0rem;
+    //border: 1px solid #000000;;
+    width: 20%;
+   // text-align: center;
+    padding: 10px;
+    margin: auto;
+    border-radius: 8px;
+    font-size: 3.3vh;
+    text-align: left;
+    @include grid;
+    b{
+        display: inline;
+    }
+    
+    .resultJoueur{
+        display: inline;
+        .btnAddFriend{
+            background-color: #554330;
+            border: 1px solid #18130f;
+            text-decoration: none;
+            margin: 0;
+            padding: auto;
+            display: inline;
+            margin-left: 20px;
+            float: right;
+            img{
+                padding-top: 5px;
+            }
+        }
+    }
+}
 h1 {
     text-align: center;
     padding-top: 25px;
@@ -58,11 +90,29 @@ h1 {
 }
 .friend-content{
     display: flex;
-    flex-direction: column;
+   // flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+     text-align: center;
     padding: 3%;
+    .ResultAllFriend{
+        display: inline;
+        background-color: rgba($color: #ffffff, $alpha: 0.7);
+        //margin: 3rem 0rem;
+        //border: 1px solid #000000;;
+        width: 10%;
+    // text-align: center;
+        padding: 10px;
+        margin: auto;
+        border-radius: 8px;
+        //font-size: 3.3vh;
+        text-align: left;
+        @include grid;
+        button{
+            float: right;
+        }
+        
+    }
 
 }
 .resultJoueur{

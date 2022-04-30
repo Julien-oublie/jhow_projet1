@@ -34,8 +34,8 @@ function MenuNavigation(props){
         ref.current.classList.add('link-active')
     }
 
-    let url_profil = `https://jeuderole.alwaysdata.net/${isConnected}`
-    let url_amis = `https://jeuderole.alwaysdata.net/user/amis/show/${isConnected}`
+    let url_profil = `https://127.0.0.1:8000/user/${isConnected}`
+    let url_amis = `https://127.0.0.1:8000/user/amis/show/${isConnected}`
 
 
     return( 
@@ -45,9 +45,9 @@ function MenuNavigation(props){
 
         <div className='items-navbar'>
           <ul>
-            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net/">Accueil</a> </li>
-            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://jeuderole.alwaysdata.net/personnages">Personnages</a> </li>
-            {isConnected  && <li><a href="https://jeuderole.alwaysdata.net/partie/new"> Créer une partie  </a></li> }
+            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://127.0.0.1:8000/">Accueil</a> </li>
+            <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://127.0.0.1:8000/personnages">Personnages</a> </li>
+            {isConnected  && <li><a href="https://127.0.0.1:8000/partie/new"> Créer une partie  </a></li> }
           
             
            
@@ -60,13 +60,13 @@ function MenuNavigation(props){
         <div className='user'>
             <a href={url_amis}>Mes amis </a>
             <a href={url_profil}> Mon profil </a>
-            <a href="https://jeuderole.alwaysdata.net/logout"> Logout </a>
+            <a href="https://127.0.0.1:8000/logout"> Logout </a>
         </div>}
         {!isConnected  && 
         <div className='user'>
             
-            <a href="https://jeuderole.alwaysdata.net/login"> Se connecter </a>
-            <a href="https://jeuderole.alwaysdata.net/register"> S'inscrire  </a>
+            <a href="https://127.0.0.1:8000/login"> Se connecter </a>
+            <a href="https://127.0.0.1:8000/register"> S'inscrire  </a>
         </div>}    
         
     </div>)
