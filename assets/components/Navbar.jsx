@@ -30,16 +30,14 @@ function MenuNavigation(props){
     const changeEtat  = (ref) =>{
         rulesRef.current.classList.remove('link-active')
         charactersRef.current.classList.remove('link-active')
+
         ref.current.classList.add('link-active')
     }
-    //console.log(`https://jeuderole.alwaysdata.net/${linkCreatePartie}`); 
-    let url_profil = `https://jeuderole.alwaysdata.net/user/${isConnected}`
-    let url_amis = `https://jeuderole.alwaysdata.net/user/amis/show/${isConnected}`
-    let createPartie = document.querySelector('.linkCreatePartie');
-    var url_createPartie = createPartie.dataset.isLinkCreatePartie;
-    console.log(url_createPartie)
 
-    //console.log(linkCreatePartie);
+    let url_profil = `https://jeuderole.alwaysdata.net/${isConnected}`
+    let url_amis = `https://jeuderole.alwaysdata.net/user/amis/show/${isConnected}`
+
+
     return( 
     <div className='navbar-essai'>
         <div className='logo-navbar'>
@@ -47,9 +45,9 @@ function MenuNavigation(props){
 
         <div className='items-navbar'>
           <ul>
-            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net">Règles</a> </li>
+            <li  onClick={() => changeEtat(rulesRef)} ref={rulesRef}>  <a href="https://jeuderole.alwaysdata.net/">Accueil</a> </li>
             <li  onClick={() => changeEtat(charactersRef)} ref={charactersRef}> <a href="https://jeuderole.alwaysdata.net/personnages">Personnages</a> </li>
-            {isConnected  && <li><a href={url_createPartie}> Créer une partie  </a></li> }
+            {isConnected  && <li><a href="https://jeuderole.alwaysdata.net/partie/new"> Créer une partie  </a></li> }
           
             
            
