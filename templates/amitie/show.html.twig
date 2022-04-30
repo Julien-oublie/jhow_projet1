@@ -9,9 +9,10 @@
           <br>
           <span class="form_style">
             {{form_start(form, {'action': path('app_user_show', {'id': app.user.id}), 'method': 'POST'})}}
-            <span class="inputFriendStyle"></span> {{ form_row(form) }} 
-            <input type="hidden" id="path_friend" value='{{ path('view_friend', {'id': user.id}) }}'>
-            <button type="submit" id="submit_friend">Rechercher</button>
+            <span class="inputFriendStyle"></span> 
+            {{ form_row(form) }} 
+              <input type="hidden" id="path_friend" value='{{ path('view_friend', {'id': user.id}) }}'>
+              <button type="submit" id="submit_friend"><i class="fa-solid fa-magnifying-glass"></i></button>
             {{ form_end(form) }}
             {% set deja_ami = null %}
             {% if joueur_recherche != 'null'%} {# Si il y a une recherche de pseudo #}  
@@ -25,18 +26,26 @@
                       {% endfor %}
                       
                       {% if deja_ami %}
-                        <span class="resultJoueur">Vous etes déjà amis !</span>
+                      <div class="alreadyFriend"> 
+                        <span class="resultJoueur">
+                          <button disabled="disabled"> Vous etes déjà amis ! </button>
+                        </span>
+                      </div>
                       {% else %}
                     
                         <span class="resultJoueur">
                           <button id="ajaxAddFriend" class="btnAddFriend" value="{{ path('view_friend', {'id': user.id, 'joueur_ami':joueur_recherche.id}) }}">
-                             <img src="{{ asset('https://cdn.discordapp.com/attachments/968448853160386591/969733698750677012/icons8-ajouter-un-groupe-dutilisateurs-homme-homme-50.png')}}" width="20px" />
+                             Ajouter
                           </button>
                         </span>
                     
                       {% endif %}
                 {% else %}
-                  <span class="resultJoueur">Pas de joueur trouvé</span>
+                  <div class="noneJoueur"> 
+                    <span class="error"> Erreur</span>
+                    <br>
+                    <span class="resultJoueur">Pas de joueur trouvé. Réessayer.</span>
+                  </div>
                 {% endif %}
               </div>
             {% endif %}
@@ -50,7 +59,7 @@
         {% for amis in app.user.amities %}
           <div class="ResultAllFriend">
              <b>{{ amis.ami2.pseudo }}</b> 
-            <button  value="{{ path('delet_friend', {'amitie_id': amis.id}) }}" class="deletFriend">X</button>
+            <button  value="{{ path('delet_friend', {'amitie_id': amis.id}) }}" class="deletFriend"> <img src="https://cdn.discordapp.com/attachments/968448853160386591/970040649564954644/icons8-cross-mark-96.png"/></button>
           </div>
         {% endfor %}
         

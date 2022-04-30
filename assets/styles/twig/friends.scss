@@ -7,17 +7,19 @@
     background-repeat: no-repeat;
     height: 40vh;
     button {
-        background-color: #281a00bf;
+       // background-color: #281a00bf;
         font-family: "caudex-regular";
         color: white;
-        border: 1px solid #dfab2a;
-        border-radius: 4px;
+        //border: 1px solid #dfab2a;
+       // border-radius: 4px;
         margin-left: auto;
         margin-top: 10px;
         margin-bottom: 3rem;
         cursor: pointer;
         padding: 0.2rem;
         font-size: 18px;
+        background: transparent;
+        border: none !important;
       }
 }
 .barre{
@@ -45,6 +47,7 @@ h1 {
         color: #281a00bf;
     }
 }
+
 #recherche_amis_pseudo{
     width: 25%;
     padding: 0.3rem;
@@ -54,7 +57,17 @@ h1 {
     border-radius: 4px;
     font-size: 14px;
     background-color: rgb(255, 255, 255);
+    display: inline;
     
+}
+form[name='recherche_amis']{
+    
+    div{
+        display: inline;
+        label{
+            visibility: collapse;
+        }
+    }
 }
 .friend-content{
     display: flex;
@@ -67,7 +80,7 @@ h1 {
         display: inline;
         background-color: rgba($color: #ffffff, $alpha: 0.7);
         //margin: 3rem 0rem;
-        //border: 1px solid #000000;;
+        border: 1px solid #00000028;;
         width: 10%;
     // text-align: center;
         padding: 10px;
@@ -76,8 +89,22 @@ h1 {
         //font-size: 3.3vh;
         text-align: left;
         @include grid;
+        b{
+            font-size: 19px;
+        }
         .deletFriend{
             float: right;
+            background: transparent;
+            border: none !important;
+            //padding: 2px;
+           // background-color: #f10606bf;
+           // color: white;
+           // border: 1px solid #000000;
+            cursor: pointer;
+            //border-radius: 5px;
+            img{
+                width: 20px;
+            }
         }
         
     }
@@ -90,11 +117,12 @@ h1 {
     margin-right: auto;
     width: 40%;
 }
+
 .ResultFriend{
     background-color: rgba($color: #ffffff, $alpha: 0.7);
     //margin: 3rem 0rem;
     //border: 1px solid #000000;;
-    width: 20%;
+    width: 50%;
    // text-align: center;
     padding: 10px;
     margin: auto;
@@ -102,6 +130,34 @@ h1 {
     font-size: 3.3vh;
     text-align: left;
     @include grid;
+    .noneJoueur{
+        text-align: center;
+        .error{
+            color: red;
+            font-weight: bold;
+        }
+        .resultJoueur{
+            color: red;
+            font-size: 16px;
+        }
+    }
+    
+    .alreadyFriend{
+        display: inline;
+        .resultJoueur{
+            display: inline;
+            button{
+                float : right;
+                margin-top: 0px;
+                cursor: not-allowed;
+                background-color: #169416bf;
+                border: 1px solid #088326;
+                border-radius: 5px;
+                padding:6px
+                //background-color:green;
+            }
+        }
+    }
     b{
         display: inline;
     }
@@ -111,6 +167,8 @@ h1 {
         .btnAddFriend{
             background-color: #554330;
             border: 1px solid #18130f;
+            padding: 8px;
+            border-radius: 8px;
             text-decoration: none;
             margin: 0;
             padding: auto;

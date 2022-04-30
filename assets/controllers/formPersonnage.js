@@ -5,7 +5,7 @@ var form = document.querySelector("#personnageForm")
 $(document).on('change', '#edit_personnage_numberRecompences,#edit_personnage_numberVertus,#edit_personnage_numberArmes,#personnage_valeurPrincipale,#personnage_attributCoeur,#personnage_attributCorps, #personnage_classe, #personnage_origine, #personnage_vocation', function(){
     form.submit();
 })
-$('.loader').hide(1000)
+//$('.loader').hide(1000)
 /******Disabled champs & loader ********* */
 if (document.getElementById('personnage_Admiration')) {
 document.getElementById('personnage_Admiration').disabled = true;
