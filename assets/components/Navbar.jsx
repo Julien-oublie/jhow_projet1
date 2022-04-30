@@ -30,15 +30,16 @@ function MenuNavigation(props){
     const changeEtat  = (ref) =>{
         rulesRef.current.classList.remove('link-active')
         charactersRef.current.classList.remove('link-active')
-
         ref.current.classList.add('link-active')
     }
-
+    //console.log(`https://jeuderole.alwaysdata.net/${linkCreatePartie}`); 
     let url_profil = `https://jeuderole.alwaysdata.net/user/${isConnected}`
     let url_amis = `https://jeuderole.alwaysdata.net/user/amis/show/${isConnected}`
-    let url_createPartie = `https://jeuderole.alwaysdata.net${linkCreatePartie}`
+    let createPartie = document.querySelector('.linkCreatePartie');
+    var url_createPartie = createPartie.dataset.isLinkCreatePartie;
+    console.log(url_createPartie)
 
-    console.log(linkCreatePartie);
+    //console.log(linkCreatePartie);
     return( 
     <div className='navbar-essai'>
         <div className='logo-navbar'>
