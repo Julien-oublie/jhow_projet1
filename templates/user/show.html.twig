@@ -14,13 +14,24 @@
       <button id="partieShow" class="btn partie">Partie</button>
     
   </div> #}
+  
 
   <div class="content">
     <div  class="contentPseudo">
-      <h1>{{ app.user.pseudo }}</h1>
-      <div>
-          nombre de parties jouées au total: {{app.user.parties|length}}
+    <div  class="headerProfil">
+      <div class="fond">
+        <div class="image">
+            <img src="http://www.dicemonkey.net/wp-content/uploads/2018/06/DNpHWW_XkAY18Lq.jpg" alt="fond"/>
+        </div>
+        <div class="text">
+            
+            <h1>{{ app.user.pseudo }}</h1>
+              <div>
+                nombre de parties jouées au total: {{app.user.parties|length}}
+              </div>
+        </div> 
       </div>
+    </div>
 
     
       <div id="personnage" class="contentPerso">
@@ -48,7 +59,7 @@
                 <div>nom personnage : {{personnages.nom }}</div>
                 <div>class : {{personnages.classe }}</div> 
                 <div>Parties jouées: {{personnages.partie|length}}</div>
-                <div> <button class="newPerso"><a href="{{ path('personnage_generate_fiche', {'id': personnages.id} ) }}">Voir la fiche complète du personnage</a></button></div>
+                <div> <button class="newPerso"><a target='_blank' href="{{ path('personnage_generate_fiche', {'id': personnages.id} ) }}">Voir la fiche complète du personnage</a></button></div>
             </div>
           
         {% endfor %}

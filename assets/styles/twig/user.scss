@@ -39,6 +39,36 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        .contentPseudo{
+            .headerProfil{
+                width: 100%;
+                .fond{
+                    position:relative;
+                    text-align:center; 
+                    width: 100%;
+                    .image{
+                        position:relative;
+                        width:100%;
+                        z-index:1; 
+                        img{
+                            width:100%
+                        }
+                    }
+                    .text{
+                        position:absolute;
+                        top:35%; 
+                        z-index:2;
+                        font-size:200%;
+                        text-align:center;
+                        width : 20%;
+                        float: center;
+                        display: flex;
+                        justify-content: center;
+                        
+                    }
+                }
+            }
+        }
         .contentAmie{
             display: none;
             width: 100%;
