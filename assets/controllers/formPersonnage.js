@@ -81,11 +81,13 @@ $(document).on('submit', form , function(e){
 //AJAX de l'ajout d'amis
 $(document).on('click', '#ajaxAddFriend', function(e){
   e.preventDefault()
+  $('body').css('cursor','wait');
   ajax_simple(this.value)
 })
 
 $(document).on('click', '.deletFriend', function(e){
   e.preventDefault()
+  $('body').css('cursor','wait');
   ajax_simple(this.value)
 })
 
@@ -149,6 +151,7 @@ $(document).on('click', '#submit_friend', function(e){
   ajax_form(path_friend ,form )
 })
 
+
 function ajax_form(url, form){
 
   $.ajax({
@@ -182,7 +185,8 @@ function ajax_simple(url){
       let splitResponse = splitResponse1.split('<script>')[0]
       console.log(response);
        $(".replaceAjaxContent").html(splitResponse);
-       $('.loaderFriends').hide()
+       $('.loaderFriends').hide();
+       $('body').css('cursor','auto');
     }).fail(function(jxh,textmsg,errorThrown){
         console.log(textmsg);
         console.log(errorThrown);
