@@ -8,12 +8,18 @@
           <h1>Ajouter un ami</h1>  
           <br>
           <span class="form_style">
-            {{form_start(form, {'action': path('app_user_show', {'id': app.user.id}), 'method': 'POST'})}}
+            {{form_start(form, {'action': path('app_user_show', {'id': app.user.id}), 'method': 'POST', 'attr' : {'id': 'formFriends'} })}}
             <span class="inputFriendStyle"></span> 
             {{ form_row(form) }} 
               <input type="hidden" id="path_friend" value='{{ path('view_friend', {'id': user.id}) }}'>
               <button type="submit" id="submit_friend"><i class="fa-solid fa-magnifying-glass"></i></button>
             {{ form_end(form) }}
+            <div class="loaderFriends">
+              <div>
+               <img src="{{ asset('https://cdn.discordapp.com/attachments/968448853160386591/969249957485875250/One_Ring_Blender_Render.png')}}"/>
+              </div>
+              <span>Chargement... </span>
+            </div>
             {% set deja_ami = null %}
             {% if joueur_recherche != 'null'%} {# Si il y a une recherche de pseudo #}  
               <div class="ResultFriend">

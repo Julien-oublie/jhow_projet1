@@ -1,3 +1,29 @@
+.loaderFriends{
+    span{
+        color:#7d5517;
+        margin-top:3px;
+    }
+    div {
+        perspective: 500px;	
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    img {
+        width: 80px;
+        height: 80px;
+        //background: grey;
+        transform: rotateX(45deg);
+        animation: rotateAnimation 10s linear infinite;
+    }
+    
+    @keyframes rotateAnimation {
+        from {transform: rotateX(225deg);}
+        to {transform: rotateX(-220deg);}
+    }
+
+}
 .banniereAmis{
     background-image: url('https://www.gamersdecide.com/sites/default/files/authors/u151777/aime_4.jpg');
     justify-content: center;
@@ -181,3 +207,4 @@ form[name='recherche_amis']{
         }
     }
 }
+

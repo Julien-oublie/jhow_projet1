@@ -135,6 +135,9 @@ if ($('#is_modif').val() == 1) {
   $('#generate_de').hide()
   $('.showModifPerso').show()
 }
+if($('.loaderFriends')){
+  $('.loaderFriends').hide();
+}
 
 //AJAX pour la recherche d'amis
 $(document).on('click', '#submit_friend', function(e){
@@ -142,6 +145,7 @@ $(document).on('click', '#submit_friend', function(e){
   let form = $('[name=recherche_amis]')
   let path_friend = $('#path_friend').val();
   console.log($('#path_friend').val());
+  $('.loaderFriends').show()
   ajax_form(path_friend ,form )
 })
 
@@ -154,10 +158,12 @@ function ajax_form(url, form){
     dataType: "HTML",
 }).done( function(response) {
   // Je split pour récupérer et changer que le body
+ 
   let splitResponse1 = response.split('</barre-navigation>')[1];
   let splitResponse = splitResponse1.split('<script>')[0]
 
    $(".replaceAjaxContent").html(splitResponse);
+   $('.loaderFriends').hide()
 }).fail(function(jxh,textmsg,errorThrown){
     console.log(textmsg);
     console.log(errorThrown);
@@ -176,6 +182,7 @@ function ajax_simple(url){
       let splitResponse = splitResponse1.split('<script>')[0]
       console.log(response);
        $(".replaceAjaxContent").html(splitResponse);
+       $('.loaderFriends').hide()
     }).fail(function(jxh,textmsg,errorThrown){
         console.log(textmsg);
         console.log(errorThrown);
