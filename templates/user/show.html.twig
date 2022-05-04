@@ -25,9 +25,10 @@
         </div>
         <div class="text">
             
-            <h1>{{ app.user.pseudo }}</h1>
+           
               <div>
-                nombre de parties jouées au total: {{app.user.parties|length}}
+                <h1>{{ app.user.pseudo }}</h1>
+                Parties jouées : {{app.user.parties|length}}
               </div>
         </div> 
       </div>
@@ -56,10 +57,12 @@
                  {% elseif (personnages.classe == "Hommes des Bois des Terres Sauvages") %}
                     <div class="content-img"><img class="img-perso-party" src="https://cdn.discordapp.com/attachments/968448853160386591/969259529319616542/image_49_2.png"></div>
                  {% endif %}
-                <div>nom personnage : {{personnages.nom }}</div>
-                <div>class : {{personnages.classe }}</div> 
-                <div>Parties jouées: {{personnages.partie|length}}</div>
-                <div> <button class="newPerso"><a target='_blank' href="{{ path('personnage_generate_fiche', {'id': personnages.id} ) }}">Voir la fiche complète du personnage</a></button></div>
+                 <div class="content-text">
+                  <h2>{{personnages.nom }}</h2>
+                  <div>{{personnages.classe }}</div> 
+                  <div>Parties jouées: {{personnages.partie|length}}</div>
+                  <div> <button class="newPerso"><a target='_blank' href="{{ path('personnage_generate_fiche', {'id': personnages.id} ) }}"><i class="fa-solid fa-file-pdf"></i>  Fiche complète</a></button></div>
+                </div>
             </div>
           
         {% endfor %}

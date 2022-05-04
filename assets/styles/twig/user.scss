@@ -45,7 +45,7 @@
                 .fond{
                     position:relative;
                     text-align:center; 
-                    width: 100%;
+                   
                     .image{
                         position:relative;
                         width:100%;
@@ -64,6 +64,11 @@
                         float: center;
                         display: flex;
                         justify-content: center;
+                        width: 100%;
+                        background-color : #e2ad0e94;
+                        color : white;
+                        padding-bottom: 30px;
+                        
                         
                     }
                 }
@@ -145,7 +150,7 @@
                 width: 200px;
                 height: 40px;
                 border: 1px solid #dfab2a;
-                color: #dfab2a;
+                color: #634e1a;
                 font-family: "caudex-regular";
                 border-radius: 4px;
                 font-size: 14px;
@@ -181,17 +186,33 @@
                     justify-content: space-evenly;
                     .Perso{
                         display: flex;
-                        width: 20%;
+                        min-width: 20%;
                         //height: 90px;
                         margin-block-end: 15px;
                         flex-direction: column;
                         border: 1px solid #dfab2a;
-                        color: #dfab2a;
+                        color: #413a27;
                         font-family: "caudex-regular";
                         border-radius: 4px;
                         font-size: 18px;
                         justify-content: center;
-                        align-items:center;
+                        align-items:stretch;
+                        background-color: #e0b73b5c;
+                        .content-text{
+                            padding-left: 10vh;
+                            padding-right: 10vh;
+                            div{
+                                button{
+                                    background-color: #a88824d4;
+                                    a{
+                                        color: #fff;
+                                    }
+                                }
+                                button:hover{
+                                    background-color: #e9bc34d4;
+                                }
+                            }
+                        }
                         .content-img{
                             display: flex;
                             justify-content: center;
